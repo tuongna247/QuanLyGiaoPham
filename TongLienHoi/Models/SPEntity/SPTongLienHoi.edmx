@@ -1,0 +1,923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TongLienHoiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetPermissionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GiaoPhamThoiGianPhucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tukhoa" Type="nvarchar" Mode="In" />
+          <Parameter Name="chucvu" Type="int" Mode="In" />
+          <Parameter Name="chucdanh" Type="int" Mode="In" />
+          <Parameter Name="coquan" Type="int" Mode="In" />
+          <Parameter Name="tunam" Type="int" Mode="In" />
+          <Parameter Name="dennam" Type="int" Mode="In" />
+          <Parameter Name="cachtinh" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TimGiaoPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="search" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemGiaoPhamHetHan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hovaten" Type="nvarchar" Mode="In" />
+          <Parameter Name="fromdate" Type="date" Mode="In" />
+          <Parameter Name="chucdanh" Type="int" Mode="In" />
+          <Parameter Name="todate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="TimKiemGiaoPhamNangCao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hovaten" Type="nvarchar" Mode="In" />
+          <Parameter Name="kethon" Type="int" Mode="In" />
+          <Parameter Name="dantoc" Type="int" Mode="In" />
+          <Parameter Name="quequan" Type="int" Mode="In" />
+          <Parameter Name="nhiemso" Type="int" Mode="In" />
+          <Parameter Name="tunamphucvu" Type="int" Mode="In" />
+          <Parameter Name="dennamphucvu" Type="int" Mode="In" />
+          <Parameter Name="cachtinh" Type="int" Mode="In" />
+          <Parameter Name="chucdanh" Type="int" Mode="In" />
+          <Parameter Name="chucvu" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TimKiemNangCao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tinhthanh" Type="int" Mode="In" />
+          <Parameter Name="chucvutu" Type="int" Mode="In" />
+          <Parameter Name="chucvuden" Type="int" Mode="In" />
+          <Parameter Name="nhiemkytu" Type="int" Mode="In" />
+          <Parameter Name="nhiemkyden" Type="int" Mode="In" />
+          <Parameter Name="namsinhtu" Type="int" Mode="In" />
+          <Parameter Name="namsinhden" Type="int" Mode="In" />
+          <Parameter Name="tinhtrang" Type="int" Mode="In" />
+          <Parameter Name="chucdanh" Type="int" Mode="In" />
+          <Parameter Name="chucvu" Type="int" Mode="In" />
+          <Parameter Name="nhiemso" Type="int" Mode="In" />
+          <Parameter Name="capnhiemso" Type="int" Mode="In" />
+          <Parameter Name="dantoc" Type="int" Mode="In" />
+          <Parameter Name="hocvi" Type="int" Mode="In" />
+          <Parameter Name="cmnd" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemVoiNhieuThamSo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hovaten" Type="nvarchar" Mode="In" />
+          <Parameter Name="ChucDanh" Type="int" Mode="In" />
+          <Parameter Name="ChucVu" Type="int" Mode="In" />
+          <Parameter Name="capchihoi" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="TongLienHoiModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TongLienHoiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TongLienHoiEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetPermissionList" ReturnType="Collection(TongLienHoiModel.GetPermissionList_Result)" />
+          <FunctionImport Name="GiaoPhamThoiGianPhucVu" ReturnType="Collection(TongLienHoiModel.GiaoPhamThoiGianPhucVu_Result)">
+            <Parameter Name="tukhoa" Mode="In" Type="String" />
+            <Parameter Name="chucvu" Mode="In" Type="Int32" />
+            <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+            <Parameter Name="coquan" Mode="In" Type="Int32" />
+            <Parameter Name="tunam" Mode="In" Type="Int32" />
+            <Parameter Name="dennam" Mode="In" Type="Int32" />
+            <Parameter Name="cachtinh" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TimGiaoPham" ReturnType="Collection(TongLienHoiModel.TimGiaoPham_Result)">
+          <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemGiaoPhamHetHan" ReturnType="Collection(TongLienHoiModel.TimKiemGiaoPhamHetHan_Result)">
+            <Parameter Name="hovaten" Mode="In" Type="String" />
+            <Parameter Name="fromdate" Mode="In" Type="DateTime" />
+            <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+            <Parameter Name="todate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemGiaoPhamNangCao" ReturnType="Collection(TongLienHoiModel.TimKiemGiaoPhamNangCao_Result)">
+            <Parameter Name="hovaten" Mode="In" Type="String" />
+            <Parameter Name="kethon" Mode="In" Type="Int32" />
+            <Parameter Name="dantoc" Mode="In" Type="Int32" />
+            <Parameter Name="quequan" Mode="In" Type="Int32" />
+            <Parameter Name="nhiemso" Mode="In" Type="Int32" />
+            <Parameter Name="tunamphucvu" Mode="In" Type="Int32" />
+            <Parameter Name="dennamphucvu" Mode="In" Type="Int32" />
+            <Parameter Name="cachtinh" Mode="In" Type="Int32" />
+            <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+            <Parameter Name="chucvu" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemNangCao" ReturnType="Collection(TongLienHoiModel.TimKiemNangCao_Result)">
+            <Parameter Name="tinhthanh" Mode="In" Type="Int32" />
+            <Parameter Name="chucvutu" Mode="In" Type="Int32" />
+            <Parameter Name="chucvuden" Mode="In" Type="Int32" />
+            <Parameter Name="nhiemkytu" Mode="In" Type="Int32" />
+            <Parameter Name="nhiemkyden" Mode="In" Type="Int32" />
+            <Parameter Name="namsinhtu" Mode="In" Type="Int32" />
+            <Parameter Name="namsinhden" Mode="In" Type="Int32" />
+            <Parameter Name="tinhtrang" Mode="In" Type="Int32" />
+            <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+            <Parameter Name="chucvu" Mode="In" Type="Int32" />
+            <Parameter Name="nhiemso" Mode="In" Type="Int32" />
+            <Parameter Name="capnhiemso" Mode="In" Type="Int32" />
+            <Parameter Name="dantoc" Mode="In" Type="Int32" />
+            <Parameter Name="hocvi" Mode="In" Type="Int32" />
+            <Parameter Name="cmnd" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemVoiNhieuThamSo" ReturnType="Collection(TongLienHoiModel.TimKiemVoiNhieuThamSo_Result)">
+            <Parameter Name="hovaten" Mode="In" Type="String" />
+            <Parameter Name="ChucDanh" Mode="In" Type="Int32" />
+            <Parameter Name="ChucVu" Mode="In" Type="Int32" />
+            <Parameter Name="capchihoi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
+        <ComplexType Name="GetPermissionList_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="RoleMappingId" Nullable="true" />
+          <Property Type="Int32" Name="UserId" Nullable="true" />
+          <Property Type="Int32" Name="RoleMapping" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GiaoPhamThoiGianPhucVu_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="Boolean" Name="DuHoc" Nullable="true" />
+          <Property Type="Boolean" Name="HuuTri" Nullable="true" />
+          <Property Type="Int32" Name="SoNamChucVu" Nullable="true" />
+          <Property Type="DateTime" Name="ThoiGianChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="QuaPhu" Nullable="true" />
+          <Property Type="Int32" Name="SoThangChucVu" Nullable="true" />
+          <Property Type="Int32" Name="Seq" Nullable="true" />
+          <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="StartDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+          <Property Type="String" Name="TinhThanh" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsVeVoiChua" Nullable="true" />
+          <Property Type="DateTime" Name="KetThucChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="NghiChucVu" Nullable="true" />
+          <Property Type="String" Name="NgayBoNhiem" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsGianDoanCV" Nullable="true" />
+          <Property Type="String" Name="GianDoanDetail" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="TimGiaoPham_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="Boolean" Name="DuHoc" Nullable="true" />
+          <Property Type="Boolean" Name="HuuTri" Nullable="true" />
+          <Property Type="Int32" Name="SoNamChucVu" Nullable="true" />
+          <Property Type="DateTime" Name="ThoiGianChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="QuaPhu" Nullable="true" />
+          <Property Type="Int32" Name="SoThangChucVu" Nullable="true" />
+          <Property Type="Int32" Name="Seq" Nullable="true" />
+          <Property Type="String" Name="TenChucDan" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsVeVoiChua" Nullable="true" />
+          <Property Type="DateTime" Name="KetThucChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="NghiChucVu" Nullable="true" />
+          <Property Type="String" Name="NgayBoNhiem" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsGianDoanCV" Nullable="true" />
+          <Property Type="String" Name="GianDoanDetail" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="TimKiemGiaoPhamHetHan_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="Boolean" Name="DuHoc" Nullable="true" />
+          <Property Type="Boolean" Name="HuuTri" Nullable="true" />
+          <Property Type="Int32" Name="SoNamChucVu" Nullable="true" />
+          <Property Type="DateTime" Name="ThoiGianChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="QuaPhu" Nullable="true" />
+          <Property Type="Int32" Name="SoThangChucVu" Nullable="true" />
+          <Property Type="Int32" Name="Seq" Nullable="true" />
+          <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="StartDate" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ngay_NhanNhiemSo" Nullable="true" />
+          <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsVeVoiChua" Nullable="true" />
+          <Property Type="DateTime" Name="KetThucChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="NghiChucVu" Nullable="true" />
+          <Property Type="String" Name="NgayBoNhiem" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsGianDoanCV" Nullable="true" />
+          <Property Type="String" Name="GianDoanDetail" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="TimKiemGiaoPhamNangCao_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="Boolean" Name="DuHoc" Nullable="true" />
+          <Property Type="Boolean" Name="HuuTri" Nullable="true" />
+          <Property Type="Int32" Name="SoNamChucVu" Nullable="true" />
+          <Property Type="DateTime" Name="ThoiGianChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="QuaPhu" Nullable="true" />
+          <Property Type="Int32" Name="SoThangChucVu" Nullable="true" />
+          <Property Type="Int32" Name="Seq" Nullable="true" />
+          <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="StartDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="TimKiemNangCao_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="202" />
+          <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+          <Property Type="Int32" Name="ThangChucVu" Nullable="true" />
+          <Property Type="String" Name="ChucVu" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="TimKiemVoiNhieuThamSo_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="Boolean" Name="DuHoc" Nullable="true" />
+          <Property Type="Boolean" Name="HuuTri" Nullable="true" />
+          <Property Type="Int32" Name="SoNamChucVu" Nullable="true" />
+          <Property Type="DateTime" Name="ThoiGianChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="QuaPhu" Nullable="true" />
+          <Property Type="Int32" Name="SoThangChucVu" Nullable="true" />
+          <Property Type="Int32" Name="Seq" Nullable="true" />
+          <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Sort" Nullable="true" />
+          <Property Type="Boolean" Name="IsVeVoiChua" Nullable="true" />
+          <Property Type="DateTime" Name="KetThucChucVu" Nullable="true" />
+          <Property Type="Boolean" Name="NghiChucVu" Nullable="true" />
+          <Property Type="String" Name="NgayBoNhiem" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsGianDoanCV" Nullable="true" />
+          <Property Type="String" Name="GianDoanDetail" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="TimKiemNangCao1_Result">
+          <Property Type="Int32" Name="Id" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+          <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Gender" Nullable="true" />
+          <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+          <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+          <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TitleId" Nullable="true" />
+          <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+          <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+          <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+          <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+          <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="KetHon" Nullable="true" />
+          <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+          <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+          <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+          <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+          <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="202" />
+          <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+          <Property Type="Int32" Name="ThangChucVu" Nullable="true" />
+          <Property Type="String" Name="ChucVu" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TongLienHoiModelStoreContainer" CdmEntityContainer="TongLienHoiEntities">
+          <FunctionImportMapping FunctionImportName="GetPermissionList" FunctionName="TongLienHoiModel.Store.GetPermissionList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.GetPermissionList_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="RoleMappingId" ColumnName="RoleMappingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleMapping" ColumnName="RoleMapping" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GiaoPhamThoiGianPhucVu" FunctionName="TongLienHoiModel.Store.GiaoPhamThoiGianPhucVu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.GiaoPhamThoiGianPhucVu_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+                <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+                <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+                <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+                <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+                <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+                <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+                <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+                <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+                <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+                <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+                <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+                <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+                <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+                <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+                <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+                <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+                <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+                <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+                <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+                <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+                <ScalarProperty Name="SoNamChucVu" ColumnName="SoNamChucVu" />
+                <ScalarProperty Name="ThoiGianChucVu" ColumnName="ThoiGianChucVu" />
+                <ScalarProperty Name="QuaPhu" ColumnName="QuaPhu" />
+                <ScalarProperty Name="SoThangChucVu" ColumnName="SoThangChucVu" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+                <ScalarProperty Name="TinhThanh" ColumnName="TinhThanh" />
+                <ScalarProperty Name="IsVeVoiChua" ColumnName="IsVeVoiChua" />
+                <ScalarProperty Name="KetThucChucVu" ColumnName="KetThucChucVu" />
+                <ScalarProperty Name="NghiChucVu" ColumnName="NghiChucVu" />
+                <ScalarProperty Name="NgayBoNhiem" ColumnName="NgayBoNhiem" />
+                <ScalarProperty Name="IsGianDoanCV" ColumnName="IsGianDoanCV" />
+                <ScalarProperty Name="GianDoanDetail" ColumnName="GianDoanDetail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimGiaoPham" FunctionName="TongLienHoiModel.Store.TimGiaoPham">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.TimGiaoPham_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+                <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+                <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+                <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+                <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+                <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+                <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+                <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+                <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+                <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+                <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+                <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+                <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+                <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+                <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+                <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+                <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+                <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+                <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+                <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+                <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+                <ScalarProperty Name="SoNamChucVu" ColumnName="SoNamChucVu" />
+                <ScalarProperty Name="ThoiGianChucVu" ColumnName="ThoiGianChucVu" />
+                <ScalarProperty Name="QuaPhu" ColumnName="QuaPhu" />
+                <ScalarProperty Name="SoThangChucVu" ColumnName="SoThangChucVu" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="TenChucDan" ColumnName="TenChucDan" />
+                <ScalarProperty Name="IsVeVoiChua" ColumnName="IsVeVoiChua" />
+                <ScalarProperty Name="KetThucChucVu" ColumnName="KetThucChucVu" />
+                <ScalarProperty Name="NghiChucVu" ColumnName="NghiChucVu" />
+                <ScalarProperty Name="NgayBoNhiem" ColumnName="NgayBoNhiem" />
+                <ScalarProperty Name="IsGianDoanCV" ColumnName="IsGianDoanCV" />
+                <ScalarProperty Name="GianDoanDetail" ColumnName="GianDoanDetail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemGiaoPhamHetHan" FunctionName="TongLienHoiModel.Store.TimKiemGiaoPhamHetHan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemGiaoPhamHetHan_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+                <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+                <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+                <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+                <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+                <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+                <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+                <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+                <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+                <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+                <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+                <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+                <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+                <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+                <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+                <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+                <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+                <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+                <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+                <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+                <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+                <ScalarProperty Name="SoNamChucVu" ColumnName="SoNamChucVu" />
+                <ScalarProperty Name="ThoiGianChucVu" ColumnName="ThoiGianChucVu" />
+                <ScalarProperty Name="QuaPhu" ColumnName="QuaPhu" />
+                <ScalarProperty Name="SoThangChucVu" ColumnName="SoThangChucVu" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Ngay_NhanNhiemSo" ColumnName="Ngay_NhanNhiemSo" />
+                <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+                <ScalarProperty Name="IsVeVoiChua" ColumnName="IsVeVoiChua" />
+                <ScalarProperty Name="KetThucChucVu" ColumnName="KetThucChucVu" />
+                <ScalarProperty Name="NghiChucVu" ColumnName="NghiChucVu" />
+                <ScalarProperty Name="NgayBoNhiem" ColumnName="NgayBoNhiem" />
+                <ScalarProperty Name="IsGianDoanCV" ColumnName="IsGianDoanCV" />
+                <ScalarProperty Name="GianDoanDetail" ColumnName="GianDoanDetail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemGiaoPhamNangCao" FunctionName="TongLienHoiModel.Store.TimKiemGiaoPhamNangCao">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemGiaoPhamNangCao_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+                <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+                <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+                <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+                <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+                <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+                <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+                <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+                <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+                <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+                <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+                <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+                <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+                <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+                <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+                <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+                <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+                <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+                <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+                <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+                <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+                <ScalarProperty Name="SoNamChucVu" ColumnName="SoNamChucVu" />
+                <ScalarProperty Name="ThoiGianChucVu" ColumnName="ThoiGianChucVu" />
+                <ScalarProperty Name="QuaPhu" ColumnName="QuaPhu" />
+                <ScalarProperty Name="SoThangChucVu" ColumnName="SoThangChucVu" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemNangCao" FunctionName="TongLienHoiModel.Store.TimKiemNangCao">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemNangCao_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+                <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+                <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+                <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+                <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+                <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+                <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+                <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+                <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+                <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+                <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+                <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+                <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+                <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+                <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+                <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+                <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+                <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+                <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+                <ScalarProperty Name="ThangChucVu" ColumnName="ThangChucVu" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemVoiNhieuThamSo" FunctionName="TongLienHoiModel.Store.TimKiemVoiNhieuThamSo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemVoiNhieuThamSo_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+                <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+                <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+                <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+                <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+                <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+                <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+                <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+                <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+                <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+                <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+                <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+                <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+                <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+                <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+                <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+                <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+                <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+                <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+                <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+                <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+                <ScalarProperty Name="SoNamChucVu" ColumnName="SoNamChucVu" />
+                <ScalarProperty Name="ThoiGianChucVu" ColumnName="ThoiGianChucVu" />
+                <ScalarProperty Name="QuaPhu" ColumnName="QuaPhu" />
+                <ScalarProperty Name="SoThangChucVu" ColumnName="SoThangChucVu" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsVeVoiChua" ColumnName="IsVeVoiChua" />
+                <ScalarProperty Name="KetThucChucVu" ColumnName="KetThucChucVu" />
+                <ScalarProperty Name="NghiChucVu" ColumnName="NghiChucVu" />
+                <ScalarProperty Name="NgayBoNhiem" ColumnName="NgayBoNhiem" />
+                <ScalarProperty Name="IsGianDoanCV" ColumnName="IsGianDoanCV" />
+                <ScalarProperty Name="GianDoanDetail" ColumnName="GianDoanDetail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

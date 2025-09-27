@@ -1,0 +1,164 @@
+﻿@using HTTLVN.QLTLH.Models
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <meta charset="utf-8">
+    <title>Hội Thánh Tin Lành Việt Nam</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Content/img/ico-tinlanh.ico")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/bootstrap.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/plugins.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/main.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/themes.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/chosen.min.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/magnific-popup.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/start/AwesomeMvc.css")"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/prettyPhoto.css")"/>
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.metro.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.metro.min.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/kendo/2014.2.716/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.2.716/cultures/kendo.culture.vi.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+</head>
+<body>
+    <div id="page-container">
+        <header class="navbar navbar-inverse">
+            <ul class="navbar-nav-custom pull-right hidden-md hidden-lg">
+                <li class="divider-vertical"></li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+            <a href="/" class="navbar-brand"><img src="@Url.Content("~/Content/Content/img/template/logo.png")" height="40px" alt="logo"></a>
+            <div id="loading" class="pull-left"><i class="fa fa-certificate fa-spin"></i></div>
+            <ul id="widgets" class="navbar-nav-custom pull-right">
+                <li class="dropdown pull-right dropdown-user"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><img src="@Url.Content("~/Content/Content/img/template/avatar.png")" alt="avatar"> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @{
+                            var authen = (User)ViewBag.auth;
+                        }
+                        @if (authen != null && authen.username == "admin")
+                        {
+                            <li><a href="/admin/users"><i class="fa fa-lock"></i>quản lý quyền hạn</a></li>
+                        }
+                        
+                        <li class="divider"></li>
+                        <li><a href="/TinHuu/Logout"><i class="fa fa-lock"></i> Thoát</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <div id="inner-container">
+            <aside id="page-sidebar" class="collapse navbar-collapse navbar-main-collapse">
+                <nav id="primary-nav">
+                    <ul>
+                        <li><a href="@Url.Content("~/Tinhuu/Index")">Danh sách tín hữu</a></li>
+                        <li><a href="@Url.Content("~/Tinhuu/HoGiaDinh")">Danh sách hộ gia đình</a></li>
+                        <li><a href="@Url.Content("~/Tinhuu/Login")">Đăng nhập</a></li>
+                        
+                    </ul>
+                </nav>
+            </aside>
+            <div id="page-content">
+                @RenderBody()
+            </div>
+            <footer>
+                <strong>&copy; 2014 Tổng Liên Hội - Hội Thánh Tin Lành Việt Nam (MN).</strong>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/form.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/calendar.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/chosen.proto.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/chosen.jquery.min.js")"></script>
+    
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/plugins.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/vendor/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/prettyPhoto.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/AwesomeMvc.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Content/js/magnific-popup.js")"></script>
+    <script type="text/javascript" >
+        (function ($) {
+            kendo.culture("vi");
+            $("#selectBox").chosen();
+            $('#otherType').on('click', function () {
+                if ($('.otherType').css('display') === 'none') {
+                     $('.otherType').show();
+                 } 
+                else  {
+                    $('.otherType').hide(); 
+                 }
+
+             });
+             $('#QuaPhuType').on('click', function () {
+                 if ($('.QuaPhuType').css('display') === 'none') {
+                     $('.QuaPhuType').show();
+                     $('.otherType').show();
+                 } else {
+                     $('.QuaPhuType').hide();
+                 }
+
+             });
+             $('#HuuTriType').on('click', function () {
+                 if ($('.HuuTriType').css('display') === 'none') {
+                     $('.HuuTriType').show();
+                     $('.otherType').show();
+                 } else {
+                     $('.HuuTriType').hide();
+                 }
+
+             });
+//             $('#GiaoPhamMenu').on('click', function () {
+//                 if ($('.GiaoPhamMenu').css('display') === 'none') {
+//                     event.preventDefault();    
+//                     $('.GiaoPhamMenu').show();
+//                 } else {
+//                     $('.GiaoPhamMenu').hide();
+//                 }
+
+//             });
+             
+
+            $(document).on('click', '.modal-confirm', function (e) {
+                
+                $.magnificPopup.close();
+            });
+            $(document).on('click', '.modal-dismiss', function (e) {
+                e.preventDefault();
+                $.magnificPopup.close();
+            });
+            $('.modal-with-form').magnificPopup({
+                type: 'inline',
+                preloader: false,
+                focus: '#name',
+                modal: true,
+
+                // When elemened is focused, some mobile browsers in some cases zoom in
+                // It looks not nice, so we disable it:
+                callbacks: {
+                    beforeOpen: function () {
+                        if ($(window).width() < 700) {
+                            this.st.focus = false;
+                        } else {
+                            this.st.focus = '#name';
+                        }
+                    }
+                }
+            });
+        }).apply(this, [jQuery]);
+    </script>
+    <script type="text/javascript">
+        @RenderSection("CustomScripts", false)
+    </script>
+</body>
+</html>
+<!-- Localized -->

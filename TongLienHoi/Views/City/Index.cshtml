@@ -1,0 +1,50 @@
+﻿@using HTTLVN.QLTLH.App_Start
+@model IEnumerable<HTTLVN.QLTLH.Models.City>
+
+
+    @{
+        ViewBag.Title = "Create";
+        var erros = (Dictionary<string, string>)ViewBag.Errors;
+    }
+    <form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+        <h4 class="form-box-header">Tỉnh thành</h4>
+
+        <div class="panel panel-default">
+            <table class="table table-hover">
+                <tr>
+                    <th>Tỉnh thành </th>
+                    <th>Số  Chi Hội</th>
+                    <th>Số Hội Nhánh </th>
+                    <th>Số Điểm Nhóm</th>
+                    <th>Số Tín Hữu</th>
+                    <th>Số Tín Hữu đã Bấp Têm</th>
+                    <th>Số Tín Hữu Thờ Phượng Hàng Tuần</th>
+                    <th>
+                    </th>
+                </tr>
+
+                @foreach (HTTLVN.QLTLH.Models.City item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.SoChiHoi</td>
+                        <td>@item.HoiNhanh</td>
+                        <td>@item.DiemNhom</td>
+                        <td>@item.TinHuu</td>
+                        <td>@item.TinHuuChuaBapTem</td>
+                        <td>@item.TinHuuDiNhom</td>
+                        <td>
+                            <div class="pull-right">
+                                @Html.NoEncodeActionLink("Sửa", "Edit", "Edit", "City", new { id = item.id }, new { customer_changrate = "", @class = "btn btn-default" })
+                                &nbsp;
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+
+
+    </form>

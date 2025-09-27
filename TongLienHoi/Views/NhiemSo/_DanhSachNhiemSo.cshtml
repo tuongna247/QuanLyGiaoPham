@@ -1,0 +1,29 @@
+﻿<table id="giaophamManNhiem" class="display table" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Tên nhiệm sở</th>
+            <th>Địa Chỉ</th>
+            <th>Di Động</th>
+            <th>Email</th>
+            <th>Tỉnh Thành</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (IEnumerable<HTTLVN.QLTLH.Models.v_church>)Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/"+item.id)">@item.ChurchName</a>
+                    
+                </td>
+                <td>
+                    <a href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/"+item.id)">@item.AddressFull</a>
+                </td>
+                <td>
+                    <a href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/"+item.id)">@item.CellPhone</a>
+                </td>
+                <td>@item.Email</td>
+                <td>@item.CityName</td>
+            </tr>
+        }
+</table>

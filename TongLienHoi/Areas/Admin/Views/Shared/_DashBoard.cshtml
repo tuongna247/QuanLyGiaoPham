@@ -1,0 +1,137 @@
+﻿	<!-- Header -->
+	<div id="mws-header" class="clearfix">
+    	<!-- Logo Container -->
+    	<div id="mws-logo-container">
+        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
+        	<div id="mws-logo-wrap">
+            	<img src="@Url.Content("~/Content/images/mws-logo.png")" alt="mws admin">
+			</div>
+        </div>
+        <!-- User Tools (notifications, logout, profile, change password) -->
+        <div id="mws-user-tools" class="clearfix">
+            <!-- Messages -->
+            <div id="mws-user-message" class="mws-dropdown-menu">
+            	<a href="#" data-toggle="dropdown" class="mws-dropdown-trigger"><i class="icon-envelope"></i></a>
+                <!-- Unred messages count -->
+                <span class="mws-dropdown-notif">1</span>
+                <!-- Messages dropdown -->
+                <div class="mws-dropdown-box">
+                	<div class="mws-dropdown-content">
+                        <ul class="mws-messages">
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="mws-dropdown-viewall">
+	                        <a href="#">View All Messages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Information and functions section -->
+            <div id="mws-user-info" class="mws-inset">
+            	<!-- User Photo -->
+            	<div id="mws-user-photo">
+                	<img src="@Url.Content("~/Content/example/profile.jpg")" alt="User Photo">
+                </div>
+                <!-- Username and Functions -->
+                <div id="mws-user-functions">
+                    <div id="mws-username">
+                        Hello, Tuong
+                    </div>
+                    <ul>
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="index">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    	<!-- Necessary markup, do not remove -->
+		<div id="mws-sidebar-stitch"></div>
+		<div id="mws-sidebar-bg"></div>
+        
+        <!-- Sidebar Wrapper -->
+        <div id="mws-sidebar">
+        
+            <!-- Hidden Nav Collapse Button -->
+            <div id="mws-nav-collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+        	<!-- Searchbox -->
+        	<div id="mws-searchbox" class="mws-inset">
+            	<form action="typography">
+                	<input type="text" class="mws-search-input" placeholder="Search...">
+                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
+                </form>
+            </div>
+            
+            <!-- Main Navigation -->
+            <div id="mws-navigation">
+                @Html.Partial("_AdminNavigation")
+            </div>         
+        </div>
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        	<!-- Inner Container Start -->
+            <div class="container">
+                <!-- Panels Start -->
+            	<div class="mws-panel grid_4">
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-book"></i> Website Summary</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <ul class="mws-summary clearfix">
+                            <li>
+                                <span class="key"><i class="icon-support"></i>Số lượng giáo phẩm</span>
+                                <span class="val">
+                                    <span class="text-nowrap">332</span>
+                                    <a href="@Url.Content("~/admin/GiaoPhamManager/ThemGiaoPhamStep1")">Thêm giáo phẩm</a>
+                                </span>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mws-panel grid_4">
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-graph"></i> Charts</span>
+                    </div>
+                    <div class="mws-panel-body">
+                        @*<div id="mws-dashboard-chart" style="height: 222px;"></div>*@
+                    </div>
+                </div>
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <div id="mws-footer">
+            	Copyright Your Website 2012. All Rights Reserved.
+            </div>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+   

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HTTLVN.QLTLH.Models.ChucVu>
+
+@{
+    ViewBag.Title = "Danh mục chức vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Mục Chức Vụ</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+         Tên chức vụ
+        </th>
+        <th>
+            
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td> </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Xoá", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

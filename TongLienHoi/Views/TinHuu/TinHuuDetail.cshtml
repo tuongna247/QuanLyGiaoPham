@@ -1,0 +1,118 @@
+﻿@model HTTLVN.QLTLH.Models.Church_TinHuu
+@using HTTLVN.QLTLH.Code
+@using iTextSharp.text.pdf.qrcode
+@{
+    ViewBag.Title = "TinHuuEdit";
+    Layout = "~/Views/Shared/_LayoutTinHuu.cshtml";
+}
+<h3 class="page-header page-header-top">
+        <a class="btn btn-info" href="@Url.Content("~/TinHuu/")">Danh sách tín hữu </a>
+</h3>
+<div class="row">
+    <div class="col-md-3">
+        <div class="text-center">
+            @if (!string.IsNullOrEmpty(Model.Avatar) && Model.Avatar != null)
+            {
+                <img src="@Url.Content(Model.Avatar)" class="img-responsive" alt="image" />
+            }
+            else
+            {
+                <img src="@Url.Content("~/Content/Content/img/placeholders/image_light_360x270.png")" class="img-responsive" alt="image"/>    
+            }
+        </div>
+        <div class="list-group">
+            <a href="@Url.Content(string.Format("~/TinHuu/TinHuuEdit/{0}", @Model.Id))" class="list-group-item" style="color: #DB4A39"><i class="fa fa-pencil-square"></i> Chỉnh sửa</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h5 class="page-header-sub"><i class="fa fa-child"></i> <a href="/TinHuu/TinHuuEdit/@Model.Id">Thông tin tín hữu</a></h5>
+        <ul class="fa-ul push">
+            <li><i class="fa fa-li fa-angle-right"></i><span  class="capital">Họ và tên: @Model.FirstName @Model.MiddleName @Model.LastName</span></li>
+            @if (Model.NickName != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Tên gọi khác:</em>@Model.NickName </li>
+            }
+            
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Ngày sinh:</em> @Model.DateOfBirth</li>
+            @if (Model.Church_BanHatLe != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Ban hát lễ:</em> @Model.Church_BanHatLe.TenBanHatLe</li>
+            }
+            @if (Model.Church_BanNganh != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Ban Ngành:</em> @Model.Church_BanNganh.TenBanNganh</li>
+            }
+            @if (Model.DanToc1 != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Dân tộc:</em> @Model.DanToc1.Name</li>
+            }
+
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Nghề nghiệp:</em> @Model.NgheNghiep</li>
+            @if (Model.MobilePhone != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Di động:</em> @CommonFunction.ConvertDouble(Model.MobilePhone)</li>    
+            }
+            @if (Model.Phone != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Bàn:</em> @CommonFunction.ConvertDouble(Model.Phone)</li>
+            }
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Quan hệ gia đình:</em> @Model.QuanHeGiaDinh</li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Giới tính:</em> @if (Model.Gender)
+                                                                            {<text>Nam</text>}
+                                                                            else
+                                                                            {<text>Nữ</text>}</li>
+            @if (Model.Church_TinHuu_Addresses != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Địa chỉ:</em> @Helper.DisplayAddress2(Model.Church_TinHuu_Addresses)</li>
+            }
+            
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h5 class="page-header-sub"><i class="fa fa-child"></i> 
+            <a href="#">Địa chỉ</a>
+        </h5>
+        <ul class="fa-ul">
+            <li><i class="fa fa-li fa-angle-right"></i><strong>Ngày tin Chúa: @Model.BelieveDate </strong></li>
+            <li><i class="fa fa-li fa-angle-right"></i><strong>Ngày báp-têm: @Model.BaptismDate</strong></li>
+        </ul>
+        @if (Model.Church_HoGiaDinh_TinHuu != null && Model.Church_HoGiaDinh_TinHuu.Count > 0)
+        {
+
+            foreach (var ho in Model.Church_HoGiaDinh_TinHuu)
+            {
+                <a href="@Url.Content("~/TinHuu/HoGiaDinhDetail/" + @ho.HoGiaDinh_Id)">Chủ hộ :
+                    @if (ho.Church_HoGiaDinh != null && ho.Church_HoGiaDinh.Church_TinHuu != null)
+                    {
+                        <span class="capital"> @ho.Church_HoGiaDinh.Church_TinHuu.FirstName @ho.Church_HoGiaDinh.Church_TinHuu.MiddleName @ho.Church_HoGiaDinh.Church_TinHuu.LastName</span>
+                    }
+                </a>
+                <br/>
+                <span>Địa chỉ: 
+                    @if (ho.Church_HoGiaDinh != null && ho.Church_HoGiaDinh.Church_TinHuu != null && ho.Church_HoGiaDinh.Church_TinHuu.Church_TinHuu_Addresses != null)
+                    {
+                        @Helper.DisplayAddress2(ho.Church_HoGiaDinh.Church_TinHuu.Church_TinHuu_Addresses)
+                    }
+                </span>
+            }
+          
+        }
+        @foreach (var hogiadinh in Model.Church_HoGiaDinh)
+        {
+           
+            <h5 class="page-header-sub"><i class="fa fa-child"></i>Hộ gia đình</h5>
+            <a href="@Url.Content("~/TinHuu/HoGiaDinhDetail/"+hogiadinh.id)">@hogiadinh.Church_TinHuu.FirstName @hogiadinh.Church_TinHuu.MiddleName @hogiadinh.Church_TinHuu.LastName </a>
+        }
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    function LoadPopup() {
+        alert('Show popup');
+    }
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>
+

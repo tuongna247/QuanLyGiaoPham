@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNull.cshtml";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+    <div id="login-container">
+        <div id="login-logo">
+            <h2>Đăng nhập</h2>
+        </div>
+        <form id="login-form"  method="post" class="form-horizontal">
+             <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <input type='hidden' value="@Request["ReturnUrl"]" name='returnurl' />
+                        <input type="text" id="church_id" name="church_id" placeholder="Church Code.." class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-briefcase fa-fw"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <input type='hidden' value="@Request["ReturnUrl"]" name='returnurl' />
+                        <input type="text" id="login-email" name="login-email" placeholder="Email.." class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <input type="password" id="login-password" name="login-password" placeholder="Password..." class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-asterisk fa-fw"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    @if (erros != null && erros.Count > 0)
+                    {
+                        foreach (var str in erros)
+                        {
+                            @str.Value <br/>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="btn-group btn-group-sm pull-right">
+                    <button type="submit" name="btnLogin" value="login" class="btn btn-success"><i class="fa fa-arrow-right"></i> Đăng nhập</button>
+                </div>
+                <div class="checkbox pull-left">
+                    <label for="remember">
+                        <input id="rememberme" type="checkbox" value="option1" name="rememberme">
+                        Nhớ trạng thái đăng nhập
+                    </label>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+   

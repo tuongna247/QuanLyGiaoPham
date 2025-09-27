@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HTTLVN.QLTLH.Models.Church>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            ChurchName
+        </th>
+        <th>
+            CapChiHoi
+        </th>
+        <th>
+            AddressFull
+        </th>
+        <th>
+            City
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChurchName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CapChiHoi.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressFull)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

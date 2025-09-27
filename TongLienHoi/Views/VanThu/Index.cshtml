@@ -1,0 +1,158 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+
+@model IEnumerable<HTTLVN.QLTLH.Models.v_vanThu>  
+@{
+    ViewBag.Title = "Index";
+    ViewBag.IsViewVanThu = true;
+}
+<h3 class="page-header page-header-top">Tìm kiếm văn thư</h3>
+<form  method="post" class="form-horizontal form-box" id="basic-wizard">
+    @{
+        if (ViewBag.LoaiVanThu != null)
+        {
+            ViewData["loaivanthu"] = (string)ViewBag.LoaiVanThu;
+        }
+        else
+        {
+            ViewData["loaivanthu"] = Request["loaivanthu"] ?? "0";
+        }
+        ViewData["tungay"] = Request["tungay"] ?? "";
+        ViewData["dengay"] = Request["dengay"] ?? "";
+        ViewData["nguoigui"] = Request["nguoigui"] ?? "";
+        ViewData["nguoinhan"] = Request["nguoinhan"] ?? "";
+        ViewData["veviec"] = Request["veviec"] ?? "";
+        ViewData["trangthai"] = Request["trangthai"] ?? "";
+    }
+        
+        <div class="form-box-content">
+            <div id="first" class="step">
+                <div class="form-group">
+                    
+                    <label class="control-label col-md-2">@Html.Label("Loại")</label>
+                    <div class="col-md-2">
+                        <select name="loaivanthu" class="form-control">
+                            <option value="0" @if (ViewData["loaivanthu"] == "0" && ViewBag.LoaiVanThu == null) { <text> selected="selected" </text> }>
+                                Tất cả
+                            </option>
+                            <option value="1" @if (ViewData["loaivanthu"] == "1" || ViewBag.LoaiVanThu == "1") { <text> selected="selected" </text> }>
+                                Văn thư đến
+                            </option>
+                            <option value="2" @if (ViewData["loaivanthu"] == "2" || ViewBag.LoaiVanThu == "2") { <text> selected="selected" </text> }>
+                                Văn thư đi
+                            </option>
+                            <option value="3" @if (ViewData["loaivanthu"] == "3" || ViewBag.LoaiVanThu == "3") { <text> selected="selected" </text> }>
+                                Thường trực TLH
+                            </option>
+                            <option value="4" @if (ViewData["loaivanthu"] == "4" || ViewBag.LoaiVanThu == "4") { <text> selected="selected" </text> }>
+                                BTS TLH
+                            </option>
+                        </select>
+                    </div>
+                    <label class="control-label col-md-2">@Html.Label("Tình trạng")</label>
+                    <div class="col-md-2">
+                        <select name="trangthai" class="form-control">
+                            <option value="both" @if (Request["trangthai"] == "both")
+                                                 {<text>selected="selected"</text>}>Tất cả</option>
+                            <option value="yes" @if (Request["trangthai"] == "yes")
+                                                {<text>selected="selected"</text>}>Đã giải quyết</option>
+                            <option value="no" @if (Request["trangthai"] == "no")
+                                               {<text>selected="selected"</text>}>Chưa giải quyết</option>
+                        </select>
+                    </div>
+                </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.Label("Từ ngày")</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="tungay" value="@ViewData["tungay"]"/>
+                </div>
+                <label class="control-label col-md-2">@Html.Label("Đến ngày")</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="dengay" value="@ViewData["dengay"]"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.Label("Người gửi")</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="nguoigui" value="@ViewData["nguoigui"]"/>
+                </div>
+                <label class="control-label col-md-2">@Html.Label("Người nhận")</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="nguoinhan" value="@ViewData["nguoinhan"]"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.Label("Về việc")</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="veviec" value="@Request["veviec"]"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <input type="submit" class="btn btn-success" name="btnfrmsearch" value="Tìm kiếm"/> 
+                    <a href="@Url.Action("VanThuDen", new { query = Request["query"] })" class="btn btn-success"> Thêm mới </a>
+                    <a class="modal-with-form btn btn-success" href="#modalForm">Xuất kết quả</a>
+                    <div id="modalForm" class="mfp-hide" style="width: 400px;background: transparent;padding: 0;text-align: left;max-width: 400px;margin:350px auto;position: relative">
+                        <form method="POST" >
+                             <section class="panel">
+                            <div class="panel-body">
+                                <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> </label>
+                                        <label class="col-sm-9 control-label"><h4>Chọn định dạng</h4></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> </label>
+                                        <div class="col-sm-9">
+                                            <label class="radio-inline"><input type="radio" value="Doc" name="dataType" />Word</label>
+                                            <label class="radio-inline"><input type="radio" value="Excel" name="dataType" />Excel</label>
+                                            <label class="radio-inline">  <input type="radio" value="Pdf" name="dataType" />Pdf</label>
+                                            <br/> <br/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <footer class="panel-footer">
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <input type="submit" name="btnXuat" class="btn btn-primary modal-confirm" value="Xuất"/>
+                                        <input type="submit" name="btnXemTruoc" class="btn btn-primary modal-confirm" value="Xem trước"/>
+                                        <button class="btn btn-default modal-dismiss">Quay lại</button>
+                                    </div>
+                                </div>
+                            </footer>
+                        </section>
+                        </form>
+                       
+                    </div>
+
+                </div>
+            </div>    
+                <div class="form-group">
+                </div>
+                    @(Html.Kendo().Grid(Model).Name("giaopham").Sortable(a=>a.Enabled(true).Enabled(true)).Pageable(a => a.Enabled(true).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Columns(columns =>
+                {
+                    columns.Bound(o => o.NgayVanThu).Format("{0:yyyy/dd/MM}").Title("Ngày gửi");
+                    columns.Bound(o => o.NguoiGui).Title("Người gửi");
+                    columns.Bound(o => o.NguoiNhan).Title("Người nhận");
+                    columns.Bound(o => o.TieuDe).Title("Về việc");
+                    columns.Bound(o => o.NoiDung)
+                        .Title("Nội dung");
+                    columns.Bound(o => o.TinhTrang).Title("Tình Trạng").Width(110);
+                    columns.Bound(o => o.id).Template(@<text></text>).ClientTemplate("<a href='" + Url.Action("ViewVanThu", "VanThu") + "/#=id#'>Xem</a>").Title("");
+                    columns.Bound(o => o.id).Template(@<text></text>).ClientTemplate("<a href='" + Url.Action("VanThuDen", "VanThu") + "/#=id#'>Sửa</a>").Title("");
+                    columns.Bound(o => o.id).Template(@<text></text>).ClientTemplate("<a href='" + Url.Action("Delete", "VanThu") + "/#=id#'>Xóa</a>").Title("");
+                }).DataSource(dataBinding => dataBinding.Ajax().AutoSync(true).Read("_Paging", "VanThu", new { loaivanthu = (string)ViewData["loaivanthu"], tungay = ViewData["tungay"], dengay = ViewData["dengay"], nguoigui = ViewData["nguoigui"], nguoinhan = ViewData["nguoinhan"], veviec = ViewData["veviec"], trangthai = ViewData["trangthai"] })))
+                </div>
+        </div>
+    </div>
+</form>        
+
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>

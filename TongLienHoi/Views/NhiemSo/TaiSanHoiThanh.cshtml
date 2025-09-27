@@ -1,0 +1,127 @@
+﻿@using HTTLVN.QLTLH.Models
+@using iTextSharp.text.pdf.qrcode
+@model HTTLVN.QLTLH.Models.Church
+@{
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+    string imagePath = !string.IsNullOrEmpty(Model.AnhDaiDien) ? Model.AnhDaiDien : "~/Content/Content/img/placeholders/image_dark_64x64.png";
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <h4 class="form-box-header">
+        Thông tin giáo sở :
+        <a class="btn btn-info" href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/" + @Model.Id)">@Model.ChurchName</a>
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            <div class="wizard-steps row">
+                <div class="col-md-3 text-center">
+                    @if (Model.Id > 0)
+                    {
+                        <a href="/NhiemSo/ChinhSuaNhiemSo/@Model.Id">1. Thông tin cơ bản</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0)">1. Thông tin cơ bản</a>
+                    }
+                </div>
+                <div class="col-md-3 text-center">
+                    @Html.HiddenFor(a => a.Id)
+                    @if (Model.Id > 0)
+                    {
+                        <a href="/NhiemSo/QuaTrinhThanhLap/@Model.Id">2. Lược sử hội thánh</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0)">2. Lược sử hội thánh</a>
+                    }
+                </div>
+                <div class="col-md-3 text-center active">3. Tài sản hội thánh</div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Diện tích đất:</label>
+                <div class="col-md-8">
+                    <div class="@Helper.CheckError(erros, "ChurchName")">
+                        @Html.TextBoxFor(model => model.DienTichDat, new { @placeholder = "", @class = "form-control " })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Quy mô cơ sở:</label>
+                <div class="col-md-8">
+                    <div class="@Helper.CheckError(erros, "ChurchName")">
+                        @Html.TextBoxFor(model => model.QuyMoCoSo, new { @placeholder = "", @class = "form-control " })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Giấy chứng nhận quyền sử dụng đất:</label>
+                <div class="col-md-2">
+                    @if (!string.IsNullOrWhiteSpace(Model.GiayChungNhanQuyenSuDungDat))
+                    {
+                        <input type="text" id="txtChungChi" name="txtChungChi" placeholder="Chưa chọn chứng chỉ" value="@Helper.HumanRead(Model.GiayChungNhanQuyenSuDungDat)" class="form-control" />
+                    }
+
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="file" name="taisanhoithanh" id="taisanhoithanh" onchange="readURL(this);" /> <span class="btn btn-default">Chọn file pdf</span>
+                    </label>
+
+                </div>
+            </div>
+            @foreach (var item in Model.Church_TAISAN)
+            {
+                <div class="form-group">
+                    <label class="control-label col-md-2">@item.Title:</label>
+                    <div class="col-md-2">
+                        @item.Content
+
+                    </div>
+                    <div class="col-md-1">
+                        <label>
+                            @item.DateApproval
+                        </label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            @item.AttachFile
+                        </label>
+
+                    </div>
+                </div>
+            }
+            <div class="form-group form-actions">
+                <div class="col-md-10 col-md-offset-2">
+                    <input type="submit" class="btn btn-success" name="next" id="next" value="Lưu" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+
+<script type="text/javascript" language="javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtChungChi').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtChungChi').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>

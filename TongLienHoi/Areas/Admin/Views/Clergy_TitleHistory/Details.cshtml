@@ -1,0 +1,40 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_TitleHistory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Clergy_TitleHistory</legend>
+
+    <div class="display-label">Clergy</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy.FirstName)
+    </div>
+
+    <div class="display-label">ClergyTitle</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClergyTitle.Title)
+    </div>
+
+    <div class="display-label">EffectiveDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EffectiveDate)
+    </div>
+
+    <div class="display-label">RequestPaper</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestPaper)
+    </div>
+
+    <div class="display-label">ApprovalPaper</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApprovalPaper)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

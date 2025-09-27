@@ -1,0 +1,55 @@
+﻿@using HTTLVN.QLTLH.Code
+@model IEnumerable<HTTLVN.QLTLH.Models.v_hogiadinh_tinhuu>  
+@{
+    ViewBag.Title = "Hộ gia đình";
+    Layout = "~/Views/Shared/_LayoutTinHuu.cshtml";
+}
+<div class="page-header page-header-top clearfix">
+    <h3 class="title-hero">Tìm kiếm thông tin tín hữu </h3>
+    @{
+        ViewData["name"] = Request["name"] ?? "";
+        ViewData["chucdanh"] = ViewData["chucdanh"] ?? CommonFunction.ConvertInt(Request["capchihoi"]);
+        //ViewData["id"] = ViewData["id"]!=null && (int)ViewData["id"] != 0 ? (int)ViewData["id"] : CommonFunction.ConvertInt(Request["capchihoi"]);
+    }
+</div>
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <div class="form-box-content">
+    <div class="form-group">
+        <div class="col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon">Tên nhiệm sở:</span>
+                <input class ="form-control input-sm" name="name" value="@Request["name"]"/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Cấp nhiệm sở</span>
+                @Html.Awe().AjaxDropdown("capchihoi").Url(Url.Action("GetCapChiHoiGiaoSo", "JsonLoader", new { id = ViewData["chucdanh"] })).CssClass("form-control input-sm")
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-info" type="submit" name="btnfrmsearch">Tìm kiếm</button></div>
+        <div class="col-md-1">
+            @*<button class="btn btn-info" type="submit" name="btnUpdateTen" value="UpdateTen">CapNhatTen</button>*@
+        </div>
+    </div>
+    </div>
+    <br/>
+    @(Html.Kendo().Grid(Model).Name("hogiadinh").Pageable(a => a.Enabled(true).PageSizes(new int[] { 20, 50, 100 }).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Sortable(a => a.Enabled(true)).Columns(columns =>
+      {
+          //columns.Bound(o => o.BigImages).Width(120).Title("Hình ảnh");
+          columns.Bound(o => o.FirstName).Width(120)
+           .ClientTemplate("<img alt='#= BigImages #'  src='#= BigImages #' class='img-responsive'  width='130px' class='media-object' alt='image' />")
+           .Title("Hình ảnh").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+          columns.Bound(o => o.FirstName).ClientTemplate("<a href='/tinhuu/HoGiaDinhDetail/#= id #'' class=''> <span class='capital'> #= FirstName# " +
+            "#if(MiddleName!=null){ #" + " #= MiddleName# " + "#}#" + "#= LastName #</span> </a>").Width(120).Title("Họ tên");
+        
+          columns.Bound(o => o.MobilePhone).Width(120).Title("Di động");
+          columns.Bound(o => o.Phone).Width(120).Title("Số bàn");
+          columns.Bound(o => o.NgheNghiep).Width(120).Title("Nghề nghiệp");
+          columns.Bound(o => o.Gender).Width(120).ClientTemplate(" #if(Gender){ # " + "#:'Nam' # " + "#} else {#  " + "#: 'Nữ' # " + "#} #").Title("Giới tính");
+      }).DataSource(dataBinding => dataBinding.Ajax().Read("_PagingHoGiaDinh", "TinHuu")))
+    <div class="form-group"><div class="col-md-2"><a href="@Url.Content("~/TinHuu/HoGiaDinhEdit")" class="btn btn-success">Thêm mới</a></div></div>
+</form>
+
+

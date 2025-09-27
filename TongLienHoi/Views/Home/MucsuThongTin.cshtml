@@ -1,0 +1,405 @@
+﻿@using HTTLVN.QLTLH.Models
+@model HTTLVN.QLTLH.Models.Clergy
+@{
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+    string imagePath = !string.IsNullOrEmpty(Model.Avatar) ? Model.Avatar : "~/Content/Content/img/placeholders/image_dark_64x64.png";
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <h4 class="form-box-header">
+        Thông tin giáo phẩm:
+        @if (Model.Id > 0)
+        {
+            <a class="capital" href="@Url.Content(string.Format("~/Home/MucSuDetail/{0}", @Model.Id))" style="color:#DB4A39">@Model.FirstName @Model.MiddleName @Model.LastName</a>
+        }
+
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            <div class="wizard-steps row">
+                <div class="col-md-3 text-center active">1. Thông tin cá nhân</div>
+                <div class="col-md-3 text-center">
+                    @if (Model.Id > 0)
+                    {
+                        <a href="/Home/MucsuThongTinChucVu/@Model.Id">2. Thông tin chức vụ</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0)">2. Thông tin chức vụ</a>
+                    }
+
+                </div>
+                <div class="col-md-3 text-center">
+                    @if (Model.Id > 0)
+                    {
+                        <a href="/Home/MucsuThongTinGiaDinh/@Model.Id">3. Thông tin gia đình</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0)">3. Thông tin gia đình</a>
+                    }
+
+                </div>
+                @Html.HiddenFor(a => a.Id)
+            </div>
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+
+
+
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>
+
+                        }
+                    </ul>
+                </div>
+            }
+            @if (messages != null && messages.Count > 0)
+            {
+                <div class="eUserMessage">
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in messages)
+                        {
+                            <li>@str</li>
+
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group form-actions">
+                <div class="col-md-10 col-md-offset-2">
+                    <input type="submit" class="btn btn-success" name="next" id="next" value="Lưu" />
+                    @if (Model.Id > 0)
+                    {
+                        <input type="submit" class="btn btn-danger" onclick="confirm('Bạn có chắc xóa không?')" name="btnDelete" id="delete" value="Xóa" />
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Họ:</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.FirstName, new { @placeholder = "", @class = "form-control " })
+                </div>
+                <label class="control-label col-md-2">Tên lót:</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.MiddleName, new { @placeholder = "", @class = "form-control " })
+                </div>
+                <label class="control-label col-md-1">
+                    Tên:@if (string.IsNullOrWhiteSpace(Helper.CheckError(erros, "LastName").ToHtmlString()))
+                    {
+                        <span class="formLabelStar">*</span>
+                    }
+                </label>
+                <div class="col-md-2">
+
+                    <div class="@Helper.CheckError(erros, "LastName")">
+                        @Html.TextBoxFor(model => model.LastName, new { @placeholder = "", @class = "form-control " })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2  "><b style="color:red;">Ngày bắt đầu chức vụ:</b></label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "NgayBoNhiem")">
+                    @Html.TextBoxFor(a => a.NgayBoNhiem, new { @placeholder = "dd/mm/yyyy", @class = "text-box single-line" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên gọi khác:</label>
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.NickName, new { @placeholder = "", @class = "form-control " })
+            </div>
+            <label class="control-label col-md-2">Chức danh:*</label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "TitleId")">
+                    @(Html.Kendo().DropDownListFor(a=>a.TitleId).Filter("contains")
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                                      .DataSource(source => { source.Read(read => { read.Action("GetAllChucDanh", "JsonLoader"); }); })
+                              )
+                </div>
+            </div>
+            <label class="control-label col-md-1">Chức vụ:</label>
+            <div class="col-md-2">
+                @(Html.Kendo().DropDownListFor(a => a.ChucVuId).Filter("contains")
+                          .DataTextField("Name").DataValueField("Id")
+                          .HtmlAttributes(new { style = "width:100%" })
+                                  .DataSource(source => { source.Read(read => { read.Action("GetChucVu", "JsonLoader"); }); })
+                          )
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày sinh:</label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "DateOfBirth")">
+                    @Html.TextBoxFor(a => a.DateOfBirth, new { @placeholder = "dd/mm/yyyy", @class = "text-box single-line" })
+                </div>
+            </div>
+            <label class="control-label col-md-2">Nơi sinh:</label>
+            <div class="col-md-2">
+                @Html.TextBoxFor(a => a.NoiSinh, new { @placeholder = "Nơi sinh", @class = "text-box single-line" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Nguyên quán:</label>
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.Address2.Street, new { @style = "width: 100%", @class = "form-control " })
+            </div>
+            <label class="control-label col-md-2">Tỉnh thành:</label>
+            <div class="col-md-2">
+                @(Html.Kendo().DropDownListFor(a => a.Address2.CityId).Filter("contains")
+                          .DataTextField("Name").DataValueField("Id")
+                          .HtmlAttributes(new { style = "width:100%" })
+                                  .DataSource(source => { source.Read(read => { read.Action("GetAllcity", "JsonLoader"); }); })
+                          )
+                @Html.HiddenFor(model => model.BirthAddressId)
+            </div>
+            <label class="control-label col-md-1">Dân tộc:</label>
+            <div class="col-md-2">
+                @Html.DropDownList("DanToc", null, "Chọn dân tộc", new { @class = "form-control " })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">CMND/CCCD:</label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "IdentityNumber")">
+                    @Html.TextBox("IdentityNumber", Model.IdentityNumber, new { @placeholder = "CMND", @class = "form-control" })
+                </div>
+            </div>
+            <label class="control-label col-md-2">Ngày cấp:</label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "IDApprovedDate")">
+                    @Html.TextBox("IDApprovedDate", Model.IDApprovedDate, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                </div>
+            </div>
+            <label class="control-label col-md-1">Nơi cấp:</label>
+            <div class="col-md-2">
+                @Html.DropDownList("IDApprovedPlace", null, "Chọn nơi cấp", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Năm tin Chúa:</label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "BelieveDate")">
+                    @Html.TextBoxFor(a => a.BelieveDate, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                </div>
+            </div>
+            <label class="control-label col-md-2">Năm chịu báp-têm:</label>
+            <div class="col-md-2">
+                <div class="@Helper.CheckError(erros, "BaptismDate")">
+                    @Html.TextBoxFor(a => a.BaptismDate, new { @placeholder = "dd/mm/yyyy", @class = "text-box single-line" })
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Diện khác:</label>
+            <div class="col-md-2">
+                <select class="form-control" name="DienKhac">
+                    <option value="0">Chọn diện khác </option>
+                    <option @if (Model.DuHoc.HasValue && Model.DuHoc.Value) { <text> selected="selected" </text> } value="1">
+                        Du học
+                    </option>
+                    <option @if (Model.DinhCuNuocNgoai.HasValue && Model.DinhCuNuocNgoai.Value) { <text> selected="selected" </text> } value="2">Định cư nước ngoài</option>
+                    <option @if (Model.KyLuat.HasValue && Model.KyLuat.Value) { <text> selected="selected" </text> } value="3">
+                        Kỷ Luật
+                    </option>
+                    <option @if (Model.HuuTri.HasValue && Model.HuuTri.Value) { <text> selected="selected" </text> } value="4">
+                        Hưu trí
+                    </option>
+                    <option @if (Model.QuaPhu.HasValue && Model.QuaPhu.Value) { <text> selected="selected" </text> } value="5">
+                        Quả phụ
+                    </option>
+                    <option @if (Model.NghiChucVu.HasValue && Model.NghiChucVu.Value) { <text> selected="selected" </text> } value="6">
+                        Nghỉ chức vụ
+                    </option>
+
+                </select>
+            </div>
+            <div class="col-md-2">@Html.TextBoxFor(a => a.DienKhacNgay, new { @placeholder = "Ngày dd/mm/yyyy", @class = "text-box single-line" }) </div>
+            <div class="col-md-6">@Html.TextBoxFor(a => a.DienKhacLyDo, new { @placeholder = "Lý do", @class = "text-box single-line" })</div>
+            
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                <input type="checkbox" name="IsVeVoiChua" id="IsVeVoiChua" @if (!string.IsNullOrEmpty(Model.DateOfDeath) || (Model.IsVeVoiChua.HasValue && Model.IsVeVoiChua.Value)) { <text> checked="checked" </text> }
+                       onclick="ShowDateOfDead()" value="true" /> Về với Chúa
+            </label>
+            <div class="col-md-2">
+                @{
+                    string showHide = "";
+                    if (string.IsNullOrEmpty(Model.DateOfDeath))
+                    {
+                        showHide = "display:none";
+                    }
+                    else
+                    {
+                        showHide = "";
+                    }
+                }
+                @Html.TextBoxFor(a => a.DateOfDeath, new { @placeholder = "dd/mm/yyyy", @class = "text-box single-line", @style = showHide })
+            </div>
+        </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Địa chỉ thường trú:</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.Address.Street, new { @style = "width: 100%", @class = "form-control" })
+                </div>
+                <label class="control-label col-md-1">Tỉnh/Thành:</label>
+                <div class="col-md-2">
+                    <select name="Address.CityId" id="Address_CityId" class="form-control">
+                        <option value="0">Chọn Tỉnh/Thành</option>
+                        @foreach (var item in (List<City>)ViewBag.AllCities)
+                        {
+                            if (Model.Address != null && Model.Address.CityId == item.id)
+                            {
+                                <option selected="selected" value="@item.id">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.id">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                    @Html.HiddenFor(model => model.PermanentAddressId)
+                </div>
+            </div>
+
+            <h4 class="form-box-sub-header">Thông tin liên lạc</h4>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Địa chỉ liên lạc:</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.Address3.Street, new { @style = "width: 100%;", @class = "form-control " })
+                </div>
+                <label class="control-label col-md-1">Tỉnh/Thành:</label>
+                <div class="col-md-2">
+                    <select name="Address3.CityId" id="Address3_CityId" class="form-control">
+                        <option value="0">Chọn Tỉnh/Thành</option>
+                        @foreach (var item in (List<City>)ViewBag.AllCities)
+                        {
+                            if (Model.Address3 != null && Model.Address3.CityId == item.id)
+                            {
+                                <option selected="selected" value="@item.id">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.id">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                    @Html.HiddenFor(model => model.ContactAddressId)
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Điện thoại:</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.MobilePhone, new { @placeholder = "Điện thoại di động", @class = "form-control " })
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <label class="control-label col-md-1">Email:</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "Email")">
+                        @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email", @class = "form-control " })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Hình đại diện:</label>
+                <div class="col-md-1">
+                    @if (Model.Avatar != null && !string.IsNullOrEmpty(Model.Avatar))
+                    {
+                        <img src="@Url.Content(Model.Avatar)" width="80px" id="Avatar" class="img-responsive" class="media-object" alt="image" />
+                    }
+                    else
+                    {
+                        <img width="80px" src="@Url.Content("~/Content/Content/img/placeholders/image_dark_64x64.png")" id="Avatar" class="media-object" alt="image" />
+                    }
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="file" name="hinhdaidien" id="hinhdaidien" onchange="readURL(this);" /> <span class="btn btn-default">Chọn hình</span>
+                    </label>
+                    @if (Model.Avatar != null && !string.IsNullOrEmpty(Model.Avatar))
+                    {
+                        <input type="submit" name="btnDeleteImage" value="Xóa hình" class="btn btn-danger" />
+                    }
+                </div>
+            </div>
+            <div class="form-group form-actions">
+                <div class="col-md-10 col-md-offset-2">
+                    <input type="submit" class="btn btn-success" name="next" id="next" value="Lưu" />
+                    @if (Model.Id > 0)
+                    {
+                        <input type="submit" class="btn btn-danger" onclick="confirm('Bạn có chắc xóa không?')" name="btnDelete" id="delete" value="Xóa" />
+                    }
+                </div>
+            </div>
+        </div>
+
+
+</form>
+
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        ShowDateOfDead();
+    });
+    function formatDate(date, format) {
+        format = format || '{0:d}';
+        return $.telerik.formatString(format, value);
+    }
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+
+            reader.onload = function (e) {
+                $('#Avatar').attr('src', e.target.result);
+                $("#Avatar").resizable({ aspectRatio: true, maxHeight: 300 });
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#Avatar').attr('src', "#");
+        }
+
+
+    }
+    function ShowDateOfDead() {
+        if ($('#IsVeVoiChua').is(":checked")) {
+            $('#DateOfDeath').show();
+        } else $('#DateOfDeath').hide();
+    }
+    function SamePerManent() {
+        if ($('#same_pert_add').is(":checked")) {
+            $('#Address3_Street').val($('#Address1_Street').val());
+            $("#Address3_CityId").val($("#Address1_CityId").val());;
+        }
+    }
+</script>

@@ -1,0 +1,130 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_TitleHistory
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    @Html.ValidationSummary(true)
+    <h4 class="form-box-header">Chỉnh sửa công nhận chức danh</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                @Html.HiddenFor(model => model.id)
+                @Html.HiddenFor(model => model.CleargyId)
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TitleId, "Chức danh")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "TitleId")">
+                        @(Html.Kendo().DropDownListFor(a => a.TitleId).Filter("contains")
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                                      .DataSource(source => { source.Custom().Transport(read => { read.Read(a => a.Url(Url.Content("~/JsonLoader/GetAllChucDanh"))); }); })
+                              )
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.EffectiveDate, "Ngày có hiệu lực")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "EffectiveDate")">
+                         @Html.TextBoxFor(a=>a.EffectiveDate, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.RequestPaper, "Biên bản TLH")</label>
+                <div class="col-md-2">
+                    <input type="text" id="txtBienBan" name="txtBienBanChucDanh" value="@Helper.HumanRead(Model.RequestPaper)" placeholder="Chưa chọn biên bản TLH" class="form-control"/>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input id="RequestPaper" name="RequestPaper" class="form-control" onchange="readURL1(this);" type="file"/>
+                        <span class="btn btn-default">Chọn biên bản</span>
+                    </label>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DocumentNumber, "Số biên bản")</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m=>m.DocumentNumber,new {@class="form-control"})
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.ApprovalPaper, "Công văn CQ")</label>
+                 <div class="col-md-2">
+                <input type="text" id="txtQuyetDinh" name="txtQuyetDinh" value="@Helper.HumanRead(Model.ApprovalPaper)" placeholder="Chưa chọn công văn" class="form-control"/>
+            </div>
+                <div class="col-md-2">
+                    <label>
+                        <input id="ApprovalPaper" name="ApprovalPaper" class="form-control" onchange="readURL2(this);"  type="file"/>
+                        <span class="btn btn-default">Chọn công văn</span>
+                    </label>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DecisionNumber, "Số công văn")</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.DecisionNumber, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-2">
+                    <label class="checkbox-inline"><input type="checkbox" name="IsCurrent" value="true" class="checkbox " /> @Html.LabelFor(model => model.IsCurrent, "Đương Chức") </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave"   class="btn btn-primary"/>  
+                    <a href="@Url.Content(string.Format("~/home/MucsuThongTinChucVu/{0}", Model.CleargyId))" class="btn btn-primary">Quay lại</a>     
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+<script type="text/javascript" language="javascript">
+    function readURL1(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtBienBan').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtBienBan').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+    function readURL2(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtQuyetDinh').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtQuyetDinh').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+   
+</script>
+

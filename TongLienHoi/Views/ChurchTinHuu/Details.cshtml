@@ -1,0 +1,90 @@
+﻿@model HTTLVN.QLTLH.Models.Church_TinHuu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Church_TinHuu</legend>
+
+    <div class="display-label">Church</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Church.ChurchName)
+    </div>
+
+    <div class="display-label">SoLuongTinHuu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoLuongTinHuu)
+    </div>
+
+    <div class="display-label">LuaTuoi</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoi)
+    </div>
+
+    <div class="display-label">ThanhPhanDanToc</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ThanhPhanDanToc)
+    </div>
+
+    <div class="display-label">TinHuuBapTem</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TinHuuBapTem)
+    </div>
+
+    <div class="display-label">TinHuuChuaBapTem</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TinHuuChuaBapTem)
+    </div>
+
+    <div class="display-label">NamThongKe</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NamThongKe)
+    </div>
+
+    <div class="display-label">LuaTuoiThieuNhi</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoiThieuNhi)
+    </div>
+
+    <div class="display-label">LuaTuoiThieuNien</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoiThieuNien)
+    </div>
+
+    <div class="display-label">LuaTuoiThanhNien</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoiThanhNien)
+    </div>
+
+    <div class="display-label">LuaTuoiTrangNien</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoiTrangNien)
+    </div>
+
+    <div class="display-label">LuaTuoiTrungNien</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoiTrungNien)
+    </div>
+
+    <div class="display-label">LuaTuoiLaoNien</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LuaTuoiLaoNien)
+    </div>
+
+    <div class="display-label">GioiTinhNam</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GioiTinhNam)
+    </div>
+
+    <div class="display-label">GioiTinhNu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GioiTinhNu)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

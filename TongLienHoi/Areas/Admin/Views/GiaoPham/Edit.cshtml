@@ -1,0 +1,355 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_adminFullLayout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+@Html.ValidationSummary(true)
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>Chỉnh Sửa Giáo Phẩm</span>
+             
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form class="mws-form"  method="post">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row bordered">
+                    <label class="mws-form-label">
+                        @Html.LabelFor(model => model.LastName, "Họ") & @Html.LabelFor(model => model.FirstName, "Tên")</label>
+                    <div class="mws-form-item">
+                        <div class="mws-form-cols">
+                            <div class="mws-form-col-4-8">
+                                @Html.EditorFor(model => model.LastName)
+                                @Html.ValidationMessageFor(a => a.LastName)
+                            </div>
+                            <div class="mws-form-col-2-8">
+                                @Html.EditorFor(model => model.FirstName)
+                                @Html.ValidationMessageFor(a => a.FirstName)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.NickName, "Tên Thường Gọi")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.NickName)
+                            @Html.ValidationMessageFor(a => a.NickName)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.Gender, "Giới Tính")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.Gender)
+                            @Html.ValidationMessageFor(a => a.Gender)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.DateOfBirth, "Ngày Sinh")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.DateOfBirth)
+                            @Html.ValidationMessageFor(a => a.DateOfBirth)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.PlaceOfBirth, "Nơi Sinh")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.PlaceOfBirth)
+                            @Html.ValidationMessageFor(a => a.PlaceOfBirth)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.IdentityNumber, "Số CMND")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.IdentityNumber)
+                            @Html.ValidationMessageFor(a => a.IdentityNumber)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.IDApprovedDate, "Ngày Cấp")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.IDApprovedDate)
+                            @Html.ValidationMessageFor(a => a.IDApprovedDate)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.BelieveDate, "Ngày Tin Chúa")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.BelieveDate)
+                            @Html.ValidationMessageFor(a => a.BelieveDate)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.BaptismDate, "Ngày Làm Báp-tem")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.BaptismDate)
+                            @Html.ValidationMessageFor(a => a.BaptismDate)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.PermanentAddressId, "Địa Chỉ Thường Trú")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.PermanentAddressId)
+                            @Html.ValidationMessageFor(a => a.PermanentAddressId)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.ContactAddressId, "Địa Chỉ Liên Hệ")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.ContactAddressId)
+                            @Html.ValidationMessageFor(a => a.ContactAddressId)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.Phone, "Điện Thoại")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.Phone)
+                            @Html.ValidationMessageFor(a => a.Phone)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.MobilePhone, "Điện Thoại Di Động")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.MobilePhone)
+                            @Html.ValidationMessageFor(a => a.MobilePhone)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.Email, "Email")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.Email)
+                            @Html.ValidationMessageFor(a => a.Email)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.Title, "Title")</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.Title)
+                            @Html.ValidationMessageFor(a => a.Title)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.FatherId)</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.FatherId)
+                            @Html.ValidationMessageFor(a => a.FatherId)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.MotherId)</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.MotherId)
+                            @Html.ValidationMessageFor(a => a.MotherId)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.WifeId)</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.WifeId)
+                            @Html.ValidationMessageFor(a => a.WifeId)
+                        </div>
+                    </div>
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">@Html.LabelFor(model => model.Career)</label>
+                        <div class="mws-form-item">
+                            @Html.EditorFor(model => model.Career)
+                            @Html.ValidationMessageFor(a => a.Career)
+                        </div>
+                    </div>
+                                       
+              
+                </div>
+                
+                <div class="mws-button-row">
+                    <input type="submit" value="Save" class="btn btn-danger" />
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </form>
+        </div>      
+    </div>
+
+
+
+
+
+@*@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Clergy</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NickName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NickName)
+            @Html.ValidationMessageFor(model => model.NickName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gender)
+            @Html.ValidationMessageFor(model => model.Gender)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOfBirth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfBirth)
+            @Html.ValidationMessageFor(model => model.DateOfBirth)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PlaceOfBirth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PlaceOfBirth)
+            @Html.ValidationMessageFor(model => model.PlaceOfBirth)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdentityNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdentityNumber)
+            @Html.ValidationMessageFor(model => model.IdentityNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IDApprovedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IDApprovedDate)
+            @Html.ValidationMessageFor(model => model.IDApprovedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BelieveDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BelieveDate)
+            @Html.ValidationMessageFor(model => model.BelieveDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BaptismDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BaptismDate)
+            @Html.ValidationMessageFor(model => model.BaptismDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PermanentAddressId, "Address")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PermanentAddressId", String.Empty)
+            @Html.ValidationMessageFor(model => model.PermanentAddressId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactAddressId, "Address1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ContactAddressId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ContactAddressId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MobilePhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MobilePhone)
+            @Html.ValidationMessageFor(model => model.MobilePhone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FatherId, "Clergy2")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("FatherId", String.Empty)
+            @Html.ValidationMessageFor(model => model.FatherId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MotherId, "Clergy3")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MotherId", String.Empty)
+            @Html.ValidationMessageFor(model => model.MotherId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WifeId, "Clergy4")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("WifeId", String.Empty)
+            @Html.ValidationMessageFor(model => model.WifeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Career)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Career)
+            @Html.ValidationMessageFor(model => model.Career)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+*@

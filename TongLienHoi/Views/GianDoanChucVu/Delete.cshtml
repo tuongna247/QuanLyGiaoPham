@@ -1,0 +1,42 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_Conduct
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Bạn có chắc xóa nội dung sau?</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Paper, "Lý do")</label>
+                <div class="col-md-2">
+                    <p class="form-control-static">
+                    @Html.HiddenFor(model => model.ClergyId)
+                    @Html.DisplayFor(model=>model.Paper)
+                    </p>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Fromdate, "Từ năm")</label>
+                <div class="col-md-1">
+                    <p class="form-control-static">
+                        @Model.Fromdate
+                    </p>
+                </div>
+                <label class="control-label col-md-1">@Html.LabelFor(model => model.ToDate, "Đến năm")</label>
+                <div class="col-md-1">
+                    <p class="form-control-static">
+                        @Model.ToDate
+                    </p>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-2">
+                    <input type="submit" value="Xóa"  class="btn btn-primary"/>  
+                    <a href="@Url.Content(string.Format("~/home/MucsuThongTinChucVu/{0}", Model.ClergyId))" class="btn btn-primary">Quay trở lại</a>       </div>
+            </div>
+        </div>
+        </div>
+</form>

@@ -1,0 +1,334 @@
+﻿@using HTTLVN.QLTLH.Code
+@model HTTLVN.QLTLH.Models.Clergy
+<h3 class="page-header page-header-top">
+    <i class="fa fa-user"></i> Thông tin Giáo phẩm
+    <a class="btn btn-info" href="@Url.Content("~/Home/toanbogiaopham")">Danh sách giáo phẩm</a>
+</h3>
+<div class="row">
+    <div class="col-md-3">
+        <div class="text-center">
+            @if (!string.IsNullOrEmpty(Model.Avatar) && Model.Avatar != null && System.IO.File.Exists(Request.MapPath(Url.Content(Model.Avatar))))
+            {
+                <img src="@Url.Content(Model.Avatar)" class="img-responsive" alt="image" />
+            }
+            else
+            {
+                <img src="@Url.Content("~/Content/Content/img/placeholders/image_light_360x270.png")" class="img-responsive" alt="image" />
+            }
+        </div>
+        <div class="list-group">
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                <a href="@Url.Content(string.Format("~/Home/MucsuThongTin/{0}", @Model.Id))" class="list-group-item" style="color: #DB4A39"><i class="fa fa-pencil-square"></i> Chỉnh sửa</a>
+            }
+        </div>
+        <h5 class="page-header-sub">
+            @*<i class="gemicon-small-group"></i>*@<i class="fa fa-users"></i>
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                <a href="/Home/MucsuThongTinGiaDinh/@Model.Id">Thông tin gia đình</a>
+            }
+            else
+            {
+                <a href="#">Thông tin gia đình</a>
+            }
+
+        </h5>
+        <ul class="fa-ul">
+            @foreach (var item in Model.QuanHeVoiGiaoPhams.OrderBy(a => a.YearOfBirth))
+            {
+                <li>
+                    <i class="fa fa-li fa-angle-right"></i>
+                    @if (item.QuanHeGiaDinh != null)
+                    {
+                        <em>@item.QuanHeGiaDinh.Name:</em>
+                    }
+                    <strong>@item.HoTen</strong><br />
+                    @if (item.NgheNghiep != null)
+                    {
+                        <em>Nghể nghiệp/Chức vụ:</em>
+                        @item.NgheNghiep<br />
+                    }
+                    @if (item.YearOfBirth != null && item.YearOfBirth > 0)
+                    {
+                        <em>Năm sinh:</em>
+                        @item.YearOfBirth<br />
+                    }
+
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>
+            <small>
+                @if (Model.ClergyTitle != null)
+                {@Model.ClergyTitle.Title}
+            </small> <span class="capital">@Model.FirstName @Model.MiddleName @Model.LastName</span>
+        </h4>
+        <ul class="fa-ul push">
+            @if (Model.CurrentAssignment_Id.HasValue)
+            {
+                <li>
+                    Chức vụ:
+                    @if (Model.CurrentAssignment_Id.HasValue && Model.Clergy_AssignmentHistory1 != null)
+                    {
+                        if (Model.Clergy_AssignmentHistory1.ChucVu != null)
+                        {
+                            @Model.Clergy_AssignmentHistory1.ChucVu.Name
+                        }
+                        if (Model.Clergy_AssignmentHistory1.CapChiHoi1 != null && Model.Clergy_AssignmentHistory1.Church != null)
+                        {
+                            <text>tại </text>
+                        }
+
+                        if (Model.Clergy_AssignmentHistory1.CapChiHoi1 != null)
+                        {
+
+                            @Model.Clergy_AssignmentHistory1.CapChiHoi1.Description
+                        }
+                        <text> </text>
+                        if (Model.Clergy_AssignmentHistory1.Church != null)
+                        {
+                            @Model.Clergy_AssignmentHistory1.Church.ChurchName
+                        }
+                    }
+                </li>
+            }
+        </ul>
+        <ul class="fa-ul">
+            @if (!string.IsNullOrWhiteSpace(Model.NickName))
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Tên gọi khác:</em>@Model.NickName </li>
+            }
+
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Ngày sinh:</em> @Model.DateOfBirth</li>
+            @if (!string.IsNullOrWhiteSpace(Model.NoiSinh))
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Nơi sinh:</em> @Model.NoiSinh</li>
+            }
+
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Nguyên quán:</em> @Helper.DisplayAddress(Model.Address2)</li>
+
+            @if (!string.IsNullOrWhiteSpace(Model.IdentityNumber))
+            {
+                <li>
+                    <i class="fa fa-li fa-angle-right"></i>
+                    <em>CMND:</em> @Model.IdentityNumber
+
+                </li>
+                <li>
+                    <em>Ngày cấp: </em>@Model.IDApprovedDate
+                </li>
+            }
+            @if (!string.IsNullOrEmpty(Model.BelieveDate))
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Năm tin Chúa:</em> @Model.BelieveDate</li>
+            }
+            @if (!string.IsNullOrEmpty(Model.BaptismDate))
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Năm chịu báp-tem:</em> @Model.BaptismDate</li>
+            }
+        </ul>
+        <h4>
+            <i class="fa fa-envelope"></i>
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                <a href="/Home/MucsuThongTin/@Model.Id">Thông tin liên lạc</a>
+            }
+            else
+            {
+                <a href="#">Thông tin liên lạc</a>
+            }
+        </h4>
+
+        <ul class="fa-ul">
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Địa chỉ thường trú:</em> @Helper.DisplayAddress(Model.Address)</li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Địa chỉ liên lạc:</em> @Helper.DisplayAddress(Model.Address3)</li>
+            <li>
+                <i class="fa fa-li fa-angle-right"></i> <em>Điện thoại:</em> @Model.MobilePhone @if (!string.IsNullOrEmpty(Model.Phone))
+                {<text> /</text>} @Model.Phone
+            </li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Email:</em> @Model.Email</li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Ngày bắt đầu chức vụ:</em> @Model.NgayBoNhiem</li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Số năm chức vụ:</em> @Model.SoNamChucVu năm @Model.SoThangChucVu tháng </li>
+            <li>
+                <i class="fa fa-li fa-angle-right"></i> <em>Diện khác:</em>
+                @if (Model.DuHoc.HasValue && Model.DuHoc.Value)
+                {
+                    <text>Du học</text>
+                }
+                else if (Model.DinhCuNuocNgoai.HasValue && Model.DinhCuNuocNgoai.Value)
+                {
+                    <text> Định cư nước ngoài</text>
+                }
+                else if (Model.KyLuat.HasValue && Model.KyLuat.Value)
+                {
+                    <text>Kỷ Luật</text>
+                }
+
+                else if (Model.HuuTri.HasValue && Model.HuuTri.Value)
+                {
+                    <text> Hưu trí</text>
+                }
+
+                else if (Model.QuaPhu.HasValue && Model.QuaPhu.Value)
+                {
+                    <text>Quả phụ</text>
+                }
+
+                else if (Model.NghiChucVu.HasValue && Model.NghiChucVu.Value)
+                {
+                    <text>Nghỉ chức vục</text>
+                }
+            </li>
+
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h5 class="page-header-sub">
+            <i class="fa fa-graduation-cap"></i>
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                <a href="/Home/MucsuThongTinChucVu/@Model.Id"> Quá trình học thần học</a>
+            }
+            else
+            {
+                <a href="#"> Quá trình thần học</a>
+            }
+        </h5>
+        <ul class="fa-ul">
+            @foreach (var item in Model.Clergy_Education)
+            {
+                <li>
+                    <i class="fa fa-li fa-angle-right"></i> <strong>
+                        @item.CollegeOrProgramme
+                        @if (!string.IsNullOrWhiteSpace(item.Degree))
+                        {
+                            <text>(Khóa </text>@item.Degree<text>)</text>
+                        }
+                    </strong>
+                    @if (!string.IsNullOrWhiteSpace(item.Paper))
+                    {
+                        <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", item.Paper))" rel="prettyPhoto[iframe]"><button class="btn btn-xs btn-info">Chứng chỉ</button></a>
+                    }
+                    <br />
+                    @if (!string.IsNullOrWhiteSpace(item.FromDate))
+                    {
+                        <em>Từ:</em>@item.FromDate
+                    }
+                    @if (!string.IsNullOrWhiteSpace(item.ToDate))
+                    {
+                        <em>Đến:</em>
+                        @item.ToDate
+                    }
+
+
+                </li>
+            }
+        </ul>
+        <h5 class="page-header-sub">
+            <i class="fa fa-child"></i>
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                <a href="/Home/MucsuThongTinChucVu/@Model.Id">Công nhận chức danh</a>
+            }
+            else
+            {
+                <a href="#">Công nhận chức danh</a>
+            }
+        </h5>
+        <ul class="fa-ul">
+            @foreach (var item in Model.Clergy_TitleHistory)
+            {
+                if (item.ClergyTitle != null)
+                {
+                    <li>
+                        <i class="fa fa-li fa-angle-right"></i> <strong>@item.ClergyTitle.Title </strong>  &nbsp;
+                        @if (!string.IsNullOrWhiteSpace(item.ApprovalPaper))
+                        {
+                            <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", item.ApprovalPaper))" rel="prettyPhoto[iframe]"><button class="btn btn-xs btn-info">Công văn</button></a>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(item.RequestPaper))
+                        {
+                            <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", item.RequestPaper))" rel="prettyPhoto[iframe]"><button class="btn btn-xs btn-info">Biên bản</button></a>
+                        }
+                        <br />
+                        @if (!string.IsNullOrWhiteSpace(item.EffectiveDate))
+                        {
+                            <em>Ngày:</em>
+                            @item.EffectiveDate
+                        }
+
+                    </li>
+                }
+            }
+        </ul>
+        <h5 class="page-header-sub">
+            <i class="fa fa-child"></i>
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                <a href="/Home/MucsuThongTinChucVu/@Model.Id">Quá trình hầu việc Chúa</a>
+            }
+            else
+            {
+                <a href="#">Quá trình hầu việc Chúa</a>
+            }
+        </h5>
+        <ul class="fa-ul">
+            @{
+                var assignements = CommonFunction.SortAssignmentHistories(Model.Clergy_AssignmentHistory.ToList());
+            }
+            @foreach (var item in assignements)
+            {
+                if (item != null)
+                {
+                    <li>
+                        <i class="fa fa-li fa-angle-right"></i> <strong>
+                            <a href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/" + @item.ChurchId)">
+                                @if (!string.IsNullOrEmpty(item.ChucVu))
+                                {
+                                    @item.ChucVu
+                                }
+                                @if (!string.IsNullOrEmpty(item.ChurchName))
+                                {<text> tại </text> @item.ChurchName}
+                            </a>
+
+
+                        </strong>
+                        @if (!string.IsNullOrWhiteSpace(item.Paper))
+                        {
+                            <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", item.Paper))" rel="prettyPhoto[iframe]"><button class="btn btn-xs btn-info">@item.PaperNumber</button></a>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(item.StartDate))
+                        {
+                            <br /><em>Từ:</em>
+                            @item.StartDate
+                        }
+                        @if (!string.IsNullOrWhiteSpace(item.EndDate))
+                        {
+                            if (string.IsNullOrWhiteSpace(item.StartDate))
+                            {
+                                <br />
+                            }
+                            <em>Đến:</em>
+                            @item.EndDate
+                        }
+                        @if (!string.IsNullOrEmpty(item.ClergyTitle))
+                        {
+                            <text><br />Chức danh:</text> @item.ClergyTitle <text> </text>
+                        }
+                        <br />
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>

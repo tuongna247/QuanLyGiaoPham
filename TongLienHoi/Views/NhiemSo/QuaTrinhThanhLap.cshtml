@@ -1,0 +1,119 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+@model HTTLVN.QLTLH.Models.Church
+@{
+    var erros = (Dictionary<string,string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+    string imagePath = !string.IsNullOrEmpty(Model.AnhDaiDien) ? Model.AnhDaiDien : "~/Content/Content/img/placeholders/image_dark_64x64.png";
+    var danghauviec = CommonFunction.GetIsCurrentList(Model.Clergy_AssignmentHistory.ToList()).OrderBy(a => a.ChucVuId);
+    var khonghauviec = CommonFunction.GetIsNotCurrentList(Model.Clergy_AssignmentHistory.ToList()).OrderBy(a => a.ChucVuId);
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Thông tin giáo sở :
+         <a class="btn btn-info" href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/" + @Model.Id)">@Model.ChurchName</a>
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+        <div class="wizard-steps row">
+            <div class="col-md-3 text-center "> @if(Model.Id>0)
+                {
+                    <a href="/NhiemSo/ChinhSuaNhiemSo/@Model.Id">1. Thông tin cơ bản</a>    
+                }else
+                {
+                    <a href="javascript:void(0)">1. Thông tin cơ bản</a> 
+                }</div>
+            <div class="col-md-3 text-center active">2. Lược sử hội thánh</div>
+             <div class="col-md-3 text-center">
+                @Html.HiddenFor(a=>a.Id)
+                <a href="/NhiemSo/TaiSanHoiThanh/@Model.Id">3. Tài sản hội thánh</a>    
+            </div>
+        </div>
+        <header class="panel-heading">
+            <h2 class="panel-title">Các đầy tớ Chúa đang hầu việc Chúa tại Hội Thánh</h2> 
+        </header>
+	        <div class="panel-body">
+	        @if (danghauviec.Count() > 0)
+                {
+                @Html.Kendo().Grid(danghauviec).Name("chucdanh_giaopham").Columns(columns =>
+                {
+                    columns.Bound(o => o.Clergy).Template(
+                        @<text>
+                                <a href="@Url.Content("~/Home/MucSuDetail/"+item.ClergyId)"><span class='capital'>   @item.Clergy.FirstName <text> </text> @item.Clergy.MiddleName <text> </text>  @item.Clergy.LastName </span></a>
+                            </text>)
+                .Column.Title = "Họ tên";
+                    columns.Bound(o => o.ClergyTitle.Title).Column.Title = "Chức danh";
+                    columns.Bound(o => o.StartDate).HtmlAttributes(new { @style = "text-align:left" }).Format("{0:dd/MM/yyyy}").Column.Title = "Ngày có hiệu lực";
+                    columns.Bound(o => o.EndDate).HtmlAttributes(new { @style = "text-align:left" }).Format("{0:dd/MM/yyyy}").Column.Title = "Ngày có hiệu lực";
+                    columns.Bound(o => o.Paper).Template(
+                        @<text>
+                                @if (!string.IsNullOrEmpty(item.Paper) && !string.IsNullOrEmpty(item.PaperNumber))
+                                {
+                                    <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", item.Paper))" rel="prettyPhoto[iframe]"><button class='btn btn-xs btn-info'>@item.PaperNumber</button> </a>
+                                }
+                            </text>).HtmlAttributes(new { @style = "text-align:left" }).Column.Title = "Số văn bản";
+                    columns.Command(commands => commands.Custom("Edit").Text("Chỉnh sửa").DataRouteValues(route => route.Add(o => o.id).RouteKey("Id")).Action("Edit", "CongNhanChucDanh")).Width(120);
+                    columns.Command(commands => commands.Custom("Delete").Text("Xóa").DataRouteValues(route => route.Add(o => o.id).RouteKey("Id")).Action("Delete", "CongNhanChucDanh")).Width(80);
+                })
+                }
+            <br/> <a href="@Url.Content(string.Format("~/CongNhanChucDanh/Create?churchid={0}", Model.Id))" class="btn-success btn">Thêm đầy tớ Chúa đang hầu việc Chúa tại Hội Thánh</a>     
+	         </div>
+        <header class="panel-heading">
+            <h2 class="panel-title">Các đầy tớ Chúa đã từng hầu việc Chúa tại Hội Thánh</h2> 
+        </header>
+	        <div class="panel-body">
+	        @if (khonghauviec.Count() > 0)
+                {
+                @Html.Kendo().Grid(khonghauviec).Name("chucdanh_giaopham").Columns(columns =>
+                {
+                    columns.Bound(o => o.Clergy).Template(
+                        @<text>
+                                 <a href="@Url.Content("~/Home/MucSuDetail/"+item.ClergyId)"><span class='capital'>   @item.Clergy.FirstName <text> </text> @item.Clergy.MiddleName <text> </text>  @item.Clergy.LastName </span></a>
+                            </text>)
+                .Column.Title = "Họ tên";
+                    columns.Bound(o => o.ClergyTitle.Title).Column.Title = "Chức danh";
+                    columns.Bound(o => o.StartDate).HtmlAttributes(new { @style = "text-align:left" }).Format("{0:dd/MM/yyyy}").Column.Title = "Ngày có hiệu lực";
+                    columns.Bound(o => o.EndDate).HtmlAttributes(new { @style = "text-align:left" }).Format("{0:dd/MM/yyyy}").Column.Title = "Ngày có hiệu lực";
+                    columns.Bound(o => o.Paper).Template(
+                        @<text>
+                                @if (!string.IsNullOrEmpty(item.Paper) && !string.IsNullOrEmpty(item.PaperNumber))
+                                {
+                                    <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", item.Paper))" rel="prettyPhoto[iframe]"><button class='btn btn-xs btn-info'>@item.PaperNumber</button> </a>
+                                }
+                            </text>).HtmlAttributes(new { @style = "text-align:left" }).Column.Title = "Số văn bản";
+                    columns.Command(commands => commands.Custom("Edit").Text("Chỉnh sửa").DataRouteValues(route => route.Add(o => o.id).RouteKey("Id")).Action("Edit", "CongNhanChucDanh")).Width(120);
+                    columns.Command(commands => commands.Custom("Delete").Text("Xóa").DataRouteValues(route => route.Add(o => o.id).RouteKey("Id")).Action("Delete", "CongNhanChucDanh")).Width(80);
+                })
+                }
+            <br/> <a href="@Url.Content(string.Format("~/CongNhanChucDanh/Create?churchid={0}", Model.Id))" class="btn-success btn" >Thêm đầy tớ Chúa từng hầu việc Chúa tại Hội Thánh</a>     
+	         </div>
+        
+         <header class="panel-heading">
+            <h2 class="panel-title">Số lượng tín hữu qua các năm</h2> 
+        </header>
+            <div class="panel-body">
+                @Html.Kendo().Grid(Model.Church_TinHuu).Name("chucdanh_giaopham").Columns(columns =>
+                {
+                    columns.Bound(o => o.NamThongKe).Column.Title = "Năm thống kê";
+                    columns.Bound(o => o.SoLuongTinHuu).Column.Title = "Số lượng tín hữu";
+                    columns.Bound(o => o.TinHuuBapTem).Column.Title = "Đã báp têm";
+                    columns.Bound(o => o.TinHuuChuaBapTem).Column.Title = "Chưa báp têm";
+                    columns.Bound(o => o.GioiTinhNam).Column.Title = "Nam";
+                    columns.Bound(o => o.GioiTinhNu).Column.Title = "Nữ";
+                    columns.Command(commands => commands.Custom("Edit").Text("Chỉnh sửa").DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id")).Action("Edit", "SoLuongTinHuu")).Width(120);
+                    columns.Command(commands => commands.Custom("Delete").Text("Xóa").DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id")).Action("Delete", "SoLuongTinHuu")).Width(80);
+                })
+                <br/> <a href="@Url.Content(string.Format("~/SoLuongTinHuu/Create?churchid={0}", Model.Id))" class="btn-success btn" >Thêm Số lượng tín hữu qua các năm</a>  
+            </div>
+            
+           
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>

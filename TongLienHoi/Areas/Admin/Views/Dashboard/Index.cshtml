@@ -1,0 +1,13 @@
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+@if (Session["login"] == null)
+{
+    <form method="POST">
+    @Html.Partial("_LoginForm")
+    </form>
+}
+else
+{
+    @Html.Partial("_DashBoard")
+}

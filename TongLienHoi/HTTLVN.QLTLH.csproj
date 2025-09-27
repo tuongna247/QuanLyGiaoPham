@@ -1,0 +1,1872 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DF65CBA-120C-4934-8B39-1CBF77B48814}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HTTLVN.QLTLH</RootNamespace>
+    <AssemblyName>HTTLVN.QLTLH</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="CRVsPackageLib, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CRVsPackageLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.TemplateEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Enterprise.Viewing.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.VSDesigner, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.VSDesigner.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net20\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.4\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\lib\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpreadsheetLight">
+      <HintPath>..\packages\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\Libs\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.Mvc">
+      <HintPath>..\lib\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\Libs\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\EditorLocalization.designer.cs" />
+    <Compile Include="App_GlobalResources\EditorLocalization1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.vi-VN.designer.cs">
+      <DependentUpon>GridLocalization.vi-VN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.zh-CN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.es-ES.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.zh-CN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.zh-CN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\MyHelper.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChucVusController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Clergy_AssignmentHistoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Clergy_TitleHistoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GiaoPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhiemSoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoleDetailController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TemplateController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TinhThanhController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Code\BinaryContentResult.cs" />
+    <Compile Include="Code\ChiHoi\FileDataManager.cs" />
+    <Compile Include="Code\ChiHoi\FileServices.cs" />
+    <Compile Include="Code\ChiHoi\POSTables.cs" />
+    <Compile Include="Code\ChiHoi\TinHuuController.cs" />
+    <Compile Include="Code\ChiHoi\TransferFile.cs" />
+    <Compile Include="Code\CommonFunction.cs" />
+    <Compile Include="Code\FakeView.cs" />
+    <Compile Include="Code\HtmlViewRenderer.cs" />
+    <Compile Include="Code\PrintHeaderFooter.cs" />
+    <Compile Include="Code\StandardPdfRenderer.cs" />
+    <Compile Include="Code\ValidateFunction.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChuongTrinhThanHocController.cs" />
+    <Compile Include="Controllers\CongNhanChucDanhController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\DanTocsController.cs" />
+    <Compile Include="Controllers\NhiemSoController.cs" />
+    <Compile Include="Controllers\SoLuongTinHuuController.cs" />
+    <Compile Include="Controllers\ThongTinGiaDinhController.cs" />
+    <Compile Include="Controllers\GianDoanChucVuController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JsonLoaderController.cs" />
+    <Compile Include="Controllers\QuaTrinhThanHocController.cs" />
+    <Compile Include="Models\DBO\ObjectModel.cs" />
+    <Compile Include="Models\SPEntity\GetPermissionList_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\GiaoPhamThoiGianPhucVu_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\SPTongLienHoi.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPTongLienHoi.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\SPTongLienHoi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\SPTongLienHoi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPTongLienHoi.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\TimGiaoPham_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\TimKiemGiaoPhamHetHan_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\TimKiemGiaoPhamNangCao_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\TimKiemNangCao1_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\TimKiemNangCao_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPEntity\TimKiemVoiNhieuThamSo_Result.cs">
+      <DependentUpon>SPTongLienHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TLHEntities\HoGiaDinhTinHuu.cs" />
+    <Compile Include="Models\TLHEntities\Store\GetCleryById_Result.cs" />
+    <Compile Include="Models\TLHEntities\Store\TimKiemVoiNhieuThamSo_Result.cs" />
+    <Compile Include="Controllers\VanThuController.cs" />
+    <Compile Include="Data\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TLHEntities\Address.cs" />
+    <Compile Include="Models\TLHEntities\BangCapNguoiPhoiNgau.cs" />
+    <Compile Include="Models\TLHEntities\CapChiHoi.cs" />
+    <Compile Include="Models\TLHEntities\Category.cs" />
+    <Compile Include="Models\TLHEntities\CategoryDetail.cs" />
+    <Compile Include="Models\TLHEntities\ChiTietChucVuGiaoPham.cs" />
+    <Compile Include="Models\TLHEntities\ChucVu.cs" />
+    <Compile Include="Models\TLHEntities\Church.cs" />
+    <Compile Include="Models\TLHEntities\Church_Assignment_History.cs" />
+    <Compile Include="Models\TLHEntities\Church_SoLuongTinHuu.cs" />
+    <Compile Include="Models\TLHEntities\Church_TAISAN.cs" />
+    <Compile Include="Models\TLHEntities\Church_TinHuu.cs" />
+    <Compile Include="Models\TLHEntities\Church_TinHuu_DanToc.cs" />
+    <Compile Include="Models\TLHEntities\City.cs" />
+    <Compile Include="Models\TLHEntities\Clergy.cs" />
+    <Compile Include="Models\TLHEntities\ClergyTitle.cs" />
+    <Compile Include="Models\TLHEntities\Clergy_AssignmentHistory.cs" />
+    <Compile Include="Models\TLHEntities\Clergy_AssignmentHistoryComparable.cs" />
+    <Compile Include="Models\TLHEntities\Clergy_Conduct.cs" />
+    <Compile Include="Models\TLHEntities\Clergy_Education.cs" />
+    <Compile Include="Models\TLHEntities\Clergy_TitleHistory.cs" />
+    <Compile Include="Models\TLHEntities\CleryChucVuTemp.cs" />
+    <Compile Include="Models\TLHEntities\Conduct_Type.cs" />
+    <Compile Include="Models\Controllers\AutoCodeController.cs" />
+    <Compile Include="Models\TLHEntities\DanToc.cs" />
+    <Compile Include="Models\DBO\AutoCode_SubDBO.cs" />
+    <Compile Include="Models\TLHEntities\District.cs" />
+    <Compile Include="Models\TLHEntities\GetBirthDayIn7Day.cs" />
+    <Compile Include="Models\TLHEntities\HoGiaDinh.cs" />
+    <Compile Include="Models\HTTLVN\QLTLHContext.cs" />
+    <Compile Include="Models\TLHEntities\Office.cs" />
+    <Compile Include="Models\TLHEntities\PhanLoaiVanThu.cs" />
+    <Compile Include="Models\TLHEntities\QuanHeGiaDinh.cs" />
+    <Compile Include="Models\TLHEntities\QuanHeVoiGiaoPham.cs" />
+    <Compile Include="Models\TLHEntities\RoleDetail.cs" />
+    <Compile Include="Models\TLHEntities\RoleMapping.cs" />
+    <Compile Include="Models\Services\SafeDataReader.cs" />
+    <Compile Include="Models\Services\SqlService.cs" />
+    <Compile Include="Models\TLHEntities\Store\GetPermissionList_Result.cs" />
+    <Compile Include="Models\TLHEntities\Store\GiaoPhamThoiGianPhucVu_Result.cs" />
+    <Compile Include="Models\TLHEntities\Store\TimKiemNangCao_Result.cs" />
+    <Compile Include="Models\TLHEntities\Store\TimKiemGiaoPhamNangCao_Result.cs" />
+    <Compile Include="Models\TLHEntities\Store\TimKiemGiaoPhamHetHan_Result.cs" />
+    <Compile Include="Models\TLHEntities\sysdiagram.cs" />
+    <Compile Include="Models\TLHEntities\TinHuu.cs" />
+    <Compile Include="Models\TLHEntities\TinHuu_Addresses.cs" />
+    <Compile Include="Models\TLHEntities\TinHuu_AssignmentHistory.cs" />
+    <Compile Include="Models\TLHEntities\TinHuu_ChucVu.cs" />
+    <Compile Include="Models\TLHEntities\TinHuu_Conduct.cs" />
+    <Compile Include="Models\TLHEntities\TongLienHoiEntities.cs" />
+    <Compile Include="Models\TLHEntities\ToThamVieng.cs" />
+    <Compile Include="Models\TLHEntities\ToThamVieng_HoGiaDinh.cs" />
+    <Compile Include="Models\TLHEntities\User.cs" />
+    <Compile Include="Models\TLHEntities\VanThu.cs" />
+    <Compile Include="Models\TLHEntities\viewChurch.cs" />
+    <Compile Include="Models\TLHEntities\view_User.cs" />
+    <Compile Include="Models\TLHEntities\v_assign.cs" />
+    <Compile Include="Models\TLHEntities\v_assignComparable.cs" />
+    <Compile Include="Models\TLHEntities\v_church.cs" />
+    <Compile Include="Models\TLHEntities\V_GetAllEndDay.cs" />
+    <Compile Include="Models\TLHEntities\V_GetBirthIn7Day.cs" />
+    <Compile Include="Models\TLHEntities\V_GetEndDay.cs" />
+    <Compile Include="Models\TLHEntities\V_GetVeHuu.cs" />
+    <Compile Include="Models\TLHEntities\V_GroupGiaoPham.cs" />
+    <Compile Include="Models\TLHEntities\V_GroupGiaoPhamByChucDanh.cs" />
+    <Compile Include="Models\TLHEntities\V_GroupGiaoPhamByChucDanhNotDuongChuc.cs" />
+    <Compile Include="Models\TLHEntities\V_GroupHoiThanhByCapChiHoi.cs" />
+    <Compile Include="Models\TLHEntities\v_updateTenNhiemSo.cs" />
+    <Compile Include="Models\TLHEntities\V_UserRoles.cs" />
+    <Compile Include="Models\TLHEntities\v_vanThu.cs" />
+    <Compile Include="Models\Warper\ChucDanh.cs" />
+    <Compile Include="Models\Warper\ChurchDBO.cs" />
+    <Compile Include="Models\Warper\VanThuReport.cs" />
+    <Compile Include="Models\Warper\MucSuSBO.cs" />
+    <Compile Include="Models\Warper\DashboardDBO.cs" />
+    <Compile Include="Models\Warper\NhanNhiemSo.cs" />
+    <Compile Include="Models\Warper\QuanHeGiaDinhDBO.cs" />
+    <Compile Include="Models\Warper\QuaTrinhThanHocDBO.cs" />
+    <Compile Include="Models\Warper\VanThuDBO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\GiaoPhamSearchNangCao.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiaoPhamSearchNangCao.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NhiemSoReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhiemSoReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NhungVanDeCanHop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhungVanDeCanHop.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportVanThu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VanThuReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanThuReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TLHWebServices.asmx.cs">
+      <DependentUpon>TLHWebServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ViewReport.aspx.cs">
+      <DependentUpon>ViewReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewReport.aspx.designer.cs">
+      <DependentUpon>ViewReport.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Helper.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_AssignmentHistory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_AssignmentHistory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_AssignmentHistory\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_AssignmentHistory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_TitleHistory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_TitleHistory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_TitleHistory\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Clergy_TitleHistory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\IndexGrid.cshtml" />
+    <Content Include="Areas\Admin\Views\GiaoPham\ViewPage1.cshtml" />
+    <Content Include="Areas\Admin\Views\NhiemSo\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhiemSo\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhiemSo\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhiemSo\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhiemSo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RoleDetail\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\RoleDetail\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\RoleDetail\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\RoleDetail\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\RoleDetail\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_adminFullLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_adminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminNavigation.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_DashBoard.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LoginForm.cshtml" />
+    <Content Include="Areas\Admin\Views\TinhThanh\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TinhThanh\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TinhThanh\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TinhThanh\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TinhThanh\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\ChucVus\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ClergyTitles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ClergyTitles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ClergyTitles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ClergyTitles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ClergyTitles\Index.cshtml" />
+    <None Include="Content\Content\css\fonts\TNKeyVni-Times.ttf" />
+    <Content Include="Content\Content\css\chosen-sprite%402x.png" />
+    <Content Include="Content\Content\css\chosen-sprite.png" />
+    <Content Include="Content\Content\css\chosen.min.css" />
+    <Content Include="Content\Content\css\magnific-popup.css" />
+    <Content Include="Content\Content\img\bg_tile.jpg" />
+    <Content Include="Content\Content\img\bg_vertical.jpg" />
+    <Content Include="Content\Content\img\delete_icon.png" />
+    <Content Include="Content\Content\img\list-arrow-bold.png" />
+    <Content Include="Content\Content\img\mws-logo.png" />
+    <Content Include="Content\Content\img\shadow_wide.png" />
+    <Content Include="Content\Content\img\template\avatar%402x.png" />
+    <Content Include="Content\Content\img\template\logo%402x.png" />
+    <Content Include="Content\Content\img\tooltip.png" />
+    <Content Include="Content\Content\img\tzine.png" />
+    <Content Include="Content\Content\js\chosen.jquery.min.js" />
+    <Content Include="Content\Content\js\chosen.proto.min.js" />
+    <Content Include="Content\Content\js\lang-all.js" />
+    <Content Include="Content\Content\plugins\dataTables\datatables.min.css" />
+    <Content Include="Content\Content\plugins\dataTables\datatables.min.js" />
+    <Content Include="Content\Content\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\kendo\2014.2.716\Black\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Black\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Black\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Black\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Black\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Black\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Black\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Black\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Black\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Black\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Black\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Black\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\BlueOpal\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Bootstrap\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Default\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Default\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Default\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Default\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Default\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Default\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Default\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Default\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Default\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Default\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Default\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Flat\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Flat\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Flat\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Flat\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Flat\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Flat\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Flat\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Flat\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Flat\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Flat\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Flat\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Flat\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\HighContrast\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\images\back.png" />
+    <Content Include="Content\kendo\2014.2.716\images\kendoui.svg" />
+    <Content Include="Content\kendo\2014.2.716\images\wp8_icons.png" />
+    <Content Include="Content\kendo\2014.2.716\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\2014.2.716\kendo.black.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.black.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.blueopal.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.blueopal.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.common-bootstrap.core.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.common.core.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.common.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.black.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.blueopal.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.default.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.flat.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.metro.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.metroblack.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.moonlight.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.silver.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.dataviz.uniform.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.default.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.default.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.flat.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.flat.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.highcontrast.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.highcontrast.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.metro.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.metro.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.metroblack.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.metroblack.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.all.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.android.dark.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.android.light.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.blackberry.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.common.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.flat.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.ios.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.meego.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.mobile.wp8.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.moonlight.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.moonlight.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.rtl.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.silver.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.silver.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.uniform.min.css" />
+    <Content Include="Content\kendo\2014.2.716\kendo.uniform.mobile.min.css" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\MetroBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Metro\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Metro\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Metro\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Metro\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Metro\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Metro\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Metro\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Metro\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Metro\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Metro\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Metro\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Metro\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Moonlight\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Silver\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Silver\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Silver\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Silver\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Silver\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Silver\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Silver\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Silver\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Silver\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Silver\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Silver\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Silver\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots1.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots10.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots11.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots12.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots13.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots2.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots3.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots4.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots5.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots6.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots7.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots8.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\dots9.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\glass.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\highlight.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\hue.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\leather1.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\leather2.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\noise.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\stripe1.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\stripe2.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\stripe3.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\stripe4.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\stripe5.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\stripe6.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\transparency.png" />
+    <Content Include="Content\kendo\2014.2.716\textures\transtexture.png" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\editor.png" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\loading-image.gif" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\loading.gif" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\markers.png" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\markers_2x.png" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\slider-h.gif" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\slider-v.gif" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\sprite.png" />
+    <Content Include="Content\kendo\2014.2.716\Uniform\sprite_2x.png" />
+    <Content Include="Models\SPEntity\SPTongLienHoi.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SPTongLienHoi.edmx</DependentUpon>
+      <LastGenOutput>SPTongLienHoi.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SPEntity\SPTongLienHoi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SPTongLienHoi.edmx</DependentUpon>
+      <LastGenOutput>SPTongLienHoi.cs</LastGenOutput>
+    </Content>
+    <Content Include="QuanLyHoiThanh.sql" />
+    <Content Include="Scripts\gmaps.js" />
+    <Content Include="Scripts\jquery-1.9.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\kendo.modernizr.custom.js" />
+    <Content Include="Scripts\kendo\2014.2.716\angular.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\jquery.min.js" />
+    <Content Include="Content\Content\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Content\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Content\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Content\css\fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\SPEntity\SPTongLienHoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SPTongLienHoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SPEntity\SPTongLienHoi.edmx.diagram">
+      <DependentUpon>SPTongLienHoi.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\kendo\2014.2.716\kendo.all-vsdoc.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.all.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.all.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.angular.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.columnmenu.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.columnsorter.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.xml.min.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.dataviz-vsdoc.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.barcode.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.canvas.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.chart.funnel.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.chart.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.chart.polar.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.core.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.diagram.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.drawing.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.gauge.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.map.min.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.dataviz.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.mobile.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.qrcode.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.sparkline.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.stock.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.svg.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.themes.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.treemap.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.vml.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dom.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.editor.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.filebrowser.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.filtercell.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.filtermenu.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.gantt.list.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.gantt.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.gantt.timeline.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.grid.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.groupable.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.imagebrowser.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.menu.min.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.mobile-vsdoc.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.button.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.drawer.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.listview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.loader.min.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.mobile.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.modalview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.navbar.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.splitview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.switch.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pivot.configurator.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pivot.fieldmenu.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pivotgrid.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.reorderable.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.agendaview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.dayview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.monthview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.recurrence.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.view.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.toolbar.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.touch.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.treeview.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.upload.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.view.min.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.web-vsdoc.js" />
+    <None Include="Scripts\kendo\2014.2.716\kendo.web.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.window.min.js" />
+    <Content Include="TLHWebServices.asmx" />
+    <Content Include="update20190612.txt" />
+    <Content Include="update20270310.txt" />
+    <Content Include="UpdateDb20170308.sql" />
+    <Content Include="UpdateDb20160906.sql" />
+    <Content Include="Views\ChurchTinHuu\Create.cshtml" />
+    <Content Include="Views\ChurchTinHuu\Delete.cshtml" />
+    <Content Include="Views\ChurchTinHuu\Details.cshtml" />
+    <Content Include="Views\ChurchTinHuu\Edit.cshtml" />
+    <Content Include="Views\ChurchTinHuu\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutNull.cshtml" />
+    <None Include="Content\fonts\TIMES.TTF" />
+    <None Include="Content\fonts\TIMESBD.TTF" />
+    <None Include="Content\fonts\TIMESBI.TTF" />
+    <None Include="Content\fonts\TIMESI.TTF" />
+    <None Include="Content\kendo\2014.2.716\images\kendoui.ttf" />
+    <None Include="Content\kendo\2014.2.716\images\kendoui.woff" />
+    <None Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\VanThu\Index.cshtml" />
+    <Content Include="Views\VanThu\VanThuDen.cshtml" />
+    <Content Include="Views\Home\ToanBoGiaoPham.cshtml" />
+    <Content Include="Views\VanThu\DuyetVanThu.cshtml" />
+    <Content Include="Views\Home\SearchNangCao.cshtml" />
+    <Content Include="Views\QuaTrinhThanHoc\Create.cshtml" />
+    <Content Include="Views\QuaTrinhThanHoc\Edit.cshtml" />
+    <Content Include="Views\QuaTrinhThanHoc\Delete.cshtml" />
+    <Content Include="Views\GianDoanChucVu\Create.cshtml" />
+    <Content Include="Views\GianDoanChucVu\Delete.cshtml" />
+    <Content Include="Views\GianDoanChucVu\Edit.cshtml" />
+    <Content Include="Views\ThongTinGiaDinh\Create.cshtml" />
+    <Content Include="Views\ThongTinGiaDinh\Delete.cshtml" />
+    <Content Include="Views\ThongTinGiaDinh\Edit.cshtml" />
+    <Content Include="Views\ChuongTrinhThanHoc\Create.cshtml" />
+    <Content Include="Views\ChuongTrinhThanHoc\Delete.cshtml" />
+    <Content Include="Views\ChuongTrinhThanHoc\Edit.cshtml" />
+    <Content Include="Views\VanThu\Delete.cshtml" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Content\css\bootstrap.css" />
+    <Content Include="Content\Content\css\fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Content\Content\css\fonts\glyphicons.filetypes.pro\glyphicons-filetypes-regular.svg" />
+    <Content Include="Content\Content\css\fonts\glyphicons.halflings.pro\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Content\css\fonts\glyphicons.pro\glyphicons-regular.svg" />
+    <Content Include="Content\Content\css\fonts\glyphicons.social.pro\glyphicons-social-regular.svg" />
+    <Content Include="Content\Content\css\main.css" />
+    <Content Include="Content\Content\css\plugins.css" />
+    <Content Include="Content\Content\css\prettyPhoto.css" />
+    <Content Include="Content\Content\css\themes.css" />
+    <Content Include="Content\Content\img\delete.png" />
+    <Content Include="Content\Content\img\favicon.ico" />
+    <Content Include="Content\Content\img\gemicon.icons\grey_16x16.png" />
+    <Content Include="Content\Content\img\gemicon.icons\grey_32x32.png" />
+    <Content Include="Content\Content\img\gemicon.icons\grey_64x64.png" />
+    <Content Include="Content\Content\img\gemicon.icons\white_16x16.png" />
+    <Content Include="Content\Content\img\gemicon.icons\white_32x32.png" />
+    <Content Include="Content\Content\img\gemicon.icons\white_64x64.png" />
+    <Content Include="Content\Content\img\ico-tinlanh.ico" />
+    <Content Include="Content\Content\img\jquery.chosen\chosen-sprite%402x.png" />
+    <Content Include="Content\Content\img\jquery.chosen\chosen-sprite.png" />
+    <Content Include="Content\Content\img\jquery.colorpicker\alpha.png" />
+    <Content Include="Content\Content\img\jquery.colorpicker\hue.png" />
+    <Content Include="Content\Content\img\jquery.colorpicker\saturation.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_asc%402x.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_asc.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_asc_disabled%402x.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_asc_disabled.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_both%402x.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_both.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_desc%402x.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_desc.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_desc_disabled%402x.png" />
+    <Content Include="Content\Content\img\jquery.datatables\sort_desc_disabled.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\1.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\2.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\3.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\4.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\5.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\6.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\high.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\huge.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\fullscreen\wide.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\flash-logo.png" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\quicktime-logo.gif" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\t_1.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\t_2.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\t_3.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\t_4.jpg" />
+    <Content Include="Content\Content\img\jquery.prettyPhoto\thumbnails\t_5.jpg" />
+    <Content Include="Content\Content\img\jquery.select2\select2%402x.png" />
+    <Content Include="Content\Content\img\jquery.select2\select2-spinner.gif" />
+    <Content Include="Content\Content\img\jquery.select2\select2.png" />
+    <Content Include="Content\Content\img\loading.gifs\loading01%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading01.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading02%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading02.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading03%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading03.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading04%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading04.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading05%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading05.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading06%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading06.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading07%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading07.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading08%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading08.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading09%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading09.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading10%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading10.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading11%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading11.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading12%402x.gif" />
+    <Content Include="Content\Content\img\loading.gifs\loading12.gif" />
+    <Content Include="Content\Content\img\placeholders\image_dark_120x120.png" />
+    <Content Include="Content\Content\img\placeholders\image_dark_160x120.png" />
+    <Content Include="Content\Content\img\placeholders\image_dark_64x64.png" />
+    <Content Include="Content\Content\img\placeholders\image_dark_900x700.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_120x120.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_160x120.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_160x270.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_170x120.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_360x200.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_360x270.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_64x64.png" />
+    <Content Include="Content\Content\img\placeholders\image_light_900x700.png" />
+    <Content Include="Content\Content\img\placeholders\landing_page_promo.png" />
+    <Content Include="Content\Content\img\template\avatar.png" />
+    <Content Include="Content\Content\img\template\login_bg%402x.png" />
+    <Content Include="Content\Content\img\template\login_bg.png" />
+    <Content Include="Content\Content\img\template\logo.png" />
+    <Content Include="Content\Content\img\template\nav_info_seperator%402x.png" />
+    <Content Include="Content\Content\img\template\nav_info_seperator.png" />
+    <Content Include="Content\Content\img\template\uadmin_logo.png" />
+    <Content Include="Content\Content\js\form.js" />
+    <Content Include="Content\Content\js\helpers\excanvas.min.js" />
+    <Content Include="Content\Content\js\helpers\gmaps.min.js" />
+    <Content Include="Content\Content\js\helpers\jqvmap.maps.js" />
+    <Content Include="Content\Content\js\jquery-1.7.1.js" />
+    <Content Include="Content\Content\js\main.js" />
+    <Content Include="Content\Content\js\plugins.js" />
+    <Content Include="Content\Content\js\prettyPhoto.js" />
+    <Content Include="Content\Content\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\Content\js\vendor\modernizr-2.7.1-respond-1.4.2.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\CongNhanChucDanh\Create.cshtml" />
+    <Content Include="Views\CongNhanChucDanh\Edit.cshtml" />
+    <Content Include="Views\CongNhanChucDanh\Delete.cshtml" />
+    <Content Include="Views\CongNhanChucDanh\Details.cshtml" />
+    <Content Include="Views\Home\GiaoPhamManNhiem.cshtml" />
+    <Content Include="Scripts\kendo\2014.2.716\jquery.min.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.angular.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.columnmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.columnsorter.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.barcode.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.canvas.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.chart.funnel.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.chart.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.chart.polar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.core.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.diagram.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.drawing.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.gauge.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.map.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.qrcode.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.sparkline.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.stock.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.svg.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.themes.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.treemap.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dataviz.vml.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dom.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.editor.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.filebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.filtercell.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.filtermenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.gantt.list.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.gantt.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.gantt.timeline.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.grid.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.groupable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.imagebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.button.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.modalview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.navbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.splitview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pivot.configurator.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pivot.fieldmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.pivotgrid.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.reorderable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.agendaview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.dayview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.monthview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.recurrence.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.scheduler.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.toolbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.touch.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.treeview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.upload.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendo\2014.2.716\kendo.window.min.js.map" />
+    <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\Edit.cshtml" />
+    <Content Include="Views\DanTocs\Create.cshtml" />
+    <Content Include="Views\DanTocs\Edit.cshtml" />
+    <Content Include="Views\DanTocs\Index.cshtml" />
+    <None Include="Views\Home\login.cshtml" />
+    <Content Include="Views\Home\MucsuThongTin.cshtml" />
+    <Content Include="Views\Home\MucsuThongTinGiaDinh.cshtml" />
+    <Content Include="Views\Home\MucSuDienKhac.cshtml" />
+    <None Include="Views\Home\MucsuThongTinChucVu.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\MucSu.cshtml" />
+    <None Include="Views\Home\MucSuDetail.cshtml" />
+    <Content Include="Views\ViewReport.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\VanThu\PdfReport.cshtml" />
+    <Content Include="Views\VanThu\Report.cshtml" />
+    <Content Include="Views\VanThu\SearchVanThu.cshtml" />
+    <Content Include="Views\VanThu\VanThuReport.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\VanThu\TestPdf.cshtml" />
+    <Content Include="Views\VanThu\ViewVanThu.cshtml" />
+    <Content Include="Views\NhiemSo\ChinhSuaNhiemSo.cshtml" />
+    <Content Include="Views\NhiemSo\ChiTietNhiemSo.cshtml" />
+    <Content Include="Views\NhiemSo\Index.cshtml" />
+    <Content Include="Views\NhiemSo\QuaTrinhThanhLap.cshtml" />
+    <Content Include="Views\NhiemSo\TaiSanHoiThanh.cshtml" />
+    <Content Include="Views\SoLuongTinHuu\Create.cshtml" />
+    <Content Include="Views\SoLuongTinHuu\Edit.cshtml" />
+    <Content Include="Views\SoLuongTinHuu\Delete.cshtml" />
+    <Content Include="Views\SoLuongTinHuu\CreateDanToc.cshtml" />
+    <Content Include="Views\SoLuongTinHuu\DeleteDanToc.cshtml" />
+    <Content Include="Views\SoLuongTinHuu\EditDanToc.cshtml" />
+    <Content Include="Views\NhiemSo\ChitietBanDo.cshtml" />
+    <Content Include="Views\NhiemSo\Search.cshtml" />
+    <Content Include="Views\NhiemSo\AddTaiSanHoiThanh.cshtml" />
+    <Content Include="Views\NhiemSo\DeleteTaiSanHoiThanh.cshtml" />
+    <Content Include="Views\NhiemSo\EditorTemplates\FileUpload.cshtml" />
+    <Content Include="Views\NhiemSo\EditTaiSanHoiThanh.cshtml" />
+    <Content Include="Views\NhiemSo\_DanhSachNhiemSo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Data\Avatar\" />
+    <Folder Include="Data\BangCapNguoiPhoiNgau\" />
+    <Folder Include="Data\GiaoVuLenh\" />
+    <Folder Include="Data\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Content\css\fonts\fontawesome\fontawesome-webfont.eot" />
+    <None Include="Content\Content\css\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <None Include="Content\Content\css\fonts\fontawesome\fontawesome-webfont.woff" />
+    <None Include="Content\Content\css\fonts\fontawesome\FontAwesome.otf" />
+    <None Include="Content\Content\css\fonts\glyphicons.filetypes.pro\glyphicons-filetypes-regular-.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.filetypes.pro\glyphicons-filetypes-regular.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.filetypes.pro\glyphicons-filetypes-regular.ttf" />
+    <None Include="Content\Content\css\fonts\glyphicons.filetypes.pro\glyphicons-filetypes-regular.woff" />
+    <None Include="Content\Content\css\fonts\glyphicons.halflings.pro\glyphicons-halflings-regular-.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.halflings.pro\glyphicons-halflings-regular.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.halflings.pro\glyphicons-halflings-regular.ttf" />
+    <None Include="Content\Content\css\fonts\glyphicons.halflings.pro\glyphicons-halflings-regular.woff" />
+    <None Include="Content\Content\css\fonts\glyphicons.pro\glyphicons-regular-.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.pro\glyphicons-regular.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.pro\glyphicons-regular.ttf" />
+    <None Include="Content\Content\css\fonts\glyphicons.pro\glyphicons-regular.woff" />
+    <None Include="Content\Content\css\fonts\glyphicons.social.pro\glyphicons-social-regular-.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.social.pro\glyphicons-social-regular.eot" />
+    <None Include="Content\Content\css\fonts\glyphicons.social.pro\glyphicons-social-regular.ttf" />
+    <None Include="Content\Content\css\fonts\glyphicons.social.pro\glyphicons-social-regular.woff" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.da-DK.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.de-DE.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.zh-CN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.da-DK.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.de-DE.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.es-ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.es-ES.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.zh-CN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.da-DK.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.zh-CN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.vi-VN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.vi-VN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization1.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Data\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GiaoPhamSearchNangCao.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GiaoPhamSearchNangCao.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NhiemSoReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NhiemSoReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NhungVanDeCanHop.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NhungVanDeCanHop.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportVanThu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportVanThu1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VanThuReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VanThuReport.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60316</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12345</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://www.tonglienhoi.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseCdnSupport="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

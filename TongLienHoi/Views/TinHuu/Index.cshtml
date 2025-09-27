@@ -1,0 +1,49 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+@model IEnumerable<TimTinHuu_Result>
+    @{
+        Layout = "~/Views/Shared/_LayoutTinHuu.cshtml";
+        ViewBag.Title = "Danh sách tín hữu";
+    }
+    <div class="page-header page-header-top clearfix">
+        <h3 class="title-hero">Tìm kiếm thông tin tín hữu </h3>
+        @{
+            ViewData["name"] = Request["name"] ?? " ";
+        }
+        <form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+            <div class="form-box-content">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Họ và tên</span>
+                            <input class="form-control input-sm" name="name" value="@Request["name"]" />
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-info" type="submit" name="btnfrmsearch">Tìm kiếm</button>
+                    </div>
+                    <div class="col-md-1">
+                        @*<button class="btn btn-info" type="submit" name="btnUpdateTen" value="UpdateTen">CapNhatTen</button>*@
+                    </div>
+                </div>
+                <br />
+                @(Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true).PageSizes(new int[] { 20, 50, 100 }).Messages(p => p.ItemsPerPage("")
+                .First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Sortable(a => a.Enabled(true)).Columns(columns =>
+    {
+        columns.Bound(o => o.FirstName).Width(120)
+            .ClientTemplate("<img alt='#= Avatar #'  src='#= Avatar #' class='img-responsive'  width='130px' class='media-object' alt='image' />")
+            .Title("Hình ảnh").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+        columns.Bound(o => o.FirstName).ClientTemplate("<a href='/tinhuu/TinHuuDetail/#= Id #' class=''> <span class='capital'> #= FirstName# " + 
+            "#if(MiddleName!=null){ #" + " #= MiddleName# "+ "#}#"+ "#= LastName #</span> </a>").Title("Họ và tên").Width(120);
+        columns.Bound(o => o.Phone).Width(120).Title("Số bàn");
+        columns.Bound(o => o.MobilePhone).Width(120).Title("Di động");
+        columns.Bound(o => o.NgheNghiep).Width(120).Title("Nghề nghiệp");
+        columns.Bound(o => o.Email).Width(120).Title("Email");
+        columns.Bound(o => o.ContactAddressId).Width(120).Title("Địa chỉ");
+        columns.Bound(o => o.Gender).Width(120).ClientTemplate(" #if(Gender){ # " + "#:'Nam' # " + "#} else {#  " + "#: 'Nữ' # " + "#} #").Title("Giới tính");
+    }).DataSource(dataBinding => dataBinding.Ajax().Read("_Paging", "TinHuu", new { name = (string)ViewData["name"]})))
+
+                <div class="form-group"><div class="col-md-2"><a href="@Url.Content("~/TinHuu/TinHuuEdit")" class="btn btn-success">Thêm mới</a></div></div>
+            </div>
+        </form>
+    </div>

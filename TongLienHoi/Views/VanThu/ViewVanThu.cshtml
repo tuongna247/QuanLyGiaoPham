@@ -1,0 +1,124 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+@model HTTLVN.QLTLH.Models.Warper.VanThuDBO
+@{
+    ViewBag.Title = "VanThuDen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form  method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <h4 class="form-box-header">
+    @if (Model.id > 0)
+    {
+            <text> Chỉnh sửa văn thư</text>
+    }
+    else
+    {
+        <text>Thêm mới văn thư</text>
+    }
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+             @if (erros != null && erros.Count > 0)
+             {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+             }
+            <div class="form-group">
+                <label class="control-label col-md-2" for="mat" >Loại văn thư</label>
+                <div class="col-md-3">
+                   <p class="form-control-static">@if (ViewBag.LoaiVanThu == "1")
+                                                  {<text>Văn thư đến</text>}else if (Model.LoaiVanDe=="2"){<text>Văn thư đi</text>}</p>
+                </div>
+                <label class="control-label col-md-2" for="ngayvanthu" >Ngày gửi</label>
+                <div class="col-md-3">
+                    <p class="form-control-static">@Helper.DisplayDateTime(Model.NgayVanThu)</p>
+                    <input type="hidden" value="@ViewBag.VanThuId" name="vanthuId"/>
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Người gửi</label>
+                <div class="col-md-3">
+                   <p class="form-control-static">@Model.NguoiGui</p>
+                </div>
+                <label class="control-label col-md-2" for="chude" >Người nhận</label>
+                <div class="col-md-3">
+                      <p class="form-control-static">@Model.NguoiNhan</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Phân loại</label>
+                <div class="col-md-10">
+                     <p class="form-control-static"> @ViewBag.PhanLoaiVanThu </p>
+                   
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Về việc</label>
+                <div class="col-md-10">
+                    <p class="form-control-static"> @Model.TieuDe</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="noidung" >Nội dung</label>
+                <div class="col-md-10">
+                    @Model.NoiDung
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2" for="noidung" >Ghi chú</label>
+                <div class="col-md-10">
+                    <div class="col-md-10">
+                        @Html.Raw(Model.GhiChu)
+                    </div>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Văn bản đính kèm</label>
+                <div class="col-md-2">
+                    @if (!string.IsNullOrEmpty(Model.VanBan))
+                    {
+                        <a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", Model.VanBan))" rel="prettyPhoto[iframe]"><button class="btn btn-xs btn-info">@CommonFunction.HumanReadFile(Model.VanBan)</button></a>  
+                    }
+                </div>
+            </div>
+        <div class="form-group form-actions">
+            <label class="control-label col-md-2" for="chude" ></label>
+            <div class="col-md-10">
+                @if ((ViewBag.IsEditVanThu != null && ViewBag.IsEditVanThu == true))
+                {
+                    <a href="@Url.Content("~/Vanthu/VanThuDen/" + Model.id)" class="btn btn-success">Chỉnh sửa</a>
+                }
+                <a href="@Url.Content("~/Vanthu/")" class="btn btn-success">Hủy</a>
+            </div>
+        </div>
+        </div>
+</form>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtChungChi').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtChungChi').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>

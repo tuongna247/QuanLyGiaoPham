@@ -1,0 +1,117 @@
+﻿@using System.Runtime.InteropServices
+@using System.Text
+@using HTTLVN.QLTLH.Models
+@using System.Linq;
+@{
+    ViewBag.Title = "Danh Sách Giáo Phẩm mãn nhiệm";
+    int countIndex = 0;
+}
+
+<div class="row">
+    <div id="page-title">
+        <h4>Danh sách giáo phẩm mãn nhiệm</h4>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-12">
+        <table id="giaophamManNhiem" class="display table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <td>STT</td>
+                    <th>Chức danh</th>
+                    <th>Họ và tên giáo phẩm</th>
+                    <th>Chức vụ</th>
+                    <th>Nhiệm sở</th>
+                    <th>Tỉnh thành</th>
+                    <th>Ngày mãn nhiệm</th>
+                    <th>Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ((IEnumerable<V_GetAllEndDay>)ViewBag.GiaoPhamManNhiem).OrderByDescending(a => a.KetThucChucVu))
+                {
+                    countIndex = countIndex + 1;
+                    var clergy = item.Clergy;
+                    string result = string.Empty;
+                    <tr>
+                        <td>@countIndex</td>
+                        <td><a href="@Url.Content(string.Format("~/Home/MucsuDetail/{0}", item.Id))">@clergy.ClergyTitle.Title</a></td>
+                        <td>
+                            <a href="@Url.Content(string.Format("~/Home/MucsuDetail/{0}", item.Id))">
+                                <span class="tv">
+                                    @{
+                                        string fullname = string.Empty;
+                                        fullname = (item.FirstName != null ? item.FirstName.ToUpper() : "") + " " + (item.MiddleName != null ? item.MiddleName.ToUpper() : "") + " " + (item.LastName != null ? item.LastName.ToUpper() : "");
+                                        @fullname
+                                    }
+
+                                </span>
+                            </a>
+                        </td>
+                        <td>
+                            @if (clergy.ChucVuId.HasValue)
+                            {
+                                @clergy.ChucVu.Name
+                            }
+                        </td>
+                        <td>
+                           @item.NhiemSo
+                        </td>
+                        <td>@item.TinhThanh</td>
+                        <td>
+                            @item.KetThucChucVu.Value.ToString("dd-MM-yyyy")
+                        </td>
+                        <td>
+                            <div style="display: none; visibility: hidden">
+                                @result
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    <script>
+        $(document).ready(function () {
+            $('#giaophamManNhiem').DataTable({
+                //"order": [[6, "desc"]],
+                pageLength: 25,
+                dom: 'Bfrtip',
+                buttons: [
+
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':visible'
+                        },
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    },
+                    { extend: 'excel', title: 'BÁO MÃN NHIỆM' }
+                ],
+                columnDefs: [{
+                    targets: -1,
+                    visible: false
+                }]
+
+            });
+        });
+    </script>
+}

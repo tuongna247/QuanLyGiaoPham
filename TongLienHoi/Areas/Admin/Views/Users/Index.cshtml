@@ -1,0 +1,28 @@
+﻿@using Kendo.Mvc.UI
+@model IEnumerable<HTTLVN.QLTLH.Models.V_UserRoles>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Danh sách tài khoản người dùng</h4>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create",null,null,new {@class="btn-info btn"})
+</p>
+
+@Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true)).Columns(columns =>
+    {
+        columns.Bound(o => o.username)
+            .Title("Họ và tên").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+        columns.Bound(o => o.Name)
+            .Title("Quyền hạn").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+        columns.Bound(o => o.id)
+            .ClientTemplate("<a href='/admin/users/edit/#= id #'>Chỉnh sửa</a><br>")
+            .HtmlAttributes(new { style = "text-align:center" }).Title(" ").HeaderHtmlAttributes(new { style = "text-align:center" });
+        columns.Bound(o => o.id)
+            .ClientTemplate("<a href='/admin/users/delete/#= id #'>Xóa</a><br>")
+            .HtmlAttributes(new { style = "text-align:center" }).Title(" ").HeaderHtmlAttributes(new { style = "text-align:center" });
+    }).DataSource(dataBinding => dataBinding.Ajax()
+        .Read("_Paging", "Users", new { name = (string)ViewData["firstname"], chucvu = ViewData["chucvu"], chucdanh = ViewData["chucdanh"], capchihoi = ViewData["capchihoi"], ishethan = ViewData["show3Month"] }))

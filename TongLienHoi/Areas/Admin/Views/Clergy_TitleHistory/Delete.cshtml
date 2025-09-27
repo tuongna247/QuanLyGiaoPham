@@ -1,0 +1,66 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_TitleHistory
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Bạn có chắc xóa nội dung sau?</h4>
+    <div class="form-box-content">
+    <div id="first" class="step">
+        <div class="form-group">
+            @Html.HiddenFor(model => model.id)
+            @Html.HiddenFor(model => model.CleargyId)
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.CleargyId, "Giáo phẩm")</label>
+            <div class=" col-md-2">
+                <p class="form-control-static">
+                @Html.DisplayFor(model => model.Clergy.FirstName) @Html.DisplayFor(model => model.Clergy.MiddleName)
+                @Html.DisplayFor(model => model.Clergy.LastName)
+                </p>
+            </div>
+        </div>    
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.TitleId, "Chức danh")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                @Html.DisplayFor(model => model.ClergyTitle.Title)
+                </p>
+            </div>
+        </div>    
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.EffectiveDate, "Ngày có hiệu lực")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                @Html.DisplayFor(model => model.EffectiveDate)
+                </p>
+            </div>
+        </div>  
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.DocumentNumber, "Số biên bản")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                @Html.DisplayFor(model => model.DocumentNumber)
+                </p>
+            </div>
+        </div>        
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.DecisionNumber, "Công văn")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                @Html.DisplayFor(model => model.DecisionNumber)
+                </p>
+            </div>
+        </div>   
+     
+        <div class="form-group">
+            <label class="control-label col-md-2"></label>
+            <div class="col-md-2">
+                <input type="submit" value="Xóa"  class="btn btn-primary"/>  
+                <a href="@Url.Content(string.Format("~/home/MucsuThongTinChucVu/{0}", Model.CleargyId))" class="btn btn-primary">Quay lại</a>       </div>
+        </div>    
+    </div>
+    </div>
+</form>

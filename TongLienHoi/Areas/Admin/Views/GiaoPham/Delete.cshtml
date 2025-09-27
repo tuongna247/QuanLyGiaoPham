@@ -1,0 +1,143 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_adminFullLayout.cshtml";
+}
+
+<div class="mws-panel grid_4">
+    <div class="mws-panel-header">
+        <span>Xóa Giáo Phẩm</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form class="mws-form"  method="post">
+        <div class="mws-form-inline">
+            <div class="mws-form-row bordered">
+            <div class="mws-form-item">
+                Bạn chắc chắn muốn xóa Giáo Phẩm @Html.DisplayFor(model => model.LastName) @Html.DisplayFor(model => model.FirstName)?
+            </div>   
+            </div>
+        </div>
+        <div class="mws-button-row">
+            <input type="submit" value="Delete" class="btn btn-danger">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        </form>
+    </div>
+</div>
+
+
+@*<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Clergy</legend>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">NickName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NickName)
+    </div>
+
+    <div class="display-label">Gender</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">DateOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">PlaceOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlaceOfBirth)
+    </div>
+
+    <div class="display-label">IdentityNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdentityNumber)
+    </div>
+
+    <div class="display-label">IDApprovedDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IDApprovedDate)
+    </div>
+
+    <div class="display-label">BelieveDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BelieveDate)
+    </div>
+
+    <div class="display-label">BaptismDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BaptismDate)
+    </div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address.Street)
+    </div>
+
+    <div class="display-label">Address1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address1.Street)
+    </div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">MobilePhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MobilePhone)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Clergy2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy2.FirstName)
+    </div>
+
+    <div class="display-label">Clergy3</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy3.FirstName)
+    </div>
+
+    <div class="display-label">Clergy4</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy4.FirstName)
+    </div>
+
+    <div class="display-label">Career</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Career)
+    </div>
+</fieldset>*@
+
+@*@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+*@

@@ -1,0 +1,263 @@
+﻿@using HTTLVN.QLTLH.Models
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>
+        @if (ViewBag.Title == null)
+        {
+            <text>Hội Thánh Tin Lành Việt Nam </text>
+        }
+        else
+        {
+            @ViewBag.Title
+        }
+        
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Content/img/ico-tinlanh.ico")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/bootstrap.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/plugins.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/main.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/themes.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/chosen.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/magnific-popup.css")" />
+    @*<link rel="stylesheet" href="@Url.Content("~/Content/themes/start/AwesomeMvc.css")" />*@
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Content/css/prettyPhoto.css")" />
+    @Styles.Render("~/plugins/kendocss")
+    @Scripts.Render("~/plugins/kendojs")
+
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+     @*<script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>*@
+</head>
+<body>
+   
+<div id="page-container">
+    <header class="navbar navbar-inverse">
+        <ul class="navbar-nav-custom pull-right hidden-md hidden-lg">
+            <li class="divider-vertical"></li>
+            <li>
+                <a href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </li>
+        </ul>
+        <a href="/" class="navbar-brand"><img src="@Url.Content("~/Content/Content/img/template/logo.png")" height="40px" alt="logo"></a>
+        <div id="loading" class="pull-left"><i class="fa fa-certificate fa-spin"></i>
+        </div>
+        <ul id="widgets" class="navbar-nav-custom pull-right">
+            <li class="dropdown pull-right dropdown-user">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><img src="@Url.Content("~/Content/Content/img/template/avatar.png")" alt="avatar"> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @{
+                        var authen = (User) ViewBag.auth;
+                    }
+                    @if (authen != null && authen.username == "admin")
+                    {
+                        <li><a href="/admin/users"><i class="fa fa-lock"></i>quản lý quyền hạn</a></li>
+                    }
+
+                    <li class="divider"></li>
+
+                    <li><a href="/Home/Logout"><i class="fa fa-lock"></i> Thoát</a></li>
+
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <div id="inner-container">
+        <aside id="page-sidebar" class="collapse navbar-collapse navbar-main-collapse">
+            <nav id="primary-nav">
+                <ul>
+                    <li>
+                        <a href="/" @if (Request.Url.PathAndQuery.IndexOf(Url.Content(string.Format("~"))) == 0 && Request.Url.PathAndQuery.Length == 1 || Request.Url.PathAndQuery.IndexOf(Url.Content(string.Format("~/Home/Index"))) == 0)
+                                    {
+                                        <text> class="active" </text>
+                                    }><i class="fa fa-fire"></i><b>NHẮC NHỞ</b></a>
+                    </li>
+                    <li @if ((ViewBag.IsViewGiaoPham == null || ViewBag.IsViewGiaoPham == false) && (ViewBag.IsEditGiaoPham == null || ViewBag.IsEditGiaoPham == false))
+                        {
+                            <text> style="display: none" </text>
+                        }>
+                        <a href="/home/searchnangcao" @if (Request.Url.PathAndQuery.IndexOf(Url.Content(string.Format("~/home/searchnangcao"))) == 0)
+                                                      {
+                                                          <text> class="active" </text>
+                                                      }><i class="fa fa-file-text-o"></i><b>TÌM KIẾM NÂNG CAO</b></a>
+                    </li>
+                   
+
+                    <li @if ((ViewBag.IsViewGiaoPham == null || ViewBag.IsViewGiaoPham == false) && (ViewBag.IsEditGiaoPham == null || ViewBag.IsEditGiaoPham == false))
+                        {
+                            <text> style="display: none" </text>
+                        }>
+                        <a href="/home/toanbogiaopham" id="GiaoPhamMenu" @if (Request.Url.PathAndQuery.IndexOf(Url.Content(string.Format("~/home/toanbogiaopham"))) > -1 && ViewData["chucdanh"] != null && (int) (ViewData["chucdanh"]) == 0)
+                                                                         {
+                                                                             <text> class="active" </text>
+                                                                         }><i class="fa fa-user"></i><b>GIÁO PHẨM</b></a>
+                        <ul class="GiaoPhamMenu">
+                            @foreach (var item in (IEnumerable<V_GroupGiaoPhamByChucDanh>) ViewBag.GroupGiaoPhamByTitles)
+                            {
+                                string urlMucSu = Url.Content(string.Format("~/Home/MucSu?chucdanh={0}", item.Id));
+                                string mucstuType = ViewBag.ChucDanhMucSu;
+                                <li>
+                                    <i class="fa-li fa fa-check-square active"></i><a @if (Request.Url.PathAndQuery == urlMucSu || mucstuType == item.Title || (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == item.Id.ToString()))
+                                                                                      {
+                                                                                          <text> class="active" </text>
+                                                                                      } href="@urlMucSu">@item.Title<span class="nav-no">@item.Expr1</span></a>
+                                </li>
+                            }
+                            <li>
+                                <a id="otherType">Diện khác<span class="nav-no">@ViewBag.DienKhacCount</span></a>
+                                <ul class="otherType" @if (ViewData["chucdanh"] == null || (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() != "107" && ViewData["chucdanh"].ToString() != "106" && ViewData["chucdanh"].ToString() != "102" && ViewData["chucdanh"].ToString() != "104" && ViewData["chucdanh"].ToString() != "103" && ViewData["chucdanh"].ToString() != "105" && ViewData["chucdanh"].ToString() != "106" && ViewData["chucdanh"].ToString() != "108")) { <text> style="display: none;" </text>  }>
+
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "106") { <text> class="active" </text>  } href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=106"))">&nbsp;&nbsp;Hưu trí<span class="nav-no">@ViewBag.HuuTriCount</span></a>
+                                    </li>
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "107") { <text> class="active" </text>  }
+                                           href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=107"))">&nbsp;&nbsp;Quả phụ<span class="nav-no">@ViewBag.QuaPhuCount</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "102") { <text> class="active" </text>  } href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=102"))">&nbsp;&nbsp;Định cư NN<span class="nav-no">@ViewBag.DinhCuNuocNgoaiCount</span></a>
+                                    </li>
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "105") { <text> class="active" </text>  } href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=105"))">&nbsp;&nbsp;Du học<span class="nav-no">@ViewBag.DuHocCount</span></a>
+                                    </li>
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "103") { <text> class="active" </text>  } href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=103"))">&nbsp;&nbsp;Bị kỷ luật<span class="nav-no">@ViewBag.BiKyLuatCount</span></a>
+                                    </li>
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "104") { <text> class="active" </text>  } href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=104"))">&nbsp;&nbsp;Về với Chúa<span class="nav-no">@ViewBag.VeVoiChuaCount</span></a>
+                                    </li>
+                                    <li>
+                                        <a @if (ViewData["chucdanh"] != null && ViewData["chucdanh"].ToString() == "108") { <text> class="active" </text>  } href="@Url.Content(string.Format("~/Home/MucSuDienKhac?chucdanh=108"))">&nbsp;&nbsp;Nghỉ chức vụ<span class="nav-no">@ViewBag.NghiChucVuCount</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li @if ((ViewBag.IsViewChiHoi == null || ViewBag.IsViewChiHoi == false) && (ViewBag.IsEditChiHoi == null || ViewBag.IsEditChiHoi == false))
+                        {
+                            <text> style="display: none" </text>
+                        }>
+                        <a href="@Url.Content("~/NhiemSo/Index/")"><i class="gi gi-temple_christianity_church"></i><b>NHIỆM SỞ</b></a>
+                        <ul style="overflow: hidden; display: block;">
+                            @foreach (var item in (IEnumerable<V_GroupHoiThanhByCapChiHoi>) ViewBag.GroupHoiThanhByCapChiHoi)
+                            {
+                                <li><a  @if (ViewData["capchihoi"]!=null && (int)ViewData["capchihoi"] ==item.id )
+                           {
+                               <text> class="active" </text>
+                           } href="@Url.Content(string.Format("~/NhiemSo/Index?capchihoi={0}", item.id))">@item.Description<span class="nav-no">@item.Expr1</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="@Url.Content("~/City/")"><i class="fa fa-bar-chart-o"></i><b>Báo Cáo</b></a>
+                        <ul style="overflow: hidden; display: block;">
+                            <li><a href="@Url.Content("~/City/")"><i class="fa fa-exclamation"></i><b>Tỉnh thành</b></a></li>
+                            <li><a href="@Url.Content("~/DanTocs/")"><i class="fa fa-exclamation"></i><b>Dân Tộc</b></a></li>
+                            <li @if ((ViewBag.IsViewGiaoPham == null || ViewBag.IsViewGiaoPham == false) && (ViewBag.IsEditGiaoPham == null || ViewBag.IsEditGiaoPham == false)) { <text> style="display: none" </text>  }>
+                                <a href="/home/giaophammannhiem" @if (Request.Url.PathAndQuery.IndexOf(Url.Content(string.Format("~/home/giaophammannhiem"))) == 0) { <text> class="active" </text>  }><i class="fa fa-exclamation-circle"></i><b>Giáo phẩm mãn nhiệm</b></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/City/")"><i class="fa fa-cogs"></i><b>Cài đặt</b></a>
+                        <ul style="overflow: hidden; display: block;">
+                            <li><a href="@Url.Content("~/Admin/ChucVus/")"><i class="fa fa-code"></i><b>Danh mục Chức Vụ</b></a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </nav>
+        </aside>
+        <div id="page-content">
+            @RenderBody()
+        </div>
+        <footer>
+            <strong>&copy; 2014 Tổng Liên Hội - Hội Thánh Tin Lành Việt Nam (MN).</strong>
+        </footer>
+    </div>
+</div>
+@RenderSection("scripts", required: false)
+
+<script type="text/javascript" src="@Url.Content("~/Content/Content/js/form.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Content/js/chosen.proto.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Content/js/plugins.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Content/js/vendor/bootstrap.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Content/js/prettyPhoto.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Content/js/magnific-popup.js")"></script>
+<script type="text/javascript">
+    (function($) {
+        kendo.culture("vi");
+        $("#selectBox").chosen();
+        $('#otherType').on('click', function() {
+            if ($('.otherType').css('display') === 'none') {
+                $('.otherType').show();
+            } else {
+                $('.otherType').hide();
+            }
+
+        });
+        $('#QuaPhuType').on('click', function() {
+            if ($('.QuaPhuType').css('display') === 'none') {
+                $('.QuaPhuType').show();
+                $('.otherType').show();
+            } else {
+                $('.QuaPhuType').hide();
+            }
+
+        });
+        $('#HuuTriType').on('click', function() {
+            if ($('.HuuTriType').css('display') === 'none') {
+                $('.HuuTriType').show();
+                $('.otherType').show();
+            } else {
+                $('.HuuTriType').hide();
+            }
+
+        });
+
+        $(document).on('click', '.modal-confirm', function(e) {
+            $.magnificPopup.close();
+        });
+        $(document).on('click', '.modal-dismiss', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+        $('.modal-with-form').magnificPopup({
+            type: 'inline',
+            preloader: false,
+            focus: '#name',
+            modal: true,
+
+            // When elemened is focused, some mobile browsers in some cases zoom in
+            // It looks not nice, so we disable it:
+            callbacks: {
+                beforeOpen: function() {
+                    if ($(window).width() < 700) {
+                        this.st.focus = false;
+                    } else {
+                        this.st.focus = '#name';
+                    }
+                }
+            }
+        });
+    }).apply(this, [jQuery]);
+</script>
+<script type="text/javascript">
+    @RenderSection("CustomScripts", false)
+</script>
+</body>
+</html>
+<!-- Localized -->

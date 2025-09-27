@@ -1,0 +1,49 @@
+﻿@model HTTLVN.QLTLH.Models.Church_TinHuu_DanToc
+
+@{
+    ViewBag.Title = "Create";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Cập nhật thông tin nhiệm sở</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+             @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                @Html.HiddenFor(a => a.Church_TinHuu_Id) @Html.HiddenFor(a => a.Id)
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DanToc_Id, "Dân tộc")</label>
+                <div class="col-md-2">
+                    @(Html.Kendo().DropDownListFor(a => a.DanToc_Id).Filter("contains")
+                          .DataTextField("Name").DataValueField("Id")
+                          .HtmlAttributes(new { style = "width:100%" })
+                                  .DataSource(source => { source.Read(read => { read.Action("GetChonDanTocs", "JsonLoader"); }); })
+                          )
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoLuong, "Số lượng")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.SoLuong).Format("###,###")
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu"  name="btnSave" class="btn btn-primary"/>
+                    <a href="@Url.Content(string.Format("~/NhiemSo/QuaTrinhThanhLap/{0}", Model.Church_TinHuu_Id))" class="btn btn-primary">Quay lại</a>     
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,256 @@
+﻿@using HTTLVN.QLTLH.Code
+@model IEnumerable<HTTLVN.QLTLH.Models.TimKiemNangCao_Result>  
+@{
+    ViewBag.Title = "Tìm kiếm nâng cao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["tinhthanh"] = ViewData["tinhthanh"] ?? CommonFunction.ConvertInt(Request["tinhthanh"]);
+    ViewData["chucvutu"] = ViewData["chucvutu"] ?? CommonFunction.ConvertInt(Request["chucvutu"]);
+    ViewData["chucvuden"] = ViewData["chucvuden"] ?? CommonFunction.ConvertInt(Request["chucvuden"]);
+    ViewData["nhiemkytu"] = ViewData["nhiemkytu"] ?? CommonFunction.ConvertInt(Request["nhiemkytu"]);
+    ViewData["nhiemkyden"] = ViewData["nhiemkyden"] ?? CommonFunction.ConvertInt(Request["nhiemkyden"]);
+    ViewData["namsinhtu"] = ViewData["namsinhtu"] ?? CommonFunction.ConvertInt(Request["namsinhtu"]);
+    ViewData["namsinhden"] = ViewData["namsinhden"] ?? CommonFunction.ConvertInt(Request["namsinhden"]);
+    ViewData["tinhtrang"] = ViewData["tinhtrang"] ?? CommonFunction.ConvertInt(Request["tinhtrang"]);
+    ViewData["chucdanh"] = ViewData["chucdanh"] ?? CommonFunction.ConvertInt(Request["chucdanh"]);
+    ViewData["chucvu"] = ViewData["chucvu"] ?? CommonFunction.ConvertInt(Request["chucvu"]);
+    ViewData["nhiemso"] = ViewData["nhiemso"] ?? CommonFunction.ConvertInt(Request["nhiemso"]);
+    ViewData["capnhiemso"] = ViewData["capnhiemso"] ?? CommonFunction.ConvertInt(Request["capnhiemso"]);
+    ViewData["dantoc"] = ViewData["dantoc"] ?? CommonFunction.ConvertInt(Request["dantoc"]);
+    ViewData["hocvi"] = ViewData["hocvi"] ?? CommonFunction.ConvertInt(Request["hocvi"]);
+    ViewData["cmnd"] = ViewData["cmnd"] ?? Request["cmnd"];
+    ViewData["tt_tlh"] = ViewData["tt_tlh"] ?? Request["tt_tlh"]=="Yes";
+    ViewData["bts_tlh"] = ViewData["bts_tlh"] ?? Request["bts_tlh"] == "Yes";
+    ViewData["hdgp"] = ViewData["hdgp"] ?? Request["hdgp"] == "Yes";
+    ViewData["nguoikinh"] = ViewData["nguoikinh"] ?? Request["nguoikinh"] == "Yes";
+    ViewData["clergyName"] = ViewData["clergyName"] ?? Request["clergyName"];
+}
+<h4 class="title-hero">TÌM KIẾM NÂNG CAO</h4>
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <div class="form-box-content">
+        <div id="first" class="step">
+            <div class="wizard-steps row">
+                <ul class="tabrow">
+                    <li class="selected">Giáo phẩm</li>
+                    <li><a href="@Url.Content("~/NhiemSo/Search")">Nhiệm sở</a></li>
+                    <li><a href="@Url.Content("~/Vanthu/VanthuReport")">Các vấn đề cần họp</a></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="col-sm-2 control-label">Số năm chức vụ</label>
+                    <div class="col-sm-1">
+                        <input class ="form-control input-sm" placeholder="Từ" name="chucvutu" value="@Request["chucvutu"]"/>
+                    </div>
+                    <div class="col-sm-1">
+                        <input class ="form-control input-sm" placeholder="Đến" name="chucvuden" value="@Request["chucvuden"]"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Số NK liên tiếp</label>
+                    <div class="col-sm-1">
+                        <input class ="form-control input-sm" placeholder="Từ" name="nhiemkytu" value="@Request["nhiemkytu"]"/>
+                    </div>
+                    <div class="col-sm-1">
+                        <input class ="form-control input-sm" placeholder="Đến" name="nhiemkyden" value="@Request["nhiemkyden"]"/>
+                    </div>
+                    <label class="col-sm-1 control-label">Năm sinh</label>
+                    <div class="col-sm-1">
+                        <input class ="form-control input-sm" placeholder="Từ năm" name="namsinhtu" value="@Request["namsinhtu"]"/>
+                    </div>
+                    <div class="col-sm-1">
+                        <input class ="form-control input-sm" placeholder="Đến năm" name="namsinhden" value="@Request["namsinhden"]"/>
+                    </div>
+                     
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="col-sm-2 control-label">Chức danh</label>
+                    <div class="col-sm-3">
+                        
+                        @(Html.Kendo().DropDownList().Name("chucdanh").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                    .DataSource(source => { source.Read(read => { read.Action("GetChucDanhWithAll", "JsonLoader"); }); })
+                        )
+                    
+                      
+                    </div>
+                    <label class="col-sm-2 control-label">Chức vụ</label>
+                    <div class="col-sm-3">
+                        @(Html.Kendo().DropDownList().Name("chucvu").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                            .DataSource(source => { source.Read(read => { read.Action("GetChucVuWithAll", "JsonLoader"); }); })
+                        )
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="col-sm-2 control-label">Nhiệm sở</label>
+                    <div class="col-sm-3">
+                        
+                        @(Html.Kendo().DropDownList().Name("nhiemso").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                                    .DataSource(source => { source.Read(read => { read.Action("GetHoiThanh", "JsonLoader"); }); })
+                        )
+                    </div>
+                    <label class="col-sm-2 control-label">Cấp nhiệm sở</label>
+                    <div class="col-sm-3">
+                        @(Html.Kendo().DropDownList().Name("capchihoi").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                            .DataSource(source => { source.Read(read => { read.Action("GetCapChiHoiWithAll", "JsonLoader"); }); })
+                        )
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="col-sm-2 control-label">Dân tộc</label>
+                    <div class="col-sm-3">
+                        @(Html.Kendo().DropDownList().Name("dantoc").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                                           .DataSource(source => { source.Read(read => { read.Action("GetChonDanToc", "JsonLoader"); }); })
+                        )
+                        
+                    </div>
+                    <label class="col-sm-2 control-label">Học vị</label>
+                    <div class="col-sm-3">
+                        @(Html.Kendo().DropDownList().Name("hocvi").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                                                  .DataSource(source => { source.Read(read => { read.Action("GetChonHocVi", "JsonLoader"); }); })
+                        )
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                   
+                    <label class="col-sm-2 control-label">Tỉnh/Thành</label>
+                    <div class="col-sm-3">
+                        @(Html.Kendo().DropDownList().Name("tinhthanh").Filter("contains")
+                                                          .DataTextField("Name").DataValueField("Id")
+                                                          .HtmlAttributes(new { style = "width:100%" })
+                                                          .DataSource(source => { source.Read(read => { read.Action("GetChonTinhThanh", "JsonLoader"); }); })
+                        )
+                        
+                    </div>
+                    <label class="col-sm-2 control-label">CMND</label>
+                    <div class="col-sm-3">
+                        <input class ="form-control input-sm" placeholder="CMND" name="cmnd" value="@Request["cmnd"]"/>
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="col-md-12">
+                    <label class="col-sm-2 control-label">Họ và tên</label>
+                    <div class="col-sm-3">
+                        <input class="form-control input-sm" placeholder="Họ và tên" name="clergyName" value="@Request["clergyName"]" />
+                    </div>
+                    <label class="col-sm-2 control-label">Tuỳ chọn loại trừ</label>
+                    <div class="col-sm-3">
+                        <label style="margin: 0px 10px 0px 20px; padding: 4px;">TT-TLH<input type="checkbox" name="tt_tlh"
+                                                                                            checked="@Request["tt_tlh"]"
+                                                                                                  style="margin: -2px 4px 0px" class="checkbox-inline" value="Yes"/></label>
+                        <label style="margin: 0px 10px 0px 20px; padding: 4px;">BTS-TLH <input type="checkbox" name="bts_tlh" checked="@Request["bts_tlh"]" style="margin: -2px 4px 0px" class="checkbox-inline" value="Yes"/></label>
+                        <label style="margin: 0px 10px 0px 20px; padding: 4px;">HĐGP <input type="checkbox" name="hdgp" checked="@Request["hdgp"]" style="margin: -2px 4px 0px" class="checkbox-inline" value="Yes"/></label>
+                        <label style="margin: 0px 10px 0px 20px; padding: 4px;">Người Kinh <input type="checkbox" name="nguoikinh" checked="@Request["nguoikinh"]" style="margin: -2px 4px 0px" class="checkbox-inline" value="Yes"/></label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-md-8">
+                    <input type="submit" class="btn btn-success" name="btnfrmsearch" value="Tìm Kiếm"/>
+                    <a href="@Url.Content("~/Home/UpdateSoNamChucVu")" class="btn btn-success">Tính toán số năm chức vụ</a>
+                    <a class="modal-with-form btn btn-success" href="#modalForm">Xuất kết quả</a>
+                    <div id="modalForm" class="mfp-hide" style="width: 400px;background: transparent;padding: 0;text-align: left;max-width: 400px;margin:350px auto;position: relative">
+                        <form method="POST" >
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label"> </label>
+                                            <label class="col-sm-9 control-label"><h4>Chọn định dạng</h4></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label"> </label>
+                                            <div class="col-sm-9">
+                                                <label class="radio-inline"><input type="radio" value="Doc" name="dataType" />Word</label>
+                                                <label class="radio-inline"><input type="radio" value="Excel" name="dataType" />Excel</label>
+                                                <label class="radio-inline">  <input type="radio" value="Pdf" name="dataType" />Pdf</label>
+                                                <br/> <br/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <footer class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-md-12 text-right">
+                                            <input type="submit" name="btnXuat" class="btn btn-primary modal-confirm" value="Xuất"/>
+                                            <button class="btn btn-default modal-dismiss">Quay lại</button>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </section>
+                        </form>
+                       
+                    </div>
+                </div>
+            
+            
+            </div>
+        </div>
+    </div>
+    @Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Columns(columns =>
+            {
+                columns.Bound(o => o.FirstName)
+                    .ClientTemplate("<img alt='#= Avatar #'  src='#= Avatar #' class='img-responsive'  class='media-object' alt='image' width='80'/>")
+                    .Title("Hình ảnh").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+              
+                columns.Bound(o => o.FirstName)
+                    .ClientTemplate("<a href='/home/MucsuDetail/#= Id #' class=''> <span class='capital'> #= FirstName # #= MiddleName # #= LastName #</span> </a>")
+                    .Title("Họ và tên").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+                
+                columns.Bound(o => o.TenChucDanh).ClientTemplate(" #= TenChucDanh # ").Title("Chức danh")
+                    .HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+                columns.Bound(o => o.TenChucDanh).ClientTemplate(" #= ChucVu # ").Title("Chức vụ")
+                    .HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+                columns.Bound(o => o.TenNhiemSo).Encoded(true).ClientTemplate("#= TenNhiemSo #")
+                    .HtmlAttributes(new { style = "text-align:center" }).Title("Tên nhiệm sở").HeaderHtmlAttributes(new { style = "text-align:center" });
+                columns.Bound(o => o.NgayBoNhiem).Encoded(true).ClientTemplate("#= NgayBoNhiem #").HtmlAttributes(new { style = "text-align:center" }).Title("Ngày bắt đầu chức vụ ").HeaderHtmlAttributes(new { style = "text-align:center" });
+                columns.Bound(o => o.NamChucVu)
+                    .ClientTemplate("#= NamChucVu # Năm #= ThangChucVu # Tháng")
+                    .HtmlAttributes(new { style = "text-align:center" }).Title("Số năm chức vụ").HeaderHtmlAttributes(new { style = "text-align:center" });
+            }).DataSource(dataBinding => dataBinding.Ajax()
+                .Read("_PagingSearchNangCao", "Home", new
+                {
+                    tinhthanh = ViewData["tinhthanh"],
+                    chucvutu = ViewData["chucvutu"],
+                    chucvuden = ViewData["chucvuden"],
+                    nhiemkytu = ViewData["nhiemkytu"],
+                    nhiemkyden = ViewData["nhiemkyden"],
+                    namsinhtu = ViewData["namsinhtu"],
+                    namsinhden = ViewData["namsinhden"],
+                    tinhtrang = ViewData["tinhtrang"],
+                    chucdanh = ViewData["chucdanh"],
+                    chucvu = ViewData["chucvu"],
+                    nhiemso = ViewData["nhiemso"],
+                    capnhiemso = ViewData["capnhiemso"],
+                    dantoc = ViewData["dantoc"],
+                    hocvi = ViewData["hocvi"],
+                    cmnd = ViewData["cmnd"],
+                    name = ViewData["clergyName"],
+                    tt_tlh = ViewData["tt_tlh"],
+                    bts_tlh = ViewData["bts_tlh"],
+                    hdgp = ViewData["hdgp"],
+                    nguoikinh = ViewData["nguoikinh"],
+                }))
+</form>

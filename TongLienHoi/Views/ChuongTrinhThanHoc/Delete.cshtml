@@ -1,0 +1,57 @@
+﻿@model HTTLVN.QLTLH.Models.BangCapNguoiPhoiNgau
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Bạn có chắc xóa nội dung sau?</h4>
+    <div class="form-box-content">
+    <div id="first" class="step">
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.ChuongTrinhThanHoc, "Chương trình thần học")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(m=>m.QuanHeVoiGiaoPham.ClergyId)
+                    @Html.DisplayFor(model => model.ChuongTrinhThanHoc)
+                </p>
+            </div>
+            </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.NoiHoc, "Nơi học/Nơi chứng nhận")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.NoiHoc)
+                </p>
+            </div>
+        </div>    
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.NgayTotNghiep, "Ngày cấp chứng chỉ")</label>
+            <div class="col-md-1">
+                <p class="form-control-static">
+                    @Model.NgayTotNghiep
+                </p>
+            </div>
+                </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Html.LabelFor(model => model.ChungChi, "Chứng chỉ")</label>
+            <div class="col-md-2">
+                <p class="form-control-static">
+                    @if (!string.IsNullOrEmpty(Model.ChungChi))
+                    {
+                        <a href="@Url.Content(string.Format("{0}?iframe=true&amp;width=90%&amp;height=100%", Model.ChungChi))" rel="prettyPhoto[iframe]"><button class='btn btn-xs btn-info'>@Helper.HumanRead(Model.ChungChi)</button> </a>
+                    }
+                </p>
+            </div>
+        </div>    
+        <div class="form-group">
+            <label class="control-label col-md-2"></label>
+            <div class="col-md-2">
+                <input type="submit" value="Xóa"  class="btn btn-primary"/>  
+                <a class="btn btn-default" href="@Url.Content(string.Format("~/ThongTinGiaDinh/Edit/{0}", Model.QuanHeVoiGiaoPham_Id))">Hủy</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</form>

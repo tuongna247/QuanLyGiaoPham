@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HTTLVN.QLTLH.Models.Clergy>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminFullLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="mws-button-row">
+    <input type="Button" value="Tạo Giáo Phẩm" class="btn btn-danger" onclick="location.href='@Url.Action("Create", "giaopham")'" />
+</div>
+@Html.Telerik().Grid(Model).Name("giaopham").Sortable(sorting => sorting.Enabled(true)).Pageable(a=>a.Enabled(true).PageSize(10)).Scrollable(scrolling => scrolling.Enabled(true)).Columns(columns =>
+        {
+            columns.Bound(o => o.FirstName).Width(100).Column.Title="Họ";
+            columns.Bound(o => o.LastName).Width(50).Column.Title = "Tên";
+            columns.Bound(o => o.Gender).Width(70).Column.Title = "Giới Tính";
+            columns.Bound(o => o.DateOfBirth).Format("{0:MM/dd/yyyy}").Width(90).Column.Title = "Ngày Sinh"; 
+            columns.Bound(o => o.PlaceOfBirth).Width(130).Column.Title = "Nơi Sinh";            
+            //columns.Bound(o => o.IdentityNumber).Width(100).Column.Title="CMND";
+            //columns.Bound(o => o.IDApprovedDate).Format("{0:MM/dd/yyyy}").Width(90).Column.Title = "Ngày Cấp";
+            //columns.Bound(o => o.BelieveDate).Format("{0:MM/dd/yyyy}").Width(90).Column.Title = "Ngày Tin Chúa";
+
+            //columns.Bound(o => o.BaptismDate).Width(90).Format("{0:MM/dd/yyyy}").Column.Title = "Ngày Báp-tem";
+            //columns.Bound(o => o.Address).Width(200).Column.Title = "Địa Chỉ";
+            //columns.Bound(o => o.Address1).Width(200).Column.Title = "Địa Chỉ";
+            columns.Bound(o => o.Phone).Width(100).Column.Title = "Điện Thoại";
+            columns.Bound(o => o.MobilePhone).Width(100).Column.Title = "DTDD";
+            columns.Bound(o => o.Email).Width(150).Column.Title = "Email";
+            //columns.Bound(o => o.Title).Width(100).Column.Title = "Title";
+            //columns.Bound(o => o.Clergy2).Width(120).Column.Title = "Cle2";
+            //columns.Bound(o => o.Clergy3).Width(120).Column.Title = "Cle3";
+            //columns.Bound(o => o.Clergy4).Width(120).Column.Title = "Cle4";
+            //columns.Bound(o => o.Career).Width(120).Column.Title = "Career";
+            columns.Command(commands => commands
+                   .Custom("viewDetails")
+                   .Text("Details")
+                   .DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id"))
+                   .Action("Details", "giaopham"))
+               .HtmlAttributes(new { style = "text-align: center" })
+               .Width(80);
+            
+            columns.Command(commands => commands
+                   .Custom("Edit")
+                   .Text("Edit")
+                   .DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id"))
+                   .Action("Edit", "giaopham"))
+               .HtmlAttributes(new { style = "text-align: center" })
+               .Width(70);
+            
+            columns.Command(commands => commands
+                   .Custom("Delete")
+                   .Text("Delete")
+                   .DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id"))
+                   .Action("Delete", "giaopham"))
+               .HtmlAttributes(new { style = "text-align: center" })
+               .Width(70);
+            
+            
+        })
+                

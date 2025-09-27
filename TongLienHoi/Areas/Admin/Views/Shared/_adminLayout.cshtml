@@ -1,0 +1,103 @@
+﻿<html >
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/fonts/ptsans/stylesheet.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/fonts/icomoon/style.css")" media="screen">
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/login.css")" media="screen">
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/mws-theme.css")" media="screen">
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/colorpicker/colorpicker.css")" media="screen">
+<link rel="stylesheet" type="text/css" @Url.Content("~/Content/custom-plugins/wizard/wizard.css")" media="screen">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/fonts/ptsans/stylesheet.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/fonts/icomoon/style.css")" media="screen">
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/mws-style.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/icons/icol16.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/icons/icol32.css")" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/demo.css")" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jui/css/jquery.ui.all.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jui/jquery-ui.custom.css")" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/mws-theme.css")" media="screen">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/themer.css")" media="screen">
+
+<title>MWS Admin - Login Page</title>
+@(Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.default.css").Combined(true).Compress(true)))
+</head>
+
+
+<body>
+    
+    @RenderBody()
+
+    <!-- JavaScript Plugins -->
+    <script src="@Url.Content("~/Content/js/libs/jquery-1.8.3.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/jquery.placeholder.min.js")"></script>
+    <script src="@Url.Content("~/Content/custom-plugins/fileinput.js")"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="@Url.Content("~/Content/jui/js/jquery-ui-effects.min.js")"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="@Url.Content("~/Content/plugins/validate/jquery.validate-min.js")"></script>
+
+    <!-- Login Script -->
+    <script src="@Url.Content("~/Content/js/core/login.js")"></script>
+    
+    <!-- JavaScript Plugins -->
+    <script src="@Url.Content("~/Content/js/libs/jquery-1.8.3.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/jquery.mousewheel.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/jquery.placeholder.min.js")"></script>
+    <script src="@Url.Content("~/Content/custom-plugins/fileinput.js")"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="@Url.Content("~/Content/jui/js/jquery-ui-1.9.2.min.js")"></script>
+    <script src="@Url.Content("~/Content/jui/jquery-ui.custom.min.js")"></script>
+    <script src="@Url.Content("~/Content/jui/js/jquery.ui.touch-punch.js")"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="@Url.Content("~/Content/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("~/Content/js/libs/excanvas.min.js")"></script>
+    <![endif]-->
+    <script src="@Url.Content("~/Content/plugins/flot/jquery.flot.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/flot/plugins/jquery.flot.tooltip.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/flot/plugins/jquery.flot.pie.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/flot/plugins/jquery.flot.stack.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/flot/plugins/jquery.flot.resize.min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/colorpicker/colorpicker-min.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/validate/jquery.validate-min.js")"></script>
+    <script src="@Url.Content("~/Content/custom-plugins/wizard/wizard.min.js")"></script>
+
+    <!-- Core Script -->
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/core/mws.js")"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="@Url.Content("~/Content/js/core/themer.js")"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script src="@Url.Content("~/Content/js/demo/demo.dashboard.js")"></script>
+    @(Html.Telerik().ScriptRegistrar().DefaultGroup(group => group.Combined(true).Compress(true)))
+</body>
+</html>

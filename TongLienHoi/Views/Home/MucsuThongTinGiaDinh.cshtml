@@ -1,0 +1,114 @@
+﻿@using HTTLVN.QLTLH.Models
+@model List<HTTLVN.QLTLH.Models.Warper.QuanHeGiaDinhDBO>
+@{
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+    var VoGiaoPham = (QuanHeVoiGiaoPham)ViewBag.VoGiaoPham;
+}
+
+<form method="post" class="form-horizontal form-box" id="basic-wizard">
+    
+    <h4 class="form-box-header">Thông tin giáo phẩm :
+        @{
+            var giaopham = ViewBag.GiaoPham as Clergy;
+        }
+        <a class="capital" href="@Url.Content(string.Format("~/Home/MucSuDetail/{0}", giaopham.Id))" style="color:#DB4A39">@giaopham.FirstName @giaopham.MiddleName @giaopham.LastName</a></h4>
+    <div class="form-box-content">
+        <div id="fourth" class="step">
+            <div class="wizard-steps row">
+                <div class="col-md-3 text-center"><a href="/Home/MucsuThongTin/@ViewBag.GiaoPhamId">1. Thông tin cá nhân </a></div>
+                <div class="col-md-3 text-center"><a href="/Home/MucsuThongTinChucVu/@giaopham.Id">2. Thông tin chức vụ</a></div>
+                <div class="col-md-3 text-center active">3. Thông tin gia đình</div>
+                <input type="hidden" value="@ViewBag.GiaoPhamId" id="GiaoPhamId" name="GiaoPhamId"/>
+            </div>
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">Có lỗi xảy ra, Xin kiểm tra lại</div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            @if (messages != null && messages.Count > 0)
+            {
+                <div class="eUserMessage">
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in messages)
+                        {
+                            <li>@str</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="panel panel-default">
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                    </div>
+                    <h2 class="panel-title">Thông tin gia đình giáo phẩm</h2> 
+                </header>
+                <div class="panel-body">
+                    @if (Model.Count > 0)
+                    {
+                        @Html.Kendo().Grid(Model).Name("giaopham").Sortable(sorting => sorting.Enabled(false)).Pageable(a => a.Enabled(false)).Columns(columns =>
+                        {
+                            columns.Bound(o => o.RelationShipName).Width(120).Column.Title = "Quan hệ";
+                            columns.Bound(o => o.HoTen).Column.Title = "Họ và tên";
+                            columns.Bound(o => o.NamSinh).Column.Title = "Năm Sinh";
+                            columns.Bound(o => o.NgheNghiep).Column.Title = "Nghề nghiệp";
+                            columns.Bound(o => o.Description).Column.Title = "Mô tả";
+                            columns.Command(commands => commands.Custom("Edit").Text("Chỉnh sửa").DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id")).Action("Edit", "ThongTinGiaDinh")).Width(120);
+                            columns.Command(commands => commands.Custom("Delete").Text("Xóa").DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id")).Action("Delete", "ThongTinGiaDinh")).Width(80);
+                        }).HtmlAttributes(new { style = "text-align: center" })
+                    }
+                    <br/>  <a href="@Url.Content(string.Format("~/ThongTinGiaDinh/Create?cleargyid={0}", @giaopham.Id))" class="btn-success btn" >Thêm thông tin gia đình</a>     
+                </div>
+            </div>
+            @if (VoGiaoPham != null && VoGiaoPham.QuanHeGiaDinh != null)
+            {
+                <div class="form-group" id="AddEducation">
+               <div class="col-md-12">
+                <div class="panel panel-default">
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                        </div>
+                        <h2 class="panel-title">Thông tin chương trình thần học của vợ giáo phẩm</h2> 
+                    </header>
+                    <div class="panel-body">
+                        @if (VoGiaoPham != null && VoGiaoPham.BangCapNguoiPhoiNgaus.Count > 0)
+                        {
+                            @Html.Kendo().Grid(VoGiaoPham.BangCapNguoiPhoiNgaus.OrderBy(a => a.OrderId)).Name("giaopham").Sortable(sorting => sorting.Enabled(false)).Pageable(a => a.Enabled(false)).Columns(columns =>
+                            {
+                                columns.Bound(o => o.ChuongTrinhThanHoc).Column.Title = "Chương trình học";
+                                columns.Bound(o => o.NoiHoc).Column.Title = "Nơi học / Nơi chứng nhận";
+                                columns.Bound(o => o.NgayTotNghiep).Format("{0:dd/MM/yyyy}").Column.Title = "Ngày tốt nghiệp";
+                                columns.Bound(o => o.ChungChi).Template(
+                                    @<text>
+                                         @if (!string.IsNullOrEmpty(item.ChungChi))
+                                         {
+                                             <a href="@Url.Content(string.Format("{0}?iframe=true&amp;width=90%&amp;height=100%", item.ChungChi))" rel="prettyPhoto[iframe]"><button class='btn btn-xs btn-info'>@Helper.HumanRead(item.ChungChi)</button> </a>
+                                         }
+                                     </text>).Column.Title = "Chứng chỉ";
+
+                            
+                                columns.Command(commands => commands.Custom("Edit").Text("Chỉnh sửa").DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id")).Action("Edit", "ChuongTrinhThanHoc"));
+                                columns.Command(commands => commands.Custom("Delete").Text("Xóa").DataRouteValues(route => route.Add(o => o.Id).RouteKey("Id")).Action("Delete", "ChuongTrinhThanHoc"));
+                            }).HtmlAttributes(new { style = "text-align: center" })
+                             
+                          
+                        }
+                        <br/>  <a href="@Url.Content(string.Format("~/ChuongTrinhThanHoc/Create?educationId={0}", @VoGiaoPham.Id))" class="btn-success btn" >Thêm chương trình thần học</a>    
+                             
+                    </div>
+                </div>
+            </div>
+            </div>  
+            }
+        </div>
+    </div>
+</form>

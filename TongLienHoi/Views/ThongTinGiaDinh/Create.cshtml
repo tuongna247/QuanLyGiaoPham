@@ -1,0 +1,82 @@
+﻿@using System.Web.UI.WebControls
+@model HTTLVN.QLTLH.Models.QuanHeVoiGiaoPham
+
+@{
+    ViewBag.Title = "Create";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Thêm thông tin gia đình</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, Xin kiểm tra lại
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.HoTen, "Quan hệ")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "RelationShipId")">       
+                        @(Html.Kendo().DropDownListFor(a => a.RelationShipId).Filter("contains")
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                                                                                      .DataSource(source => { source.Custom().Transport(read => { read.Read(a => a.Url(Url.Content("~/JsonLoader/GetQuanHeGiaDinh"))); }); })
+                              )
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.HoTen, "Họ và tên")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "HoTen")">       
+                    @Html.TextBoxFor(a => a.HoTen, new { @class = "form-control", @style = "width:100%" })
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.YearOfBirth, "Năm sinh")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "YearOfBirth")">       
+                        @(Html.Kendo().TextBoxFor(a=>a.YearOfBirth).HtmlAttributes(new { style = "width:100%" }))
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.NgheNghiep, "Nghề nghiệp")</label>
+               <div class="col-md-2">
+                    @Html.TextBoxFor(a=>a.NgheNghiep, new {  @class = "form-control", @style = "width:100%" })
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Description, "Mô tả")</label>
+               <div class="col-md-3">
+                    @Html.TextAreaFor(a => a.Description,3,40, new { @class = "form-control",@style="width:100%" })
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave" class="btn btn-primary"/>  
+                    <a class="btn btn-default" href="@Url.Content(string.Format("~/home/MucsuThongTinGiaDinh/{0}", ViewBag.CleargyId))">Hủy</a>     
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+<script type="text/javascript" language="javascript">
+    function formatDate(date, format) {
+        format = format || '{0:d}';
+        return $.telerik.formatString(format, value);
+    }
+</script>

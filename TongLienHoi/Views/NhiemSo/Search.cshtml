@@ -1,0 +1,60 @@
+﻿@using HTTLVN.QLTLH.Code
+@model IEnumerable<HTTLVN.QLTLH.Models.v_church>  
+
+
+<h4 class="title-hero">TÌM KIẾM NÂNG CAO</h4>
+<form  method="post" class="form-horizontal form-box" id="basic-wizard">
+    @{
+        ViewData["name"] = Request["name"] ?? "";
+        ViewData["chucdanh"] = ViewData["chucdanh"] ?? CommonFunction.ConvertInt(Request["capchihoi"]);
+    }
+            <div class="form-box-content">
+            <div id="first" class="step">
+                <div class="wizard-steps row">
+                    <ul class="tabrow">
+	                    <li ><a href="@Url.Content("~/home/SearchNangCao")">Giáo phẩm</a></li>
+	                    <li class="selected" >Nhiệm sở</li>
+                        <li ><a href="@Url.Content("~/Vanthu/VanthuReport")">Các vấn đề cần họp</a></li>
+	                </ul>
+                </div>
+           <div class="form-group">
+			    <div class="col-md-3">
+			         <div class="input-group">
+                        <span class="input-group-addon">Tên nhiệm sở:</span>
+                        <input class ="form-control input-sm" name="name" value="@Request["name"]"/>
+                    </div>
+			    </div>
+			    <div class="col-md-4">
+                     <div class="input-group">
+                         <span class="input-group-addon">Cấp nhiệm sở</span>
+                         @(Html.Kendo().DropDownList().Name("capchihoi").Filter("contains")
+                               .DataTextField("Name").DataValueField("Id")
+                               .HtmlAttributes(new { style = "width:100%" })
+                                       .DataSource(source => { source.Read(read => { read.Action("GetCapChiHoiGiaoSo", "JsonLoader"); }); })
+                               )
+                  </div>
+			    </div>
+			    <div class="col-md-1">
+			        <button class="btn btn-info" type="submit" name="btnfrmsearch">Tìm kiếm</button></div>
+                <div class="col-md-1">
+                  
+                    </div>
+			</div>
+           
+              
+        </div>
+    </div>
+</form>        
+
+   @(Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true).PageSizes(new int[] { 20, 50, 100 }).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Sortable(a => a.Enabled(true)).Columns(columns =>
+{
+    columns.Bound(o => o.ChurchName)
+         .ClientTemplate("<a href='/NhiemSo/ChiTietNhiemSo/#= id #' target='_blank'  class=''> <span class='capital'> #= ChurchName # </span> </a>")
+         .Title("Tên nhiệm sở").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+    columns.Bound(o => o.ChurchName)
+         .ClientTemplate("<a href='/NhiemSo/ChiTietNhiemSo/#= id #' target='_blank'  class=''> <span class='capital'> #= AddressFull # </span> </a>")
+        .Title("Địa chỉ").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+    columns.Bound(o => o.Phone).Title("Di động").HeaderHtmlAttributes(new { style = "text-align:center" });
+    columns.Bound(o => o.Email).Title("Email").HeaderHtmlAttributes(new { style = "text-align:center" });
+
+}).DataSource(dataBinding => dataBinding.Ajax().Read("_Paging", "NhiemSo", new { name = (string)ViewData["name"], id = (int)ViewData["chucdanh"] })))

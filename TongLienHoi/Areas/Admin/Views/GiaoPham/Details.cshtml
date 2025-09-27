@@ -1,0 +1,248 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_adminFullLayout.cshtml";
+}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span>Chỉnh Sửa Giáo Phẩm</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form class="mws-form" method="post">
+        <div class="mws-form-inline">
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">
+                    @Html.LabelFor(model => model.LastName, "Họ") & @Html.LabelFor(model => model.FirstName, "Tên")</label>
+                <div class="mws-form-item">
+                    <div class="mws-form-cols">
+                        @Html.DisplayFor(model => model.LastName) @Html.DisplayFor(model => model.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.NickName, "Tên Thường Gọi")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.NickName)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.Gender, "Giới Tính")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.Gender)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.DateOfBirth, "Ngày Sinh")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.PlaceOfBirth, "Nơi Sinh")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.PlaceOfBirth)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.IdentityNumber, "Số CMND")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.IdentityNumber)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.IDApprovedDate, "Ngày Cấp")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.IDApprovedDate)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.BelieveDate, "Ngày Tin Chúa")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.BelieveDate)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.BaptismDate, "Ngày Làm Báp-tem")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.BaptismDate)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.PermanentAddressId, "Địa Chỉ Thường Trú")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.PermanentAddressId)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.ContactAddressId, "Địa Chỉ Liên Hệ")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.ContactAddressId)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.Phone, "Điện Thoại")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.Phone)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.MobilePhone, "Điện Thoại Di Động")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.MobilePhone)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.Email, "Email")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.Title, "Title")</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.Title)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.FatherId)</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.FatherId)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.MotherId)</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.MotherId)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.WifeId)</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.WifeId)
+                </div>
+            </div>
+            <div class="mws-form-row bordered">
+                <label class="mws-form-label">@Html.LabelFor(model => model.Career)</label>
+                <div class="mws-form-item">
+                    @Html.DisplayFor(model => model.Career)
+                </div>
+            </div>
+        </div>
+        <div class="mws-button-row">
+            <input type="Button" value="Edit" class="btn btn-danger" onclick="location.href='@Url.Action("Edit", "giaopham", new { id = Model.Id })'" /> @Html.ActionLink("Back to List", "Index")
+            
+        </div>
+        </form>
+    </div>
+</div>
+
+@*<h2>Details</h2>
+
+<fieldset>
+    <legend>Clergy</legend>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">NickName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NickName)
+    </div>
+
+    <div class="display-label">Gender</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">DateOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">PlaceOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlaceOfBirth)
+    </div>
+
+    <div class="display-label">IdentityNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdentityNumber)
+    </div>
+
+    <div class="display-label">IDApprovedDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IDApprovedDate)
+    </div>
+
+    <div class="display-label">BelieveDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BelieveDate)
+    </div>
+
+    <div class="display-label">BaptismDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BaptismDate)
+    </div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address.Street)
+    </div>
+
+    <div class="display-label">Address1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address1.Street)
+    </div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">MobilePhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MobilePhone)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Clergy2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy2.FirstName)
+    </div>
+
+    <div class="display-label">Clergy3</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy3.FirstName)
+    </div>
+
+    <div class="display-label">Clergy4</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy4.FirstName)
+    </div>
+
+    <div class="display-label">Career</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Career)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

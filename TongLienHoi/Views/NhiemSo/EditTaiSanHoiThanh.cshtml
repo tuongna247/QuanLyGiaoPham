@@ -1,0 +1,91 @@
+﻿
+@model HTTLVN.QLTLH.Models.Church_TAISAN
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit";
+    var errors = (Dictionary<string, string>)ViewBag.Errors;
+}
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <h4 class="form-box-header">
+        @if (Model.Id == null) { <text>Thêm mới tài sản hội thánh</text>}
+        else
+        {<text>Chỉnh sửa tài sản hội thánh</text>}
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (errors != null && errors.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in errors)
+                        {
+                            <li>@str.Value</li>
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Content, "Loại tài sản")</label>
+                <div class="col-md-5">
+                    @Html.TextBoxFor(a=>a.Title)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DateApproval, "Ngày phê duyệt")</label>
+                <div class="col-md-5">
+                    @Html.TextBoxFor(a => a.DateApproval)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Content, "Diễn giải")</label>
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.Content, 4, 40, new { @style = "width: 100%" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.AttachFile, "Tập tin đính kèm")</label>
+                <div class="col-md-2">
+                    <input type="text" id="txtChungChi" name="txtChungChi" value="@Helper.HumanRead(Model.AttachFile)" placeholder="Chưa chọn tập tin đính kèm" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input id="Paper" name="ApprovalPaper" class="form-control" onchange="readURL(this);" type="file" />
+                        <span class="btn btn-default">Chọn tập tin đính kèm</span>
+                    </label>
+                </div>
+               
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave" class="btn btn-primary" />
+                    <a href="@Url.Content(string.Format("~/NhiemSo/TaiSanHoiThanh/{0}", Model.Church_ID))" class="btn btn-primary">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtChungChi').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtChungChi').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+</script>

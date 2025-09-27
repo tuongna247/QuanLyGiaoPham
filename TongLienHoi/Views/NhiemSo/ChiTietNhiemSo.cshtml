@@ -1,0 +1,204 @@
+﻿@using HTTLVN.QLTLH.Code
+@model HTTLVN.QLTLH.Models.Church
+
+<h3 class="page-header page-header-top">
+        <a class="btn btn-info" href="@Url.Content("~/NhiemSo/")">Danh sách nhiệm sở </a>
+</h3>
+<div class="row">
+    <div class="col-md-3">
+        <div class="text-center">
+            @if (!string.IsNullOrEmpty(Model.AnhDaiDien) && Model.AnhDaiDien != null)
+            {
+                <img src="@Url.Content(Model.AnhDaiDien)" class="img-responsive" alt="image" />
+            }
+            else
+            {
+                <img src="@Url.Content("~/Content/Content/img/placeholders/image_light_360x270.png")" class="img-responsive" alt="image"/>    
+            }
+        </div>
+        <div class="list-group">
+            @if (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true)
+            {
+                
+                @*<a href="@Url.Content(string.Format("~/NhiemSo/ChinhSuaNhiemSo/{0}", @Model.Id))" class="list-group-item" style="color: #DB4A39"><i class="fa fa-pencil-square"></i> Chỉnh sửa</a>*@
+            }
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.Longtitude) && !string.IsNullOrWhiteSpace(Model.Latitude))
+        {
+            <div id="map-canvas"></div>
+            <div style="text-align: center">
+                <br/>
+                <a class="btn btn-xs btn-info" target='_blank' href="/NhiemSo/ChitietBanDo/@Model.Id">Xem chi tiết bản đồ</a>
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        <h5 class="page-header-sub"><i class="fa fa-child"></i> 
+            <a href="/NhiemSo/ChinhSuaNhiemSo/@Model.Id">Thông tin nhiệm sở</a>
+        </h5>
+        <ul class="fa-ul">
+            <li><i class="fa fa-li fa-angle-right"></i> Tên nhiệm sở: @Model.ChurchName</li>
+            <li><i class="fa fa-li fa-angle-right"></i> Địa chỉ: @Model.AddressFull</li>
+            <li><i class="fa fa-li fa-angle-right"></i> Điện thoại: @Model.Phone</li>
+            @if (Model.CapChiHoi != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> Loại nhiệm sở: @Model.CapChiHoi.Description</li>    
+            }
+            
+        </ul>
+        @{
+            var danghauviec = CommonFunction.GetIsCurrentList(Model.Clergy_AssignmentHistory.ToList()).OrderBy(a => a.ChucVuId);
+            var khonghauviec = CommonFunction.GetIsNotCurrentList(Model.Clergy_AssignmentHistory.ToList()).OrderBy(a => a.ChucVuId);
+        }
+        @if (danghauviec.Count() > 0 && danghauviec != null)
+        {
+            <h5 class="page-header-sub"><i class="fa fa-users"></i>
+                <a href="/NhiemSo/QuaTrinhThanhLap/@Model.Id">Giáo phẩm đang hầu việc Chúa</a>
+            </h5>
+            <ul class="fa-ul">
+                @foreach (var item in danghauviec)
+                {
+                    <li>
+                        <i class="fa fa-li fa-angle-right"></i>
+                        @if (item.Clergy != null)
+                        {
+                            <strong>Họ tên:</strong>
+                            <span  class="capital"> 
+                        <a href="@Url.Content("~/Home/MucSuDetail/" + item.ClergyId)">@if (item.ClergyTitle != null)
+                        {
+                            @item.ClergyTitle.Title
+                        } @item.Clergy.FirstName @item.Clergy.MiddleName @item.Clergy.LastName</a></span>
+                        }
+                        @if (item.ChucVu != null)
+                        {
+                           <br/> <em> Chức vụ:</em>
+                            @item.ChucVu.Name
+                        }
+                        @if (!string.IsNullOrWhiteSpace(item.StartDate))
+                        {
+                            <br />
+                            <em> Từ năm:</em>
+                            @item.StartDate
+                            <text>- <em> Đến năm:</em> @item.EndDate</text>
+                        }
+                        else
+                        {
+                            <br />
+                            @item.Information
+                        }
+                     
+                    </li>
+                }
+            </ul>
+        }
+       @if (khonghauviec.Count() > 0 && khonghauviec != null)
+       {
+           <h5 class="page-header-sub"><i class="fa fa-users"></i>
+               <a href="/NhiemSo/QuaTrinhThanhLap/@Model.Id">Những giáo phẩm từng hầu việc Chúa tại Hội Thánh</a>
+           </h5>
+           <ul class="fa-ul">
+               @foreach (var item in khonghauviec)
+               {
+                   <li>
+                      <i class="fa fa-li fa-angle-right"></i>
+                        @if (item.Clergy != null)
+                        {
+                            <strong>Họ tên:</strong>
+                            <span  class="capital">
+                        <a href="@Url.Content("~/Home/MucSuDetail/" + item.ClergyId)"> @if (item.ClergyTitle != null)
+                                                    {
+                            @item.ClergyTitle.Title
+                                                    } @item.Clergy.FirstName @item.Clergy.MiddleName @item.Clergy.LastName</a></span>
+                        }
+                        @if (item.ChucVu != null)
+                        {
+                           <br/> <em> Chức vụ:</em>
+                            @item.ChucVu.Name
+                        }
+                       @if (!string.IsNullOrWhiteSpace(item.StartDate))
+                       {
+                           <br />
+                           <em> Từ năm:</em>
+                           @item.StartDate
+                           <text>- <em> Đến năm:</em> @item.EndDate</text>
+                       }
+                       else
+                       {
+                           <br />
+                           @item.Information
+                       }
+                     
+                   </li>
+               }
+           </ul>
+       }
+        
+    </div>
+    <div class="col-md-3">
+        <h5 class="page-header-sub"><i class="fa fa-child"></i> 
+            <a href="/NhiemSo/QuaTrinhThanhLap/@Model.Id">Lược sử Hội Thánh</a>
+        </h5>
+        <ul class="fa-ul">
+            <li><i class="fa fa-li fa-angle-right"></i><strong>Ngày thành lập: </strong>  @Model.NgayThanhLap</li>
+        </ul>
+        <h5 class="page-header-sub"><i class="fa fa-child"></i> 
+            <a href="/NhiemSo/TaiSanHoiThanh/@Model.Id">Tài sản của Hội Thánh</a>
+        </h5>
+        <ul class="fa-ul">
+            <li><i class="fa fa-li fa-angle-right"></i><strong>Diện tích đất: </strong>  @Model.DienTichDat</li>
+            <li><i class="fa fa-li fa-angle-right"></i><strong>Quy mô cơ sở: </strong> @Model.QuyMoCoSo</li>
+            
+            @if (!string.IsNullOrWhiteSpace(Model.GiayChungNhanQuyenSuDungDat))
+            {
+                       <li><a href="@Url.Content(string.Format("{0}?iframe=true&width=90%&height=100%", Model.GiayChungNhanQuyenSuDungDat))" rel="prettyPhoto[iframe]"><button class="btn btn-xs btn-info">Giấy chứng nhận</button></a></li>
+            }
+        </ul>
+        @Html.HiddenFor(a => a.Longtitude)
+        @Html.HiddenFor(a => a.Latitude)
+        @Html.HiddenFor(a => a.AddressFull)
+        @Html.HiddenFor(a => a.ChurchName)
+    </div>
+</div>
+<style>
+  
+    #map-canvas {
+        width: 100%;
+        height: 300px;
+        background-color: #CCC;
+    }
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="@Url.Content("~/Scripts/gmaps.js")"></script>
+<script type="text/javascript" charset="utf-8">
+    function LoadPopup() {
+        alert('Show popup');
+    }
+    $(document).ready(function () {
+        var getLong = document.getElementById('Longtitude');
+        var getLat = document.getElementById('Latitude');
+        var fullname = document.getElementById('ChurchName');
+        var address = document.getElementById('AddressFull');
+        var long = parseFloat(getLong.value);
+        var lat = parseFloat(getLat.value);
+       var map = new GMaps({
+            div: '#map-canvas',
+            lat:long,
+            lng:lat,
+            Zoom:18
+
+        });
+        map.addMarker({
+            lat:long,
+            lng:lat,
+            title: fullname.value+" "+address.value,
+            infoWindow: {
+                content: '<p> Hội thánh:'+fullname.value+"<br/>"+address.value+'</p>'
+            }
+        });
+
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>
+

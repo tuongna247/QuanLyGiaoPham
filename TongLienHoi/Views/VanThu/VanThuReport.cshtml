@@ -1,0 +1,118 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+
+@model IEnumerable<VanThu>  
+@{
+    ViewBag.Title = "Index";
+    ViewBag.IsViewVanThu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4 class="title-hero">TÌM KIẾM NÂNG CAO</h4>
+<form  method="post" class="form-horizontal form-box" id="basic-wizard">
+    @{
+        ViewData["loaivande"] = Request["loaivande"] ?? "";
+        ViewData["veviec"] = Request["veviec"] ?? "";
+    }
+            <div class="form-box-content">
+            <div id="first" class="step">
+                <div class="wizard-steps row">
+                    <ul class="tabrow">
+	                    <li ><a href="@Url.Content("~/home/SearchNangCao")">Giáo phẩm</a></li>
+	                    <li><a href="@Url.Content("~/NhiemSo/Search")">Nhiệm sở</a></li>
+                        <li class="selected" >Các vấn đề cần họp</li>
+	                </ul>
+                </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.Label("Về việc")</label>
+                <div class="col-md-6">
+                     <select id="selectBox" multiple="true" data-placeholder="Chọn loại vấn đề"  class="form-control input-sm" name="veviec" >
+                        <option name="phanloai" value="0" >Chọn loại vấn đề</option>
+                        @{
+                            var categories = (List<PhanLoaiVanThu>)ViewBag.PhanLoaiVanThu;
+                        }
+                        @helper RenderCategoryLine(PhanLoaiVanThu category,string spacing)
+                        {
+                            <option name="phanloai" @if (Request["veviec"] != null && Request["veviec"].Contains(category.Id.ToString()))
+                                                    {
+                                                        <text>selected="selected"</text>
+                                                    } value="@category.Id"> @spacing @category.Name</option>
+                            {
+                                if (category.PhanLoaiVanThu1.Count > 0)
+                                {
+                                    spacing += spacing;
+                                    foreach (var subCategory in category.PhanLoaiVanThu1)
+                                    {
+                                        @RenderCategoryLine(subCategory, spacing);
+                                    }
+                                }
+                            }
+                        }
+                        @if (categories != null && categories.Count > 0)
+                        {
+                            foreach (var category1 in categories)
+                            {
+                                @RenderCategoryLine(category1, "") 
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <input type="submit" class="btn btn-success" name="btnfrmsearch" value="Tìm kiếm"/> 
+                    <a class="modal-with-form btn btn-success" href="#modalForm">Xuất kết quả</a>
+                    <div id="modalForm" class="mfp-hide" style="width: 400px;background: transparent;padding: 0;text-align: left;max-width: 400px;margin:350px auto;position: relative">
+                        <form method="POST" >
+                             <section class="panel">
+                            <div class="panel-body">
+                                <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> </label>
+                                        <label class="col-sm-9 control-label"><h4>Chọn định dạng</h4></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> </label>
+                                        <div class="col-sm-9">
+                                            <label class="radio-inline"><input type="radio" value="Doc" name="dataType" />Word</label>
+                                            <label class="radio-inline"><input type="radio" value="Excel" name="dataType" />Excel</label>
+                                            <label class="radio-inline">  <input type="radio" value="Pdf" name="dataType" />Pdf</label>
+                                            <br/> <br/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <footer class="panel-footer">
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <input type="submit" name="btnXuat" class="btn btn-primary modal-confirm" value="Xuất"/>
+                                        <button class="btn btn-default modal-dismiss">Quay lại</button>
+                                    </div>
+                                </div>
+                            </footer>
+                        </section>
+                        </form>
+                       
+                    </div>
+
+                </div>
+            </div>    
+              
+        </div>
+    </div>
+</form>        
+
+  
+        @Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Columns(columns =>
+    {
+        columns.Bound(o => o.NgayVanThu).Format("{0:dd/MM/yyyy}").Title("Ngày gửi");
+        columns.Bound(o => o.NguoiGui).Title("Người gửi");
+        columns.Bound(o => o.NguoiNhan).Title("Người nhận");
+        columns.Bound(o => o.NoiDung)
+            .Title("Nội dung");
+        columns.Bound(o => o.VanBan).Title("Văn bản").Encoded(false);
+    }).DataSource(dataBinding => dataBinding.Ajax()
+                         .Read("_VanThuReport", "VanThu", new
+                         {
+                             keyword = ViewData["veviec"],
+                         }))

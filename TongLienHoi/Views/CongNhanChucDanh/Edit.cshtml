@@ -1,0 +1,182 @@
+﻿
+@model HTTLVN.QLTLH.Models.Clergy_AssignmentHistory
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Công nhận chức danh ";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <h4 class="form-box-header">Cập nhật thông tin nhiệm sở</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>
+
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Clergy.FirstName, "Tên giáo phẩm")</label>
+                <div class="col-md-4">
+                    <p class="form-control-static capital">@Model.Clergy.FirstName @Model.Clergy.MiddleName @Model.Clergy.LastName</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.ChurchId, "Nhiệm sở")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "ChurchId")">
+                        @Html.HiddenFor(model => model.id)
+                        @Html.HiddenFor(model => model.ClergyId)
+                        @(Html.Kendo().DropDownListFor(a => a.ChurchId).Filter(FilterType.Contains)
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                              .Height(800)
+                              .DataSource(source => { source.Read(read => { read.Action("GetHoiThanh", "JsonLoader"); }); })
+                              )
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.CapChiHoi, "Cấp chi hội")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "CapChiHoi")">
+                        @(Html.Kendo().DropDownListFor(a => a.CapChiHoi).Filter(FilterType.Contains)
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                              .Height(200)
+                              .DataSource(source => { source.Read(read => { read.Action("GetCapChiHoiWithAll", "JsonLoader"); }); })
+                              )
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.ChucVuId, "Chức vụ")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "ChucVuId")">
+                        @(Html.Kendo().DropDownListFor(a => a.ChucVuId)
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                                      .DataSource(source => { source.Read(read => { read.Action("GetChucVu", "JsonLoader"); }); })
+                              )
+
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TitleId, "Chức danh")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "TitleId")">
+                        @(Html.Kendo().DropDownListFor(a => a.TitleId)
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                                      .DataSource(source => { source.Read(read => { read.Action("GetAllChucDanh", "JsonLoader"); }); })
+                              )
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Term, "Nhiệm kỳ")</label>
+                <div class="col-md-4">
+                    @(Html.Kendo().NumericTextBoxFor(m => m.Term).Format("0").HtmlAttributes(new { style = "width:100%" }).Max(10).Min(0))
+                </div>
+                <div class="col-md-4">
+                    @(Html.Kendo().DropDownListFor(a => a.TermType)                                      
+                            .DataTextField("Name").DataValueField("Name")
+                            .DataSource(source => { source.Read(read => { read.Action("GetAllTermType", "JsonLoader"); }); })
+                    )
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.StartDate, "Từ năm")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "StartDate")">
+                        @Html.TextBoxFor(a => a.StartDate, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.EndDate, "Đến năm")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "EndDate")">
+                        @Html.TextBoxFor(a => a.EndDate, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TermNumber, "Nhiệm kỳ lần thứ")</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.TermNumber, new { @placeholder = "", @class = "form-control" })
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TyLeLuu, "Tỷ lệ lưu/mời (%)")</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.TyLeLuu, new { @placeholder = "", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Paper, "Giáo vụ lệnh")</label>
+                <div class="col-md-4">
+                    <input type="text" id="txtChungChi" name="txtChungChi" value="@Helper.HumanRead(Model.Paper)" placeholder="Chưa chọn giáo vụ lệnh" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input id="Paper" name="ApprovalPaper" class="form-control" onchange="readURL(this);" type="file" />
+                        <span class="btn btn-default">Chọn GVL</span>
+                    </label>
+                </div>
+                <label class="control-label col-md-1">@Html.LabelFor(model => model.PaperNumber, "Số GVL")</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.PaperNumber, new { @class = "form-control" })
+                    @Html.HiddenFor(model=> model.ClergyId)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-2">
+                    <label class=" checkbox-inline">
+                        <input type="checkbox" name="IsCurrent" @if (ViewBag.IsCurrent != null && (bool)ViewBag.IsCurrent) { <text> checked="checked" </text> } value="true" class="checkbox " /> @Html.LabelFor(model => model.IsCurrent, "Nơi đang hầu việc Chúa")
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Information, "Ghi chú")</label>
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.Information, 4, 40, new { @style = "width: 100%" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave" class="btn btn-primary" />
+                    <a href="@Url.Content(string.Format("~/NhiemSo/QuaTrinhThanhLap/{0}", Model.ChurchId))" class="btn btn-primary">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtChungChi').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtChungChi').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+</script>

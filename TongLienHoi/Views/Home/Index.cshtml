@@ -1,0 +1,80 @@
+﻿@using System.Runtime.InteropServices
+@using System.Text
+@using HTTLVN.QLTLH.Models
+@using System.Linq;
+<div class="row">
+
+    <div class="col-md-8">
+        <div class="box-wrapper">
+            <div id="calendar" class="center-margin"></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="scrollable-content scrollable-slim-sidebar">
+            <div class="pad10A">
+                <div id="page-title"><a href="@Url.Content("~/home/giaophammannhiem")"><h4>Xem thêm danh sách mãn nhiệm</h4></a></div>
+                <ul class="chat-box">
+                    @foreach (var item in (IEnumerable<V_GetEndDay>)ViewBag.GetEndDay)
+                    {
+                        <li>
+
+                            <p>
+                                <b>
+                                    <a href="@Url.Content(string.Format("~/Home/MucsuDetail/{0}", item.Id))">
+                                        <span class="tv">
+                                            @{
+                                                string fullname = string.Empty;
+                                                fullname = (item.FirstName != null ? item.FirstName.ToUpper() : "") + " " + (item.MiddleName != null ? item.MiddleName.ToUpper() : "") + " " + (item.LastName != null ? item.LastName.ToUpper() : "");
+                                                @fullname
+                                            }
+
+                                        </span>
+                                    </a>
+                                </b> Sắp hết nhiệm kỳ @item.KetThucChucVu.Value.ToString("dd/MM/yyyy")
+                            </p>
+
+                        </li>}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@{
+    var msg = "";
+    var sb = new StringBuilder();
+    foreach (var item in (IEnumerable<V_GetEndDay>)ViewBag.GetEndDay)
+    {
+        int index = ((IEnumerable<V_GetEndDay>)ViewBag.GetEndDay).ToList().IndexOf(item);
+        sb.AppendFormat(@"{{ id:{4}, title: "" {0}"",start: new Date({6}, {3}, {1}),end:new Date({6},{3},{1}),url:'/Home/MucsuDetail/{5}' }},", (item.FirstName != null ? item.FirstName.ToUpper() : " ") + " " + (item.MiddleName != null ? item.MiddleName.ToUpper() : " ") + " " + item.LastName.ToUpper(), item.KetThucChucVu.Value.Day, item.KetThucChucVu.Value.Day + 1, item.KetThucChucVu.Value.Month - 1, index, item.Id, item.KetThucChucVu.Value.Year);
+    }
+    msg = sb.Length > 0 ? sb.ToString().Substring(0, sb.Length - 1) : "";
+    ViewBag.Msg = @Html.Raw(msg);
+}
+
+@section CustomScripts
+{
+    $(function () {
+
+    var e = new Date,
+    t = e.getDate(),
+    a = e.getMonth(),
+    l = e.getFullYear();
+
+
+    $("#calendar").fullCalendar({
+    locale: 'vi',
+    header: {
+    left: "prev,next today",
+    center: "title",
+    right: "month,agendaWeek,agendaDay"
+    },
+    editable: !0,
+    events: [
+    @Html.Raw(msg)
+    ]
+    })
+    });
+}

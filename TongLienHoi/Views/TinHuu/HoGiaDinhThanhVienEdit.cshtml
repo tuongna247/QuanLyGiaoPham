@@ -1,0 +1,120 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+@model HTTLVN.QLTLH.Models.Church_HoGiaDinh
+@{
+    ViewBag.Title = "TinHuuEdit";
+    Layout = "~/Views/Shared/_LayoutTinHuu.cshtml";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+    string imagePath = (Model !=null&& !string.IsNullOrEmpty(Model.BigImages)) ? Model.BigImages : "~/Content/Content/img/placeholders/image_dark_64x64.png";
+}
+
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"
+      id="basic-wizard">
+    <h4 class="form-box-header">
+        Thông tin hộ gia đình: <a class="capital" href="@Url.Content(string.Format("~/TinHuu/TinHuuDetail/{0}", @Model.Church_TinHuu.Id))" style="color:#DB4A39">
+                                   @Model.Church_TinHuu.FirstName @Model.Church_TinHuu.MiddleName @Model.Church_TinHuu.LastName
+                               </a>
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+        {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                    {
+                            <li>@str.Value</li>
+                    }
+                    </ul>
+                </div>
+        }
+            @if (messages != null && messages.Count > 0)
+        {
+                <div class="eUserMessage">
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in messages)
+                    {
+                            <li>@str</li>
+                    }
+                    </ul>
+                </div>
+        }
+            <div class="form-group">
+                <label class="control-label col-md-2">
+                    Thông tin chủ hộ:
+                </label>
+                <div class="col-md-10">
+                    <table>
+                        <tr>
+                            <td>
+                                
+                                <a href="@Url.Content("~/TinHuu/ThemMoiTinHuu/" + @Model.id)">Thêm mới thành viên gia đình</a>
+                            </td>
+
+                        </tr>
+                            @foreach (var thanhvien in Model.Church_HoGiaDinh_TinHuu)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Content("~/TinHuu/TinHuuDetail/" + thanhvien.TinHuu_Id)">
+                                            @thanhvien.Church_TinHuu.FirstName @thanhvien.Church_TinHuu.LastName : @thanhvien.Church_TinHuu.DateOfBirth : @if (thanhvien.Church_TinHuu.Gender)
+                                                                                                                                                            {
+                                                                                                                                                                <text>Nam</text>
+                                                                                                                                                            }
+                                                                                                                                                            else
+                                                                                                                                                            {
+                                                                                                                                                                <text>Nữ</text>
+                                                                                                                                                            } : @thanhvien.Church_TinHuu.QuanHeGiaDinh
+                                        </a>
+                                    </td>
+
+                                </tr>
+
+                            }
+
+                                                
+                    </table>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+<script type="text/javascript" language="javascript">
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+
+            reader.onload = function (e) {
+                $('#Avatar').attr('src', e.target.result);
+                $("#Avatar").resizable({ aspectRatio: true, maxHeight: 300 });
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#Avatar').attr('src', "#");
+        }
+
+
+    }
+    function ShowDateOfDead() {
+        if ($('#is_dead').is(":checked")) {
+            $('#DateOfDeath').show();
+        } else $('#DateOfDeath').hide();
+    }
+</script>

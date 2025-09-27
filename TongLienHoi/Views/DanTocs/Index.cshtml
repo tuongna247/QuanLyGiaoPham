@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HTTLVN.QLTLH.Models.DanToc>
+@using HTTLVN.QLTLH.App_Start
+<h2>Dân Tộc </h2>
+
+<p>
+    @Html.ActionLink("Tạo mới dân tộc", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Tên dân tộc
+        </th><th>
+          Mô tả
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <div class="pull-right">
+                    @Html.NoEncodeActionLink("Sửa", "Edit", "Edit", "DanTocs", new { id = item.Id }, new { customer_changrate = "", @class = "btn btn-default" })
+                    &nbsp;
+
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

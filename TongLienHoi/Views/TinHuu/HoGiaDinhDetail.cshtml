@@ -1,0 +1,93 @@
+﻿@model HTTLVN.QLTLH.Models.Church_HoGiaDinh
+@using HTTLVN.QLTLH.Code
+@{
+    ViewBag.Title = "TinHuuEdit";
+    Layout = "~/Views/Shared/_LayoutTinHuu.cshtml";
+}
+<h3 class="page-header page-header-top">
+        <a class="btn btn-info" href="@Url.Content("~/TinHuu/HoGiaDinh")">Danh sách hộ gia đình </a>
+</h3>
+<div class="row">
+    <div class="col-md-3">
+        <div class="text-center">
+            @if (!string.IsNullOrEmpty(Model.BigImages) && Model.BigImages != null)
+            {
+                <img src="@Url.Content(Model.BigImages)" class="img-responsive" alt="image" />
+            }
+            else
+            {
+                <img src="@Url.Content("~/Content/Content/img/placeholders/image_light_360x270.png")" class="img-responsive" alt="image"/>    
+            }
+        </div>
+        <div class="list-group">
+            <a href="@Url.Content(string.Format("~/TinHuu/HoGiaDinhEdit/{0}", @Model.id))" class="list-group-item" style="color: #DB4A39"><i class="fa fa-pencil-square"></i> Chỉnh sửa</a>
+        </div>
+       
+    </div>
+    <div class="col-md-6">
+        <h5 class="page-header-sub"><i class="fa fa-child"></i> 
+            <a href="/TinHuu/HoGiaDinhEdit/@Model.id">Thông tin hộ gia đình</a>
+        </h5>
+        <ul class="fa-ul">
+            <li><i class="fa fa-li fa-angle-right"></i><span  class="capital">
+                                                           <a href="@Url.Content("~/TinHuu/TinHuuDetail/"+Model.Church_TinHuu.Id)">
+                                                               Họ và tên: @Model.Church_TinHuu.FirstName @Model.Church_TinHuu.MiddleName @Model.Church_TinHuu.LastName
+                                                           </a>                                           
+                                                       </span></li>
+          @if (Model.Church_TinHuu.NickName != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Tên gọi khác:</em>@Model.Church_TinHuu.NickName </li>
+            }
+            
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Ngày sinh:</em> @Model.Church_TinHuu.DateOfBirth</li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Nghề nghiệp:</em> @Model.Church_TinHuu.NgheNghiep</li>
+            @if (Model.Church_TinHuu.MobilePhone != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Di động:</em> @CommonFunction.ConvertDouble(Model.Church_TinHuu.MobilePhone)</li>    
+            }
+            @if (Model.Church_TinHuu.Phone != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Bàn:</em> @CommonFunction.ConvertDouble(Model.Church_TinHuu.Phone)</li>
+            }
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Quan hệ gia đình:</em> @Model.Church_TinHuu.QuanHeGiaDinh</li>
+            <li><i class="fa fa-li fa-angle-right"></i> <em>Giới tính:</em> @if (Model.Church_TinHuu.Gender)
+                                                                            {<text>Nam</text>}
+                                                                            else
+                                                                            {<text>Nữ</text>}</li>
+            @if (Model.Church_TinHuu.Church_TinHuu_Addresses != null)
+            {
+                <li><i class="fa fa-li fa-angle-right"></i> <em>Địa chỉ:</em> @Helper.DisplayAddress2(Model.Church_TinHuu.Church_TinHuu_Addresses)</li>
+            }
+        </ul>
+        <h5 class="page-header-sub">
+            <i class="fa fa-child"></i>
+            <a href="/TinHuu/HoGiaDinhThanhVienEdit/@Model.id">Danh sách thành viên gia đình</a>
+        </h5>
+        
+        <ul class="fa-ul">
+            @foreach (var thanhvien in Model.Church_HoGiaDinh_TinHuu)
+            {
+                <li>
+                    <i class="fa fa-li fa-angle-right"></i>
+                    <a href="@Url.Content("~/TinHuu/TinHuuDetail/"+thanhvien.TinHuu_Id)">@thanhvien.Church_TinHuu.FirstName @thanhvien.Church_TinHuu.LastName : @thanhvien.Church_TinHuu.DateOfBirth : @if (thanhvien.Church_TinHuu.Gender)
+                    {<text>Nam</text>}
+                    else
+                    {<text>Nữ</text>} : @thanhvien.Church_TinHuu.QuanHeGiaDinh</a>
+                </li>
+
+            }
+        </ul>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  
+    $(document).ready(function () {
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+        $("a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'fast', theme: 'light_square', slideshow: 3000, hideflash: true, social_tools: false });
+    });
+</script>
+

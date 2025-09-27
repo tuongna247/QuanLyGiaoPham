@@ -1,0 +1,83 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+
+@model IEnumerable<HTTLVN.QLTLH.Models.Warper.VanThuDBO>  
+@{
+    ViewBag.Title = "Index";
+    ViewBag.IsViewVanThu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4 class="title-hero">TÌM KIẾM NÂNG CAO</h4>
+<form  method="post" class="form-horizontal form-box" id="basic-wizard">
+    @{
+        ViewData["veviec"] = Request["veviec"] ?? "";
+    }
+            <div class="form-box-content">
+            <div id="first" class="step">
+                <div class="wizard-steps row">
+                     <ul class="tabrow">
+	                    <li ><a href="@Url.Content("~/home/SearchNangCao")">Giáo phẩm</a></li>
+	                    <li><a href="@Url.Content("~/NhiemSo/Search")">Nhiệm sở</a></li>
+                        <li ><a href="@Url.Content("~/Vanthu/VanthuReport")">Các vấn đề cần họp</a></li>
+	                </ul>
+                </div>
+           
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.Label("Văn thư cần giải quyết")</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="veviec" value="@Request["veviec"]"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <input type="submit" class="btn btn-success" name="btnfrmsearch" value="Tìm kiếm"/> 
+                    <a class="modal-with-form btn btn-success" href="#modalForm">Xuất kết quả</a>
+                    <div id="modalForm" class="mfp-hide" style="width: 400px;background: transparent;padding: 0;text-align: left;max-width: 400px;margin:350px auto;position: relative">
+                        <form method="POST" >
+                             <section class="panel">
+                            <div class="panel-body">
+                                <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> </label>
+                                        <label class="col-sm-9 control-label"><h4>Chọn định dạng</h4></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> </label>
+                                        <div class="col-sm-9">
+                                            <label class="radio-inline"><input type="radio" value="Doc" name="dataType" />Word</label>
+                                            <label class="radio-inline"><input type="radio" value="Excel" name="dataType" />Excel</label>
+                                            <label class="radio-inline">  <input type="radio" value="Pdf" name="dataType" />Pdf</label>
+                                            <br/> <br/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <footer class="panel-footer">
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <input type="submit" name="btnXuat" class="btn btn-primary modal-confirm" value="Xuất"/>
+                                        <button class="btn btn-default modal-dismiss">Quay lại</button>
+                                    </div>
+                                </div>
+                            </footer>
+                        </section>
+                        </form>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</form>        
+
+  @Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu").MorePages(""))).Columns(columns =>
+            {
+                columns.Bound(o => o.NgayVanThu).Format("{0:dd/MM/yyyy}").Title("Ngày gửi");
+                columns.Bound(o => o.NguoiGui).Title("Người gửi");
+                columns.Bound(o => o.TieuDe).Title("Về việc");
+                //columns.Bound(o => o.VanBan).Title("Văn bản").Encoded(false);
+            }).DataSource(dataBinding => dataBinding.Ajax()
+                .Read("_SearchVanThu", "VanThu", new
+                {
+                    keyword = ViewData["veviec"],
+                }))

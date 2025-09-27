@@ -1,0 +1,97 @@
+﻿@using HTTLVN.QLTLH.Code
+@model IEnumerable<HTTLVN.QLTLH.Models.v_church>
+<div class="page-header page-header-top clearfix">
+    <h3 class="title-hero">Tìm kiếm thông tin Nhiệm Sở </h3>
+    @{
+        ViewData["name"] = Request["name"] ?? "";
+        ViewData["chucdanh"] = ViewData["chucdanh"] ?? CommonFunction.ConvertInt(Request["chucdanh"]);
+        var currentChucDanh = ViewData["chucdanh"];
+    }
+
+    <form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+       
+        <div class="form-box-content">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Cấp nhiệm sở</span>
+                        @(Html.Kendo().DropDownList().Name("capchihoi").DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new {style = "width:100%"})
+                              .DataSource(source => { source.Read(read => { read.Action("GetCapChiHoiGiaoSo", "JsonLoader"); }); })
+                              )
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="col-sm-3 control-label"></label>
+                    <div class="col-sm-8">
+                        <button class="btn btn-info" type="button" id="btnfrmsearch" onclick="return getDanhSachNhiemSo()" name="btnfrmsearch">Tìm kiếm</button>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="hidden" id="hdnId" value="@currentChucDanh" />
+                    <a href="@Url.Content("~/NhiemSo/ChinhSuaNhiemSo")" class="btn btn-success">Thêm mới</a>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-12" id="danhsachChiHoi" style="margin: 8px;">
+                </div>
+            </div>
+
+        </div>
+        <br/>
+
+
+        @section Styles {
+            @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+        }
+
+        @section Scripts {
+            @Scripts.Render("~/plugins/dataTables")
+            <script>
+                
+                function getDanhSachNhiemSo() {
+                    $.ajax({
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify({ Id: $("#capchihoi").val(), StrParam1: "" }),
+                        dataType: 'html',
+                        url: '/NhiemSo/GetDanhSachNhiemSo/'
+                    })
+                     .success(function (result) {
+                         $('#danhsachChiHoi').html(result);
+                         $('#giaophamManNhiem').DataTable({
+                             "order": [[0, "desc"]],
+                             pageLength: 25,
+                             dom: '<"html5buttons"B>lTfgitp',
+                             buttons: [
+                                 { extend: 'copy' },
+                                 { extend: 'csv', title: 'Danh Sách Nhiệm Sở' },
+                                 { extend: 'excel', title: 'Danh Sách Nhiệm Sở' },
+                                 { extend: 'pdf', title: 'Danh Sách Nhiệm Sở' },
+                                 {
+                                     extend: 'print',
+                                     customize: function (win) {
+                                         $(win.document.body).addClass('white-bg');
+                                         $(win.document.body).css('font-size', '10px');
+
+                                         $(win.document.body).find('table')
+                                             .addClass('compact')
+                                             .css('font-size', 'inherit');
+                                     }
+                                 }
+                             ]
+
+                         });
+                     })
+                    .error(function (error) {
+                        alert(error);
+                    });
+                }
+                $(document).ready(function () {
+                    getDanhSachNhiemSo();
+                });
+            </script>
+        }
+    </form>
+</div>

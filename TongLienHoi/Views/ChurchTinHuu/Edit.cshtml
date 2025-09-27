@@ -1,0 +1,147 @@
+﻿@model HTTLVN.QLTLH.Models.Church_TinHuu
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Church_TinHuu</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Church_Id, "Church")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Church_Id", String.Empty)
+            @Html.ValidationMessageFor(model => model.Church_Id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SoLuongTinHuu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongTinHuu)
+            @Html.ValidationMessageFor(model => model.SoLuongTinHuu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoi)
+            @Html.ValidationMessageFor(model => model.LuaTuoi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ThanhPhanDanToc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ThanhPhanDanToc)
+            @Html.ValidationMessageFor(model => model.ThanhPhanDanToc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TinHuuBapTem)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TinHuuBapTem)
+            @Html.ValidationMessageFor(model => model.TinHuuBapTem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TinHuuChuaBapTem)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TinHuuChuaBapTem)
+            @Html.ValidationMessageFor(model => model.TinHuuChuaBapTem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NamThongKe)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NamThongKe)
+            @Html.ValidationMessageFor(model => model.NamThongKe)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoiThieuNhi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoiThieuNhi)
+            @Html.ValidationMessageFor(model => model.LuaTuoiThieuNhi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoiThieuNien)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoiThieuNien)
+            @Html.ValidationMessageFor(model => model.LuaTuoiThieuNien)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoiThanhNien)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoiThanhNien)
+            @Html.ValidationMessageFor(model => model.LuaTuoiThanhNien)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoiTrangNien)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoiTrangNien)
+            @Html.ValidationMessageFor(model => model.LuaTuoiTrangNien)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoiTrungNien)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoiTrungNien)
+            @Html.ValidationMessageFor(model => model.LuaTuoiTrungNien)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LuaTuoiLaoNien)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LuaTuoiLaoNien)
+            @Html.ValidationMessageFor(model => model.LuaTuoiLaoNien)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GioiTinhNam)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GioiTinhNam)
+            @Html.ValidationMessageFor(model => model.GioiTinhNam)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GioiTinhNu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GioiTinhNu)
+            @Html.ValidationMessageFor(model => model.GioiTinhNu)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

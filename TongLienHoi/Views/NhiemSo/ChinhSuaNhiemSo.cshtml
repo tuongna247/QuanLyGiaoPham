@@ -1,0 +1,196 @@
+﻿@using System.Collections.Generic
+@using HTTLVN.QLTLH.Models
+@model HTTLVN.QLTLH.Models.Church
+@{
+    var erros = (Dictionary<string,string>)ViewBag.Errors;
+    var messages = (List<string>)ViewBag.Message;
+    string imagePath = !string.IsNullOrEmpty(Model.AnhDaiDien) ? Model.AnhDaiDien : "~/Content/Content/img/placeholders/image_dark_64x64.png";
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">
+        @if (Model.Id > 0)
+        {
+         <text> Thông tin giáo sở : </text><a class="btn btn-info" href="@Url.Content("~/NhiemSo/ChiTietNhiemSo/" + @Model.Id)">@Model.ChurchName</a>   
+        }
+         
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+        <div class="wizard-steps row">
+                <div class="col-md-3 text-center active">1. Thông tin cơ bản</div>
+            <div class="col-md-3 text-center">
+                @Html.HiddenFor(a=>a.Id)
+                @if(Model.Id>0)
+                {
+                    <a href="/NhiemSo/QuaTrinhThanhLap/@Model.Id">2. Lược sử Hội Thánh</a>    
+                }else
+                {
+                    <a href="javascript:void(0)">2. Lược sử Hội Thánh</a> 
+                }
+            </div>
+             <div class="col-md-3 text-center">
+                @Html.HiddenFor(a=>a.Id)
+                @if(Model.Id>0)
+                {
+                    <a href="/NhiemSo/TaiSanHoiThanh/@Model.Id">3. Tài sản Hội Thánh</a>    
+                }else
+                {
+                    <a href="javascript:void(0)">3. Tài sản Hội Thánh</a> 
+                }
+            </div>
+        </div>
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            @if (messages != null && messages.Count > 0)
+            {
+                <div class="eUserMessage">
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in messages)
+                        {
+                            <li>@str</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2" >Tên giáo sở:</label>
+                <div class="col-md-3">
+                    <div class="@Helper.CheckError(erros, "ChurchName")">
+                        @Html.TextBoxFor(model => model.ChurchName, new { @placeholder = "", @class = "form-control " })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">Loại nhiệm sở:</label>
+                <div class="col-md-3">
+                    @(Html.Kendo().DropDownListFor(a => a.CapChiHoiID).Filter("contains")
+              .DataTextField("Name").DataValueField("Id")
+              .HtmlAttributes(new { style = "width:100%;" })
+                      .DataSource(source => { source.Read(read => { read.Action("GetAllCapChiHoi", "JsonLoader"); }); })
+
+              )
+
+    @Html.HiddenFor(model => model.CapChiHoiID)
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-md-2" >Địa chỉ:</label>
+                 <div class="col-md-3">
+                     @Html.TextBoxFor(model => model.AddressFull, new { @placeholder = "", @class = "form-control " })
+                 </div>
+                  <label class="control-label col-md-2" >Tỉnh thành:</label>
+                <div class="col-md-3">
+                    @(Html.Kendo().DropDownListFor(a => a.CitiId).Filter("contains")
+                          .DataTextField("Name").DataValueField("Id")
+                          .HtmlAttributes(new { style = "width:80%" })
+                                  .DataSource(source => { source.Read(read => { read.Action("GetAllcity", "JsonLoader"); }); })
+                          )
+                    @Html.HiddenFor(model => model.CitiId)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Điện thoại:</label>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.Phone, new { @placeholder = "", @class = "form-control " })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Số Chứng Nhận:</label>
+                <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.SoChungNhan, new { @placeholder = "", @class = "form-control " })    
+                </div>
+                <label class="control-label col-md-2">Ngày Chứng Nhận:</label>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.NgayChungNhan, new { @placeholder = "", @class = "form-control " })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Hình đại diện:</label>
+                <div class="col-md-1">
+                    @if (Model.AnhDaiDien != null && !string.IsNullOrEmpty(Model.AnhDaiDien))
+                    {
+                        <img src="@Url.Content(Model.AnhDaiDien)" width="80px" id="Avatar" class="img-responsive"  class="media-object" alt="image" />
+                    }
+                    else
+                    {
+                        <img width="80px"  src="@Url.Content("~/Content/Content/img/placeholders/image_dark_64x64.png")"  id="Avatar"  class="media-object" alt="image"/>
+                    }
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="file" name="hinhdaidien" id="hinhdaidien"  onchange="readURL(this);" /> <span class="btn btn-default">Chọn hình</span>
+                    </label>
+                    @if (Model.AnhDaiDien != null && !string.IsNullOrEmpty(Model.AnhDaiDien))
+                    {
+                        <input type="submit" name="btnDeleteImage" value="Xóa hình" class="btn btn-danger"/>
+                    }
+                </div>
+                <label class="control-label col-md-2">Ngày thành lập:</label>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.NgayThanhLap, new { @placeholder = "", @class = "form-control " })
+                </div>
+            </div>
+           
+             <div class="form-group">
+                <label class="control-label col-md-2">Ghi chú:</label>
+                <div class="col-md-8">
+                    <div class="@Helper.CheckError(erros, "GhiChu")">
+                        @Html.TextAreaFor(a => a.GhiChu, 12, 30, new { @style = "width: 100%", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-actions">
+                <div class="col-md-10 col-md-offset-2">
+                    <input type="submit" class="btn btn-success" name="next" id="next" value="Lưu"/>
+                    @if ((bool)ViewBag.HavePeritToDelete && Model.Id>0)
+                    {
+                        <input type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc xóa không? ')" name="deleteChiHoi" id="delete" value="Xóa Chi Hội" />
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+    
+<script type="text/javascript" language="javascript">
+    function formatDate(date, format) {
+        format = format || '{0:d}';
+        return $.telerik.formatString(format, value);
+    }
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+
+            reader.onload = function (e) {
+                $('#Avatar').attr('src', e.target.result);
+                $("#Avatar").resizable({ aspectRatio: true, maxHeight: 300 });
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#Avatar').attr('src', "#");
+        }
+
+
+    }
+   
+</script>

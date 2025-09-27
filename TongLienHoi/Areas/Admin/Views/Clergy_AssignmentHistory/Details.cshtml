@@ -1,0 +1,75 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_AssignmentHistory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Được nhận nhiệm sở</h3>
+
+    <div class="display-label">Clergy</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Clergy.FirstName)
+    </div>
+
+    <div class="display-label">Church</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Church.ChurchName)
+    </div>
+
+    <div class="display-label">Office</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Office.OfficeName)
+    </div>
+
+    <div class="display-label">Role</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role)
+    </div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">EndDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndDate)
+    </div>
+
+    <div class="display-label">Term</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Term)
+    </div>
+
+    <div class="display-label">TitleId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TitleId)
+    </div>
+
+    <div class="display-label">TyLeLuu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TyLeLuu)
+    </div>
+
+    <div class="display-label">NeedAlert</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NeedAlert)
+    </div>
+
+    <div class="display-label">Paper</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Paper)
+    </div>
+
+    <div class="display-label">Information</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Information)
+    </div>
+    <div class="display-label">ApplyDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplyDate)
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

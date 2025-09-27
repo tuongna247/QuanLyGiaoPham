@@ -1,0 +1,95 @@
+﻿@model HTTLVN.QLTLH.Models.Church_TinHuu
+
+@{
+    ViewBag.Title = "Create";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Cập nhật thông tin nhiệm sở</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+             @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                @Html.HiddenFor(a=>a.Church_Id)
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoLuongTinHuu, "Số lượng tín hữu")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.SoLuongTinHuu).Format("###,###")
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.NamThongKe, "Năm thống kê")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.NamThongKe).Format("###,###")
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TinHuuBapTem, "Báp têm")</label>
+                <div class="col-md-2">
+                     @Html.Kendo().NumericTextBoxFor(a => a.TinHuuBapTem).Format("###,###")
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TinHuuChuaBapTem, "Chưa báp têm")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.TinHuuChuaBapTem).Format("###,###")
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.LuaTuoiThieuNhi, "Thiếu nhi")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.LuaTuoiThieuNhi).Format("###,###")
+                </div>
+                  <label class="control-label col-md-2">@Html.LabelFor(model => model.LuaTuoiThieuNien, "Thiếu niên")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.LuaTuoiThieuNien).Format("###,###")
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.LuaTuoiThanhNien, "Thanh niên")</label>
+                <div class="col-md-2">
+                   @Html.Kendo().NumericTextBoxFor(a => a.LuaTuoiThanhNien).Format("###,###")
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.LuaTuoiTrangNien, "Tráng niên")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.LuaTuoiTrangNien).Format("###,###")
+                </div>
+                  <label class="control-label col-md-2">@Html.LabelFor(model => model.LuaTuoiTrungNien, "Trung niên")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.LuaTuoiTrungNien).Format("###,###")
+                </div>
+                 <label class="control-label col-md-2">@Html.LabelFor(model => model.LuaTuoiLaoNien, "Lão niên")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.LuaTuoiLaoNien).Format("###,###")
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.GioiTinhNam, "Số lượng Nam")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.GioiTinhNam).Format("###,###")
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.GioiTinhNu, "Số lượng Nữ")</label>
+                <div class="col-md-2">
+                    @Html.Kendo().NumericTextBoxFor(a => a.GioiTinhNu).Format("###,###")
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                 <div class="col-md-10">
+                     
+                     <input type="submit" value="Lưu"  name="btnSave" class="btn btn-primary"/>
+                     <a href="@Url.Content(string.Format("~/NhiemSo/QuaTrinhThanhLap/{0}", Request["churchid"]))" class="btn btn-primary">Quay lại</a>     
+                 </div>
+            </div>
+        </div>
+    </div>
+</form>

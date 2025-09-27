@@ -1,0 +1,119 @@
+﻿@model HTTLVN.QLTLH.Models.City
+
+@{
+    ViewBag.Title = "Edit";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Cập nhật Tỉnh @Model.Name</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, Xin kiểm tra lại
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoChiHoi, "Số Chi Hội")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "SoChiHoi")">
+                        @Html.HiddenFor(a=>a.id)
+                        @Html.HiddenFor(a=>a.Name)
+                        @Html.TextBoxFor(a => a.SoChiHoi, new {@placeholder = "", @class = "form-control"})
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoChiHoiCT, "được CQ chấp thuận")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "SoChiHoiCT")">
+                        @Html.TextBoxFor(a => a.SoChiHoiCT, new {@placeholder = "", @class = "form-control"})
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoChiHoiCT, "chưa được CQ chấp thuận")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "SoChiHoiCCT")">
+                        @Html.TextBoxFor(a => a.SoChiHoiCCT, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DiemNhom, "Số Điểm Nhóm")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "SoChiHoi")">
+                        @Html.TextBoxFor(a => a.SoChiHoi, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DiemNhomCT, "được CQ chấp thuận")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "DiemNhomCT")">
+                        @Html.TextBoxFor(a => a.SoChiHoiCT, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoChiHoiCT, "chưa được CQ chấp thuận")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "DiemNhomCCT")">
+                        @Html.TextBoxFor(a => a.SoChiHoiCCT, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.HoiNhanh, "Số Hội Nhóm")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "HoiNhanh")">
+                        @Html.TextBoxFor(a => a.HoiNhanh, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.DiemNhomCT, "được CQ chấp thuận")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "HoiNhanhCT")">
+                        @Html.TextBoxFor(a => a.HoiNhanhCT, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoChiHoiCT, "chưa được CQ chấp thuận")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "HoiNhanhCCT")">
+                        @Html.TextBoxFor(a => a.HoiNhanhCCT, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+            </div> 
+            <div class="form-group">
+               
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TinHuu, "Số lượng tín hữu")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "TinHuu")">
+                        @Html.TextBoxFor(a => a.TinHuu, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.TinHuuChuaBapTem, "Số lượng tín hữu đã báp têm")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "TinHuuChuaBapTem")">
+                        @Html.TextBoxFor(a => a.TinHuuChuaBapTem, new {@placeholder = "", @class = "form-control"})
+                    </div>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.HoiNhanh, "Số tín hữu đi nhóm hằng tuần")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "TinHuuDiNhom")">
+                        @Html.TextBoxFor(a => a.TinHuuDiNhom, new { @placeholder = "", @class = "form-control" })
+                    </div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave" class="btn btn-primary"/>  
+                    <a class="btn btn-default" href="@Url.Content(string.Format("~/City/"))">Quay trở lại</a>     
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

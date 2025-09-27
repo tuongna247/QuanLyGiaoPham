@@ -1,0 +1,2073 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TongLienHoiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="250" />
+    <Property Name="Ward" Type="nvarchar" MaxLength="50" />
+    <Property Name="District" Type="nvarchar" MaxLength="250" />
+    <Property Name="City" Type="nvarchar" MaxLength="250" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="BangCapNguoiPhoiNgau">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChuongTrinhThanHoc" Type="nvarchar" MaxLength="255" />
+    <Property Name="NoiHoc" Type="nvarchar" MaxLength="255" />
+    <Property Name="NgayTotNghiep" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChungChi" Type="nvarchar" MaxLength="255" />
+    <Property Name="QuanHeVoiGiaoPham_Id" Type="int" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="CapChiHoi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="sortId" Type="int" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="CategoryDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CatId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="ChiTietChucVuGiaoPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ChucVuID" Type="int" Nullable="false" />
+    <Property Name="GiaoPhamId" Type="int" Nullable="false" />
+    <Property Name="TuNgay" Type="date" Nullable="false" />
+    <Property Name="DenNgay" Type="date" Nullable="false" />
+    <Property Name="GiaoVuLenh" Type="date" />
+    <Property Name="UrlGiaoVuLenh" Type="nvarchar" MaxLength="250" />
+    <Property Name="UpdateBy" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+    <Property Name="AddressId" Type="int" />
+  </EntityType>
+  <EntityType Name="ChucVu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShortTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Church">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChurchName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="CapChiHoiID" Type="int" />
+    <Property Name="AddressFull" Type="nvarchar" MaxLength="500" />
+    <Property Name="CitiId" Type="int" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="500" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NgayThanhLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayCongNhanDiemNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanDiemNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanDiemNhom" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanDiemNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanDiemNhom" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCongNhanHoiNhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanHoiNhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanHoiNhanh" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanHoiNhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanHoiNhanh" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCongNhanChiHoiTuDuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanHoiTuDuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanHoiTuDuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanHoiTuDuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanHoiTuDuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayTaiLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayCungHienDenTho" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaiSanHoiThanh" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DienTichDat" Type="nvarchar" MaxLength="2000" />
+    <Property Name="QuyMoCoSo" Type="nvarchar" MaxLength="2000" />
+    <Property Name="GiayChungNhanQuyenSuDungDat" Type="nvarchar" MaxLength="500" />
+    <Property Name="Longtitude" Type="nvarchar" MaxLength="100" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="100" />
+    <Property Name="TenKhongDau" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Church_Assignment_History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Church_Id" Type="int" />
+    <Property Name="CapChiHoi_Id" Type="int" />
+    <Property Name="Created_DT" Type="date" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="GiaoVuLenh" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsCurrent" Type="bit" />
+  </EntityType>
+  <EntityType Name="Church_SoLuongTinHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoLuongTinHuu" Type="int" />
+    <Property Name="NamThongKe" Type="int" />
+    <Property Name="TinHuuBapTem" Type="int" />
+    <Property Name="TinHuuChuaBapTem" Type="int" />
+    <Property Name="LuaTuoiThieuNhi" Type="int" />
+    <Property Name="LuaTuoiThieuNien" Type="int" />
+    <Property Name="LuaTuoiThanhNien" Type="int" />
+    <Property Name="LuaTuoiTrangNien" Type="int" />
+    <Property Name="LuaTuoiTrungNien" Type="int" />
+    <Property Name="LuaTuoiLaoNien" Type="int" />
+    <Property Name="GioiTinhNam" Type="int" />
+    <Property Name="GioiTinhNu" Type="int" />
+    <Property Name="Church_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Church_TAISAN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Church_ID" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Content" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DateApproval" Type="datetime" />
+    <Property Name="AttachFile" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Church_TinHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Church_Id" Type="int" />
+    <Property Name="SoLuongTinHuu" Type="int" />
+    <Property Name="LuaTuoi" Type="int" />
+    <Property Name="ThanhPhanDanToc" Type="int" />
+    <Property Name="TinHuuBapTem" Type="int" />
+    <Property Name="TinHuuChuaBapTem" Type="int" />
+    <Property Name="NamThongKe" Type="int" />
+    <Property Name="LuaTuoiThieuNhi" Type="int" />
+    <Property Name="LuaTuoiThieuNien" Type="int" />
+    <Property Name="LuaTuoiThanhNien" Type="int" />
+    <Property Name="LuaTuoiTrangNien" Type="int" />
+    <Property Name="LuaTuoiTrungNien" Type="int" />
+    <Property Name="LuaTuoiLaoNien" Type="int" />
+    <Property Name="GioiTinhNam" Type="int" />
+    <Property Name="GioiTinhNu" Type="int" />
+  </EntityType>
+  <EntityType Name="Church_TinHuu_DanToc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Church_TinHuu_Id" Type="int" />
+    <Property Name="DanToc_Id" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="SoChiHoi" Type="int" />
+    <Property Name="SoChiHoiCT" Type="int" />
+    <Property Name="SoChiHoiCCT" Type="int" />
+    <Property Name="HoiNhanh" Type="int" />
+    <Property Name="HoiNhanhCT" Type="int" />
+    <Property Name="HoiNhanhCCT" Type="int" />
+    <Property Name="DiemNhom" Type="int" />
+    <Property Name="DiemNhomCT" Type="int" />
+    <Property Name="DiemNhomCCT" Type="int" />
+    <Property Name="TinHuu" Type="int" />
+    <Property Name="TinHuuChuaBapTem" Type="int" />
+    <Property Name="TinHuuDiNhom" Type="int" />
+  </EntityType>
+  <EntityType Name="Clergy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="DateOfBirth" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="PlaceOfBirth" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdentityNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="IDApprovedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDApprovedPlace" Type="int" />
+    <Property Name="NoicapNgayCap" Type="nvarchar" MaxLength="250" />
+    <Property Name="BelieveDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="BaptismDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermanentAddressId" Type="int" />
+    <Property Name="ContactAddressId" Type="int" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="MobilePhone" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="TitleId" Type="int" />
+    <Property Name="ChucVuId" Type="int" />
+    <Property Name="CapChiHoiId" Type="int" />
+    <Property Name="TenNhiemSo" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiaChiNhiemSo" Type="nvarchar" MaxLength="250" />
+    <Property Name="CurrentChurchId" Type="int" />
+    <Property Name="DienThoaiNhiemSo" Type="nvarchar" MaxLength="250" />
+    <Property Name="EmailNhiemSo" Type="nvarchar" MaxLength="250" />
+    <Property Name="TinhThanhId" Type="int" />
+    <Property Name="TenDayDuKhongDau" Type="nvarchar" MaxLength="250" />
+    <Property Name="DanToc" Type="int" />
+    <Property Name="KetHon" Type="int" />
+    <Property Name="BirthAddressId" Type="int" />
+    <Property Name="BelieveYear" Type="int" />
+    <Property Name="BaptismYear" Type="int" />
+    <Property Name="CurrentAddressId" Type="int" />
+    <Property Name="CurrentAssignment_Id" Type="int" />
+    <Property Name="DateOfDeath" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoiSinh" Type="nvarchar" MaxLength="250" />
+    <Property Name="DinhCuNuocNgoai" Type="bit" />
+    <Property Name="KyLuat" Type="bit" />
+    <Property Name="DuHoc" Type="bit" />
+    <Property Name="HuuTri" Type="bit" />
+    <Property Name="SoNamChucVu" Type="int" />
+    <Property Name="ThoiGianChucVu" Type="date" />
+    <Property Name="QuaPhu" Type="bit" />
+    <Property Name="SoThangChucVu" Type="int" />
+    <Property Name="Seq" Type="int" />
+  </EntityType>
+  <EntityType Name="Clergy_AssignmentHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClergyId" Type="int" Nullable="false" />
+    <Property Name="ChurchId" Type="int" />
+    <Property Name="OfficeId" Type="int" />
+    <Property Name="Role" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Term" Type="int" />
+    <Property Name="TitleId" Type="int" />
+    <Property Name="TyLeLuu" Type="int" />
+    <Property Name="NeedAlert" Type="bit" />
+    <Property Name="Paper" Type="nvarchar" MaxLength="250" />
+    <Property Name="Information" Type="nvarchar(max)" />
+    <Property Name="NamChucVu" Type="int" />
+    <Property Name="NhanNhiemSo" Type="bit" />
+    <Property Name="Ngay_NhanNhiemSo" Type="date" />
+    <Property Name="ChucVu_HienTai" Type="bit" />
+    <Property Name="ApplyDate" Type="date" />
+    <Property Name="TermType" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaperNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChucVuId" Type="int" />
+    <Property Name="TermNumber" Type="int" />
+    <Property Name="CapChiHoi" Type="int" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="IsCurrent" Type="bit" />
+  </EntityType>
+  <EntityType Name="Clergy_Conduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConductTypeId" Type="int" />
+    <Property Name="Fromdate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Paper" Type="nvarchar" MaxLength="250" />
+    <Property Name="ClergyId" Type="int" Nullable="false" />
+    <Property Name="VanBan" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoVanBan" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Clergy_Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollegeOrProgramme" Type="nvarchar" MaxLength="200" />
+    <Property Name="Degree" Type="nvarchar" MaxLength="100" />
+    <Property Name="FromDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Paper" Type="nvarchar" MaxLength="250" />
+    <Property Name="ClergyId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" />
+    <Property Name="mine_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="filesize" Type="int" />
+    <Property Name="NoiChungNhan" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayCapChungChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Clergy_TitleHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CleargyId" Type="int" />
+    <Property Name="TitleId" Type="int" Nullable="false" />
+    <Property Name="EffectiveDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="RequestPaper" Type="nchar" MaxLength="250" />
+    <Property Name="ApprovalPaper" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChucVuHienTai" Type="bit" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="DocumentNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="DecisionNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="ClergyTitle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Short" Type="nchar" MaxLength="10" />
+    <Property Name="IsDuongChuc" Type="bit" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.CleryChucVuTemp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CleryChucVuTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ChucVuId" Type="int" />
+    <Property Name="temChucVuId" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conduct_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DanToc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityId" Type="int" />
+  </EntityType>
+  <EntityType Name="HoGiaDinh">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HomeOwner_Id" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShortTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HoGiaDinh_TinHuu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoGiaDinh_Id" Type="int" />
+    <Property Name="TinHuu_Id" Type="int" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfficeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PhanLoaiVanThu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CapVanThu" Type="int" />
+  </EntityType>
+  <EntityType Name="QuanHeGiaDinh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuanHeVoiGiaoPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClergyId" Type="int" />
+    <Property Name="RelationShipId" Type="int" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgheNghiep" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="YearOfBirth" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="RoleMapping" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TinHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="DateOfBirth" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="PlaceOfBirth" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdentityNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="IDApprovedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDApprovedPlace" Type="int" />
+    <Property Name="BelieveDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="BaptismDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermanentAddressId" Type="int" />
+    <Property Name="ContactAddressId" Type="int" />
+    <Property Name="CurrentAddressId" Type="int" />
+    <Property Name="BirthAddressId" Type="int" />
+    <Property Name="ChucVuId" Type="int" />
+    <Property Name="CurrentChurchId" Type="int" />
+    <Property Name="TinhThanhId" Type="int" />
+    <Property Name="HoGiaDinh_Id" Type="int" />
+    <Property Name="BanNganh_Id" Type="int" />
+    <Property Name="TitleId" Type="int" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="MobilePhone" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenDayDuKhongDau" Type="nvarchar" MaxLength="250" />
+    <Property Name="DanToc" Type="int" />
+    <Property Name="KetHon" Type="int" />
+    <Property Name="BelieveYear" Type="int" />
+    <Property Name="BaptismYear" Type="int" />
+    <Property Name="DateOfDeath" Type="nvarchar" MaxLength="50" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="1000" />
+    <Property Name="NgheNghiep" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuanHeGiaDinh" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TinHuu_Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Ward" Type="nvarchar" MaxLength="50" />
+    <Property Name="District" Type="nvarchar" MaxLength="250" />
+    <Property Name="City" Type="nvarchar" MaxLength="250" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TinHuu_AssignmentHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TinHuu_Id" Type="int" Nullable="false" />
+    <Property Name="ChucDanh_Id" Type="int" />
+    <Property Name="Role" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="TyLeLuu" Type="int" />
+    <Property Name="Paper" Type="nvarchar" MaxLength="250" />
+    <Property Name="NamChucVu" Type="int" />
+    <Property Name="ApplyDate" Type="date" />
+    <Property Name="IsCurrent" Type="bit" />
+  </EntityType>
+  <EntityType Name="TinHuu_ChucVu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShortTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TinHuu_Conduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConductTypeId" Type="int" />
+    <Property Name="TinHuu_Id" Type="int" Nullable="false" />
+    <Property Name="Fromdate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="VanBan" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoVanBan" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ToThamVieng">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="ShortTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ToThamVieng_HoGiaDinh">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ToThamVieng_Id" Type="int" />
+    <Property Name="HoGiaDinh_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="250" />
+    <Property Name="email" Type="nvarchar" MaxLength="250" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="VanThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="NoiDungPheDuyet" Type="nvarchar(max)" />
+    <Property Name="NgayVanThu" Type="date" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="NgayPheDuyet" Type="date" />
+    <Property Name="DuocDuyetBoi" Type="int" />
+    <Property Name="LoaiVanDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+    <Property Name="TrangThaiPheDuyet" Type="bit" />
+    <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
+    <Property Name="NguoiGui" Type="nvarchar" MaxLength="250" />
+    <Property Name="NguoiNhan" Type="nvarchar" MaxLength="250" />
+    <Property Name="VanBan" Type="nvarchar" MaxLength="500" />
+    <Property Name="LoaiVanThu" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhanLoaiVanThu_Id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.GetBirthDayIn7Day' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GetBirthDayIn7Day">
+    <Key>
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BIRTHDAY" Type="date" />
+    <Property Name="Tuoi" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.v_assign' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_assign">
+    <Key>
+      <PropertyRef Name="ClergyId" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="ChurchName" Type="nchar" MaxLength="50" />
+    <Property Name="TinhThanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Term" Type="int" />
+    <Property Name="TermType" Type="nvarchar" MaxLength="50" />
+    <Property Name="NamChucVu" Type="int" />
+    <Property Name="Ngay_NhanNhiemSo" Type="date" />
+    <Property Name="ApplyDate" Type="date" />
+    <Property Name="PaperNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="TermNumber" Type="int" />
+    <Property Name="TyLeLuu" Type="int" />
+    <Property Name="ClergyId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Paper" Type="nvarchar" MaxLength="250" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="CapChiHoi" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChurchId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.v_church' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_church">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ChurchName" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChurchName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="CapChiHoiID" Type="int" />
+    <Property Name="AddressFull" Type="nvarchar" MaxLength="500" />
+    <Property Name="CitiId" Type="int" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="500" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NgayThanhLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayCongNhanDiemNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanDiemNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanDiemNhom" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanDiemNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanDiemNhom" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCongNhanHoiNhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanHoiNhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanHoiNhanh" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanHoiNhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanHoiNhanh" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCongNhanChiHoiTuDuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanHoiTuDuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanHoiTuDuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanHoiTuDuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanHoiTuDuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayTLHCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBTLHCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayCQCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="VBCQCongNhanChiHoiTuLap" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayTaiLap" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayCungHienDenTho" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaiSanHoiThanh" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DienTichDat" Type="nvarchar" MaxLength="2000" />
+    <Property Name="QuyMoCoSo" Type="nvarchar" MaxLength="2000" />
+    <Property Name="GiayChungNhanQuyenSuDungDat" Type="nvarchar" MaxLength="500" />
+    <Property Name="Longtitude" Type="nvarchar" MaxLength="100" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="100" />
+    <Property Name="TenKhongDau" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GetAllEndDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GetAllEndDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThoiGianChucVu" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GetBirthIn7Day' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GetBirthIn7Day">
+    <Key>
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BIRTHDAY" Type="date" />
+    <Property Name="Tuoi" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GetEndDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GetEndDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="ThoiGianChucVu" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GetVeHuu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GetVeHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="LastName" />
+    </Key>
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tuoi" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GroupGiaoPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GroupGiaoPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Short" Type="nchar" MaxLength="10" />
+    <Property Name="IsDuongChuc" Type="bit" />
+    <Property Name="Expr1" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GroupGiaoPhamByChucDanh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GroupGiaoPhamByChucDanh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Short" Type="nchar" MaxLength="10" />
+    <Property Name="IsDuongChuc" Type="bit" />
+    <Property Name="Expr1" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GroupGiaoPhamByChucDanhNotDuongChuc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GroupGiaoPhamByChucDanhNotDuongChuc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Short" Type="nchar" MaxLength="10" />
+    <Property Name="IsDuongChuc" Type="bit" />
+    <Property Name="Expr1" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_GroupHoiThanhByCapChiHoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_GroupHoiThanhByCapChiHoi">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Expr1" Type="int" />
+    <Property Name="sortId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.v_updateTenNhiemSo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_updateTenNhiemSo">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ChurchName" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ChurchName" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.V_UserRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_UserRoles">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="username" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="RoleMappingId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.v_vanThu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_vanThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="NoiDungPheDuyet" Type="nvarchar(max)" />
+    <Property Name="NgayVanThu" Type="date" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="NgayPheDuyet" Type="date" />
+    <Property Name="DuocDuyetBoi" Type="int" />
+    <Property Name="LoaiVanDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+    <Property Name="TrangThaiPheDuyet" Type="bit" />
+    <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
+    <Property Name="NguoiGui" Type="nvarchar" MaxLength="250" />
+    <Property Name="NguoiNhan" Type="nvarchar" MaxLength="250" />
+    <Property Name="VanBan" Type="nvarchar" MaxLength="500" />
+    <Property Name="LoaiVanThu" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenLoaiVanThu" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhanLoaiVanThu_Id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.view_User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_User">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="status" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TongLienHoi.dbo.viewChurch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="viewChurch">
+    <Key>
+      <PropertyRef Name="ChurchId" />
+      <PropertyRef Name="ChurchName" />
+    </Key>
+    <Property Name="ChurchId" Type="int" Nullable="false" />
+    <Property Name="ChurchName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="TinhThanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="CapChiHoi" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="address_Clergy_FK">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="PermanentAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="currentaddress_Clergy_FK">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="CurrentAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham">
+    <End Role="QuanHeVoiGiaoPham" Type="Self.QuanHeVoiGiaoPham" Multiplicity="0..1" />
+    <End Role="BangCapNguoiPhoiNgau" Type="Self.BangCapNguoiPhoiNgau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BangCapNguoiPhoiNgau">
+        <PropertyRef Name="QuanHeVoiGiaoPham_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryDetail_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="CategoryDetail" Type="Self.CategoryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategoryDetail">
+        <PropertyRef Name="CatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietChucVuGiaoPham_ChucVu">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
+    <End Role="ChiTietChucVuGiaoPham" Type="Self.ChiTietChucVuGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietChucVuGiaoPham">
+        <PropertyRef Name="ChucVuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietChucVuGiaoPham_Clergy">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="1" />
+    <End Role="ChiTietChucVuGiaoPham" Type="Self.ChiTietChucVuGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChiTietChucVuGiaoPham">
+        <PropertyRef Name="GiaoPhamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_Assignment_History_CapChiHoi">
+    <End Role="CapChiHoi" Type="Self.CapChiHoi" Multiplicity="0..1" />
+    <End Role="Church_Assignment_History" Type="Self.Church_Assignment_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapChiHoi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Church_Assignment_History">
+        <PropertyRef Name="CapChiHoi_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_Assignment_History_Church">
+    <End Role="Church" Type="Self.Church" Multiplicity="0..1" />
+    <End Role="Church_Assignment_History" Type="Self.Church_Assignment_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_Assignment_History">
+        <PropertyRef Name="Church_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_CapChiHoi">
+    <End Role="CapChiHoi" Type="Self.CapChiHoi" Multiplicity="0..1" />
+    <End Role="Church" Type="Self.Church" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapChiHoi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Church">
+        <PropertyRef Name="CapChiHoiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Church" Type="Self.Church" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Church">
+        <PropertyRef Name="CitiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_SoLuongTinHuu_Church">
+    <End Role="Church" Type="Self.Church" Multiplicity="0..1" />
+    <End Role="Church_SoLuongTinHuu" Type="Self.Church_SoLuongTinHuu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_SoLuongTinHuu">
+        <PropertyRef Name="Church_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TAISAN_Church">
+    <End Role="Church" Type="Self.Church" Multiplicity="0..1" />
+    <End Role="Church_TAISAN" Type="Self.Church_TAISAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TAISAN">
+        <PropertyRef Name="Church_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TinHuu_Church">
+    <End Role="Church" Type="Self.Church" Multiplicity="0..1" />
+    <End Role="Church_TinHuu" Type="Self.Church_TinHuu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TinHuu">
+        <PropertyRef Name="Church_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TinHuu_DanToc_Church_TinHuu">
+    <End Role="Church_TinHuu" Type="Self.Church_TinHuu" Multiplicity="0..1" />
+    <End Role="Church_TinHuu_DanToc" Type="Self.Church_TinHuu_DanToc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church_TinHuu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TinHuu_DanToc">
+        <PropertyRef Name="Church_TinHuu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TinHuu_DanToc_DanToc">
+    <End Role="DanToc" Type="Self.DanToc" Multiplicity="0..1" />
+    <End Role="Church_TinHuu_DanToc" Type="Self.Church_TinHuu_DanToc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanToc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TinHuu_DanToc">
+        <PropertyRef Name="DanToc_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Addresses">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="BirthAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_CapChiHoi">
+    <End Role="CapChiHoi" Type="Self.CapChiHoi" Multiplicity="0..1" />
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapChiHoi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="CapChiHoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_ChucVu">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="ChucVuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_Church">
+    <End Role="Church" Type="Self.Church" Multiplicity="0..1" />
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="ChurchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_Clergy">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="1" />
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_ClergyTitle">
+    <End Role="ClergyTitle" Type="Self.ClergyTitle" Multiplicity="0..1" />
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClergyTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="TitleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_Office">
+    <End Role="Office" Type="Self.Office" Multiplicity="0..1" />
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="OfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_ChucVu">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="ChucVuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Church">
+    <End Role="Church" Type="Self.Church" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="CurrentChurchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="IDApprovedPlace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Clergy_AssignmentHistory">
+    <End Role="Clergy_AssignmentHistory" Type="Self.Clergy_AssignmentHistory" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="CurrentAssignment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_ClergyTitle">
+    <End Role="ClergyTitle" Type="Self.ClergyTitle" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClergyTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="TitleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Conduct_Clergy">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="1" />
+    <End Role="Clergy_Conduct" Type="Self.Clergy_Conduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_Conduct">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Conduct_Conduct_Type">
+    <End Role="Conduct_Type" Type="Self.Conduct_Type" Multiplicity="0..1" />
+    <End Role="Clergy_Conduct" Type="Self.Clergy_Conduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conduct_Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_Conduct">
+        <PropertyRef Name="ConductTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_DanToc">
+    <End Role="DanToc" Type="Self.DanToc" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanToc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="DanToc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Education_Clergy">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="1" />
+    <End Role="Clergy_Education" Type="Self.Clergy_Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_Education">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_TitleHistory_ClergyTitle">
+    <End Role="ClergyTitle" Type="Self.ClergyTitle" Multiplicity="1" />
+    <End Role="Clergy_TitleHistory" Type="Self.Clergy_TitleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClergyTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_TitleHistory">
+        <PropertyRef Name="TitleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoGiaDinh_TinHuu">
+    <End Role="TinHuu" Type="Self.TinHuu" Multiplicity="0..1" />
+    <End Role="HoGiaDinh" Type="Self.HoGiaDinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinHuu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HoGiaDinh">
+        <PropertyRef Name="HomeOwner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoGiaDinh_TinHuu_HoGiaDinh">
+    <End Role="HoGiaDinh" Type="Self.HoGiaDinh" Multiplicity="0..1" />
+    <End Role="HoGiaDinh_TinHuu" Type="Self.HoGiaDinh_TinHuu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoGiaDinh">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HoGiaDinh_TinHuu">
+        <PropertyRef Name="HoGiaDinh_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoGiaDinh_TinHuu_TinHuu">
+    <End Role="TinHuu" Type="Self.TinHuu" Multiplicity="0..1" />
+    <End Role="HoGiaDinh_TinHuu" Type="Self.HoGiaDinh_TinHuu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinHuu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HoGiaDinh_TinHuu">
+        <PropertyRef Name="TinHuu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanLoaiVanThu_PhanLoaiVanThu">
+    <End Role="PhanLoaiVanThu" Type="Self.PhanLoaiVanThu" Multiplicity="0..1" />
+    <End Role="PhanLoaiVanThu1" Type="Self.PhanLoaiVanThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiVanThu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhanLoaiVanThu1">
+        <PropertyRef Name="CapVanThu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHeVoiGiaoPham_Clergy">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="0..1" />
+    <End Role="QuanHeVoiGiaoPham" Type="Self.QuanHeVoiGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHeVoiGiaoPham_QuanHeGiaDinh">
+    <End Role="QuanHeGiaDinh" Type="Self.QuanHeGiaDinh" Multiplicity="0..1" />
+    <End Role="QuanHeVoiGiaoPham" Type="Self.QuanHeVoiGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanHeGiaDinh">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="RelationShipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHeVoiGiaoPham_TuGiaoPham">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="0..1" />
+    <End Role="QuanHeVoiGiaoPham" Type="Self.QuanHeVoiGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleDetail_RoleMapping">
+    <End Role="RoleMapping" Type="Self.RoleMapping" Multiplicity="1" />
+    <End Role="RoleDetail" Type="Self.RoleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMapping">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RoleDetail">
+        <PropertyRef Name="RoleMapping" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleDetail_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RoleDetail" Type="Self.RoleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RoleDetail">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinHuu_Addresses_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="TinHuu_Addresses" Type="Self.TinHuu_Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TinHuu_Addresses">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinHuu_Addresses_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="TinHuu_Addresses" Type="Self.TinHuu_Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TinHuu_Addresses">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinHuu_AssignmentHistory_TinHuu">
+    <End Role="TinHuu" Type="Self.TinHuu" Multiplicity="1" />
+    <End Role="TinHuu_AssignmentHistory" Type="Self.TinHuu_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinHuu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TinHuu_AssignmentHistory">
+        <PropertyRef Name="TinHuu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinHuu_Conduct_TinHuu">
+    <End Role="TinHuu" Type="Self.TinHuu" Multiplicity="1" />
+    <End Role="TinHuu_Conduct" Type="Self.TinHuu_Conduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinHuu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TinHuu_Conduct">
+        <PropertyRef Name="TinHuu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ToThamVieng_HoGiaDinh_HoGiaDinh">
+    <End Role="HoGiaDinh" Type="Self.HoGiaDinh" Multiplicity="0..1" />
+    <End Role="ToThamVieng_HoGiaDinh" Type="Self.ToThamVieng_HoGiaDinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoGiaDinh">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToThamVieng_HoGiaDinh">
+        <PropertyRef Name="HoGiaDinh_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ToThamVieng_HoGiaDinh_ToThamVieng">
+    <End Role="ToThamVieng" Type="Self.ToThamVieng" Multiplicity="0..1" />
+    <End Role="ToThamVieng_HoGiaDinh" Type="Self.ToThamVieng_HoGiaDinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ToThamVieng">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToThamVieng_HoGiaDinh">
+        <PropertyRef Name="ToThamVieng_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VanThu_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="VanThu" Type="Self.VanThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VanThu">
+        <PropertyRef Name="DuocDuyetBoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="permanent_address_fk">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="ContactAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TitleHistory_Clergy_Clergy_FK">
+    <End Role="Clergy" Type="Self.Clergy" Multiplicity="0..1" />
+    <End Role="Clergy_TitleHistory" Type="Self.Clergy_TitleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_TitleHistory">
+        <PropertyRef Name="CleargyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetPermissionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GiaoPhamThoiGianPhucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tukhoa" Type="nvarchar" Mode="In" />
+    <Parameter Name="chucvu" Type="int" Mode="In" />
+    <Parameter Name="chucdanh" Type="int" Mode="In" />
+    <Parameter Name="coquan" Type="int" Mode="In" />
+    <Parameter Name="tunam" Type="int" Mode="In" />
+    <Parameter Name="dennam" Type="int" Mode="In" />
+    <Parameter Name="cachtinh" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TimGiaoPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="search" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemGiaoPhamHetHan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hovaten" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromdate" Type="date" Mode="In" />
+    <Parameter Name="chucdanh" Type="int" Mode="In" />
+    <Parameter Name="todate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="TimKiemGiaoPhamNangCao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hovaten" Type="nvarchar" Mode="In" />
+    <Parameter Name="kethon" Type="int" Mode="In" />
+    <Parameter Name="dantoc" Type="int" Mode="In" />
+    <Parameter Name="quequan" Type="int" Mode="In" />
+    <Parameter Name="nhiemso" Type="int" Mode="In" />
+    <Parameter Name="tunamphucvu" Type="int" Mode="In" />
+    <Parameter Name="dennamphucvu" Type="int" Mode="In" />
+    <Parameter Name="cachtinh" Type="int" Mode="In" />
+    <Parameter Name="chucdanh" Type="int" Mode="In" />
+    <Parameter Name="chucvu" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TimKiemNangCao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tinhthanh" Type="int" Mode="In" />
+    <Parameter Name="chucvutu" Type="int" Mode="In" />
+    <Parameter Name="chucvuden" Type="int" Mode="In" />
+    <Parameter Name="nhiemkytu" Type="int" Mode="In" />
+    <Parameter Name="nhiemkyden" Type="int" Mode="In" />
+    <Parameter Name="namsinhtu" Type="int" Mode="In" />
+    <Parameter Name="namsinhden" Type="int" Mode="In" />
+    <Parameter Name="tinhtrang" Type="int" Mode="In" />
+    <Parameter Name="chucdanh" Type="int" Mode="In" />
+    <Parameter Name="chucvu" Type="int" Mode="In" />
+    <Parameter Name="nhiemso" Type="int" Mode="In" />
+    <Parameter Name="capnhiemso" Type="int" Mode="In" />
+    <Parameter Name="dantoc" Type="int" Mode="In" />
+    <Parameter Name="hocvi" Type="int" Mode="In" />
+    <Parameter Name="cmnd" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemVoiNhieuThamSo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hovaten" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChucDanh" Type="int" Mode="In" />
+    <Parameter Name="ChucVu" Type="int" Mode="In" />
+    <Parameter Name="capchihoi" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="TongLienHoiModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BangCapNguoiPhoiNgau" EntityType="Self.BangCapNguoiPhoiNgau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CapChiHoi" EntityType="Self.CapChiHoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryDetail" EntityType="Self.CategoryDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChiTietChucVuGiaoPham" EntityType="Self.ChiTietChucVuGiaoPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Church" EntityType="Self.Church" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Church_Assignment_History" EntityType="Self.Church_Assignment_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Church_SoLuongTinHuu" EntityType="Self.Church_SoLuongTinHuu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Church_TAISAN" EntityType="Self.Church_TAISAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Church_TinHuu" EntityType="Self.Church_TinHuu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Church_TinHuu_DanToc" EntityType="Self.Church_TinHuu_DanToc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clergy" EntityType="Self.Clergy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clergy_AssignmentHistory" EntityType="Self.Clergy_AssignmentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clergy_Conduct" EntityType="Self.Clergy_Conduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clergy_Education" EntityType="Self.Clergy_Education" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clergy_TitleHistory" EntityType="Self.Clergy_TitleHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClergyTitle" EntityType="Self.ClergyTitle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conduct_Type" EntityType="Self.Conduct_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanToc" EntityType="Self.DanToc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoGiaDinh" EntityType="Self.HoGiaDinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoGiaDinh_TinHuu" EntityType="Self.HoGiaDinh_TinHuu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanLoaiVanThu" EntityType="Self.PhanLoaiVanThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuanHeGiaDinh" EntityType="Self.QuanHeGiaDinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuanHeVoiGiaoPham" EntityType="Self.QuanHeVoiGiaoPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleDetail" EntityType="Self.RoleDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleMapping" EntityType="Self.RoleMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinHuu" EntityType="Self.TinHuu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinHuu_Addresses" EntityType="Self.TinHuu_Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinHuu_AssignmentHistory" EntityType="Self.TinHuu_AssignmentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinHuu_ChucVu" EntityType="Self.TinHuu_ChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinHuu_Conduct" EntityType="Self.TinHuu_Conduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ToThamVieng" EntityType="Self.ToThamVieng" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ToThamVieng_HoGiaDinh" EntityType="Self.ToThamVieng_HoGiaDinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VanThu" EntityType="Self.VanThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CleryChucVuTemp" EntityType="Self.CleryChucVuTemp" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[CleryChucVuTemp].[ChucVuId] AS [ChucVuId], 
+[CleryChucVuTemp].[temChucVuId] AS [temChucVuId], 
+[CleryChucVuTemp].[Id] AS [Id]
+FROM [dbo].[CleryChucVuTemp] AS [CleryChucVuTemp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GetBirthDayIn7Day" EntityType="Self.GetBirthDayIn7Day" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[GetBirthDayIn7Day].[BIRTHDAY] AS [BIRTHDAY], 
+[GetBirthDayIn7Day].[Tuoi] AS [Tuoi], 
+[GetBirthDayIn7Day].[LastName] AS [LastName], 
+[GetBirthDayIn7Day].[FirstName] AS [FirstName], 
+[GetBirthDayIn7Day].[Avatar] AS [Avatar], 
+[GetBirthDayIn7Day].[Id] AS [Id], 
+[GetBirthDayIn7Day].[Title] AS [Title]
+FROM [dbo].[GetBirthDayIn7Day] AS [GetBirthDayIn7Day]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_assign" EntityType="Self.v_assign" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_assign].[ChurchName] AS [ChurchName], 
+[v_assign].[TinhThanh] AS [TinhThanh], 
+[v_assign].[Title] AS [Title], 
+[v_assign].[TenChucVu] AS [TenChucVu], 
+[v_assign].[Term] AS [Term], 
+[v_assign].[TermType] AS [TermType], 
+[v_assign].[NamChucVu] AS [NamChucVu], 
+[v_assign].[Ngay_NhanNhiemSo] AS [Ngay_NhanNhiemSo], 
+[v_assign].[ApplyDate] AS [ApplyDate], 
+[v_assign].[PaperNumber] AS [PaperNumber], 
+[v_assign].[TermNumber] AS [TermNumber], 
+[v_assign].[TyLeLuu] AS [TyLeLuu], 
+[v_assign].[ClergyId] AS [ClergyId], 
+[v_assign].[StartDate] AS [StartDate], 
+[v_assign].[EndDate] AS [EndDate], 
+[v_assign].[Paper] AS [Paper], 
+[v_assign].[id] AS [id], 
+[v_assign].[CapChiHoi] AS [CapChiHoi], 
+[v_assign].[ChurchId] AS [ChurchId]
+FROM [dbo].[v_assign] AS [v_assign]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_church" EntityType="Self.v_church" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_church].[id] AS [id], 
+[v_church].[ChurchName] AS [ChurchName], 
+[v_church].[CapChiHoiID] AS [CapChiHoiID], 
+[v_church].[AddressFull] AS [AddressFull], 
+[v_church].[CitiId] AS [CitiId], 
+[v_church].[CellPhone] AS [CellPhone], 
+[v_church].[Phone] AS [Phone], 
+[v_church].[Email] AS [Email], 
+[v_church].[AnhDaiDien] AS [AnhDaiDien], 
+[v_church].[GhiChu] AS [GhiChu], 
+[v_church].[NgayThanhLap] AS [NgayThanhLap], 
+[v_church].[NgayCongNhanDiemNhom] AS [NgayCongNhanDiemNhom], 
+[v_church].[NgayTLHCongNhanDiemNhom] AS [NgayTLHCongNhanDiemNhom], 
+[v_church].[VBTLHCongNhanDiemNhom] AS [VBTLHCongNhanDiemNhom], 
+[v_church].[NgayCQCongNhanDiemNhom] AS [NgayCQCongNhanDiemNhom], 
+[v_church].[VBCQCongNhanDiemNhom] AS [VBCQCongNhanDiemNhom], 
+[v_church].[NgayCongNhanHoiNhanh] AS [NgayCongNhanHoiNhanh], 
+[v_church].[NgayTLHCongNhanHoiNhanh] AS [NgayTLHCongNhanHoiNhanh], 
+[v_church].[VBTLHCongNhanHoiNhanh] AS [VBTLHCongNhanHoiNhanh], 
+[v_church].[NgayCQCongNhanHoiNhanh] AS [NgayCQCongNhanHoiNhanh], 
+[v_church].[VBCQCongNhanHoiNhanh] AS [VBCQCongNhanHoiNhanh], 
+[v_church].[NgayCongNhanChiHoiTuDuong] AS [NgayCongNhanChiHoiTuDuong], 
+[v_church].[NgayTLHCongNhanHoiTuDuong] AS [NgayTLHCongNhanHoiTuDuong], 
+[v_church].[VBTLHCongNhanHoiTuDuong] AS [VBTLHCongNhanHoiTuDuong], 
+[v_church].[NgayCQCongNhanHoiTuDuong] AS [NgayCQCongNhanHoiTuDuong], 
+[v_church].[VBCQCongNhanHoiTuDuong] AS [VBCQCongNhanHoiTuDuong], 
+[v_church].[NgayCongNhanChiHoiTuLap] AS [NgayCongNhanChiHoiTuLap], 
+[v_church].[NgayTLHCongNhanChiHoiTuLap] AS [NgayTLHCongNhanChiHoiTuLap], 
+[v_church].[VBTLHCongNhanChiHoiTuLap] AS [VBTLHCongNhanChiHoiTuLap], 
+[v_church].[NgayCQCongNhanChiHoiTuLap] AS [NgayCQCongNhanChiHoiTuLap], 
+[v_church].[VBCQCongNhanChiHoiTuLap] AS [VBCQCongNhanChiHoiTuLap], 
+[v_church].[NgayTaiLap] AS [NgayTaiLap], 
+[v_church].[NgayCungHienDenTho] AS [NgayCungHienDenTho], 
+[v_church].[TaiSanHoiThanh] AS [TaiSanHoiThanh], 
+[v_church].[DienTichDat] AS [DienTichDat], 
+[v_church].[QuyMoCoSo] AS [QuyMoCoSo], 
+[v_church].[GiayChungNhanQuyenSuDungDat] AS [GiayChungNhanQuyenSuDungDat], 
+[v_church].[Longtitude] AS [Longtitude], 
+[v_church].[Latitude] AS [Latitude], 
+[v_church].[TenKhongDau] AS [TenKhongDau]
+FROM [dbo].[v_church] AS [v_church]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GetAllEndDay" EntityType="Self.V_GetAllEndDay" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GetAllEndDay].[FirstName] AS [FirstName], 
+[V_GetAllEndDay].[LastName] AS [LastName], 
+[V_GetAllEndDay].[Avatar] AS [Avatar], 
+[V_GetAllEndDay].[Id] AS [Id], 
+[V_GetAllEndDay].[MiddleName] AS [MiddleName], 
+[V_GetAllEndDay].[ThoiGianChucVu] AS [ThoiGianChucVu]
+FROM [dbo].[V_GetAllEndDay] AS [V_GetAllEndDay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GetBirthIn7Day" EntityType="Self.V_GetBirthIn7Day" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GetBirthIn7Day].[BIRTHDAY] AS [BIRTHDAY], 
+[V_GetBirthIn7Day].[Tuoi] AS [Tuoi], 
+[V_GetBirthIn7Day].[LastName] AS [LastName], 
+[V_GetBirthIn7Day].[FirstName] AS [FirstName], 
+[V_GetBirthIn7Day].[Avatar] AS [Avatar], 
+[V_GetBirthIn7Day].[Id] AS [Id], 
+[V_GetBirthIn7Day].[Title] AS [Title]
+FROM [dbo].[V_GetBirthIn7Day] AS [V_GetBirthIn7Day]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GetEndDay" EntityType="Self.V_GetEndDay" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GetEndDay].[Id] AS [Id], 
+[V_GetEndDay].[FirstName] AS [FirstName], 
+[V_GetEndDay].[MiddleName] AS [MiddleName], 
+[V_GetEndDay].[LastName] AS [LastName], 
+[V_GetEndDay].[Avatar] AS [Avatar], 
+[V_GetEndDay].[ThoiGianChucVu] AS [ThoiGianChucVu]
+FROM [dbo].[V_GetEndDay] AS [V_GetEndDay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GetVeHuu" EntityType="Self.V_GetVeHuu" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GetVeHuu].[FirstName] AS [FirstName], 
+[V_GetVeHuu].[Id] AS [Id], 
+[V_GetVeHuu].[LastName] AS [LastName], 
+[V_GetVeHuu].[DateOfBirth] AS [DateOfBirth], 
+[V_GetVeHuu].[Avatar] AS [Avatar], 
+[V_GetVeHuu].[Title] AS [Title], 
+[V_GetVeHuu].[Tuoi] AS [Tuoi]
+FROM [dbo].[V_GetVeHuu] AS [V_GetVeHuu]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GroupGiaoPham" EntityType="Self.V_GroupGiaoPham" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GroupGiaoPham].[Id] AS [Id], 
+[V_GroupGiaoPham].[Title] AS [Title], 
+[V_GroupGiaoPham].[Short] AS [Short], 
+[V_GroupGiaoPham].[IsDuongChuc] AS [IsDuongChuc], 
+[V_GroupGiaoPham].[Expr1] AS [Expr1]
+FROM [dbo].[V_GroupGiaoPham] AS [V_GroupGiaoPham]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GroupGiaoPhamByChucDanh" EntityType="Self.V_GroupGiaoPhamByChucDanh" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GroupGiaoPhamByChucDanh].[Id] AS [Id], 
+[V_GroupGiaoPhamByChucDanh].[Title] AS [Title], 
+[V_GroupGiaoPhamByChucDanh].[Short] AS [Short], 
+[V_GroupGiaoPhamByChucDanh].[IsDuongChuc] AS [IsDuongChuc], 
+[V_GroupGiaoPhamByChucDanh].[Expr1] AS [Expr1]
+FROM [dbo].[V_GroupGiaoPhamByChucDanh] AS [V_GroupGiaoPhamByChucDanh]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GroupGiaoPhamByChucDanhNotDuongChuc" EntityType="Self.V_GroupGiaoPhamByChucDanhNotDuongChuc" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GroupGiaoPhamByChucDanhNotDuongChuc].[Id] AS [Id], 
+[V_GroupGiaoPhamByChucDanhNotDuongChuc].[Title] AS [Title], 
+[V_GroupGiaoPhamByChucDanhNotDuongChuc].[Short] AS [Short], 
+[V_GroupGiaoPhamByChucDanhNotDuongChuc].[IsDuongChuc] AS [IsDuongChuc], 
+[V_GroupGiaoPhamByChucDanhNotDuongChuc].[Expr1] AS [Expr1], 
+[V_GroupGiaoPhamByChucDanhNotDuongChuc].[Status] AS [Status]
+FROM [dbo].[V_GroupGiaoPhamByChucDanhNotDuongChuc] AS [V_GroupGiaoPhamByChucDanhNotDuongChuc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_GroupHoiThanhByCapChiHoi" EntityType="Self.V_GroupHoiThanhByCapChiHoi" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_GroupHoiThanhByCapChiHoi].[id] AS [id], 
+[V_GroupHoiThanhByCapChiHoi].[Name] AS [Name], 
+[V_GroupHoiThanhByCapChiHoi].[Status] AS [Status], 
+[V_GroupHoiThanhByCapChiHoi].[Description] AS [Description], 
+[V_GroupHoiThanhByCapChiHoi].[Expr1] AS [Expr1], 
+[V_GroupHoiThanhByCapChiHoi].[sortId] AS [sortId]
+FROM [dbo].[V_GroupHoiThanhByCapChiHoi] AS [V_GroupHoiThanhByCapChiHoi]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_updateTenNhiemSo" EntityType="Self.v_updateTenNhiemSo" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_updateTenNhiemSo].[Id] AS [Id], 
+[v_updateTenNhiemSo].[ChurchName] AS [ChurchName]
+FROM [dbo].[v_updateTenNhiemSo] AS [v_updateTenNhiemSo]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_UserRoles" EntityType="Self.V_UserRoles" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_UserRoles].[Name] AS [Name], 
+[V_UserRoles].[username] AS [username], 
+[V_UserRoles].[id] AS [id], 
+[V_UserRoles].[RoleMappingId] AS [RoleMappingId]
+FROM [dbo].[V_UserRoles] AS [V_UserRoles]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_vanThu" EntityType="Self.v_vanThu" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_vanThu].[id] AS [id], 
+[v_vanThu].[TieuDe] AS [TieuDe], 
+[v_vanThu].[NoiDung] AS [NoiDung], 
+[v_vanThu].[NoiDungPheDuyet] AS [NoiDungPheDuyet], 
+[v_vanThu].[NgayVanThu] AS [NgayVanThu], 
+[v_vanThu].[NgayTao] AS [NgayTao], 
+[v_vanThu].[NgayPheDuyet] AS [NgayPheDuyet], 
+[v_vanThu].[DuocDuyetBoi] AS [DuocDuyetBoi], 
+[v_vanThu].[LoaiVanDe] AS [LoaiVanDe], 
+[v_vanThu].[GhiChu] AS [GhiChu], 
+[v_vanThu].[TrangThaiPheDuyet] AS [TrangThaiPheDuyet], 
+[v_vanThu].[TinhTrang] AS [TinhTrang], 
+[v_vanThu].[NguoiGui] AS [NguoiGui], 
+[v_vanThu].[NguoiNhan] AS [NguoiNhan], 
+[v_vanThu].[VanBan] AS [VanBan], 
+[v_vanThu].[LoaiVanThu] AS [LoaiVanThu], 
+[v_vanThu].[TenLoaiVanThu] AS [TenLoaiVanThu], 
+[v_vanThu].[PhanLoaiVanThu_Id] AS [PhanLoaiVanThu_Id]
+FROM [dbo].[v_vanThu] AS [v_vanThu]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_User" EntityType="Self.view_User" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[view_User].[id] AS [id], 
+[view_User].[username] AS [username], 
+[view_User].[password] AS [password], 
+[view_User].[email] AS [email], 
+[view_User].[status] AS [status], 
+[view_User].[Name] AS [Name]
+FROM [dbo].[view_User] AS [view_User]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="viewChurch" EntityType="Self.viewChurch" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[viewChurch].[ChurchId] AS [ChurchId], 
+[viewChurch].[ChurchName] AS [ChurchName], 
+[viewChurch].[TinhThanh] AS [TinhThanh], 
+[viewChurch].[CapChiHoi] AS [CapChiHoi]
+FROM [dbo].[viewChurch] AS [viewChurch]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="address_Clergy_FK" Association="Self.address_Clergy_FK">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="currentaddress_Clergy_FK" Association="Self.currentaddress_Clergy_FK">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_City" Association="Self.FK_Addresses_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_District" Association="Self.FK_Addresses_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham" Association="Self.FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham">
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPham" />
+      <End Role="BangCapNguoiPhoiNgau" EntitySet="BangCapNguoiPhoiNgau" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryDetail_Category" Association="Self.FK_CategoryDetail_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryDetail" EntitySet="CategoryDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietChucVuGiaoPham_ChucVu" Association="Self.FK_ChiTietChucVuGiaoPham_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="ChiTietChucVuGiaoPham" EntitySet="ChiTietChucVuGiaoPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietChucVuGiaoPham_Clergy" Association="Self.FK_ChiTietChucVuGiaoPham_Clergy">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="ChiTietChucVuGiaoPham" EntitySet="ChiTietChucVuGiaoPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_Assignment_History_CapChiHoi" Association="Self.FK_Church_Assignment_History_CapChiHoi">
+      <End Role="CapChiHoi" EntitySet="CapChiHoi" />
+      <End Role="Church_Assignment_History" EntitySet="Church_Assignment_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_Assignment_History_Church" Association="Self.FK_Church_Assignment_History_Church">
+      <End Role="Church" EntitySet="Church" />
+      <End Role="Church_Assignment_History" EntitySet="Church_Assignment_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_CapChiHoi" Association="Self.FK_Church_CapChiHoi">
+      <End Role="CapChiHoi" EntitySet="CapChiHoi" />
+      <End Role="Church" EntitySet="Church" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_City" Association="Self.FK_Church_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Church" EntitySet="Church" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_SoLuongTinHuu_Church" Association="Self.FK_Church_SoLuongTinHuu_Church">
+      <End Role="Church" EntitySet="Church" />
+      <End Role="Church_SoLuongTinHuu" EntitySet="Church_SoLuongTinHuu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TAISAN_Church" Association="Self.FK_Church_TAISAN_Church">
+      <End Role="Church" EntitySet="Church" />
+      <End Role="Church_TAISAN" EntitySet="Church_TAISAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TinHuu_Church" Association="Self.FK_Church_TinHuu_Church">
+      <End Role="Church" EntitySet="Church" />
+      <End Role="Church_TinHuu" EntitySet="Church_TinHuu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TinHuu_DanToc_Church_TinHuu" Association="Self.FK_Church_TinHuu_DanToc_Church_TinHuu">
+      <End Role="Church_TinHuu" EntitySet="Church_TinHuu" />
+      <End Role="Church_TinHuu_DanToc" EntitySet="Church_TinHuu_DanToc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TinHuu_DanToc_DanToc" Association="Self.FK_Church_TinHuu_DanToc_DanToc">
+      <End Role="DanToc" EntitySet="DanToc" />
+      <End Role="Church_TinHuu_DanToc" EntitySet="Church_TinHuu_DanToc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Addresses" Association="Self.FK_Clergy_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_CapChiHoi" Association="Self.FK_Clergy_AssignmentHistory_CapChiHoi">
+      <End Role="CapChiHoi" EntitySet="CapChiHoi" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_ChucVu" Association="Self.FK_Clergy_AssignmentHistory_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_Church" Association="Self.FK_Clergy_AssignmentHistory_Church">
+      <End Role="Church" EntitySet="Church" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_Clergy" Association="Self.FK_Clergy_AssignmentHistory_Clergy">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_ClergyTitle" Association="Self.FK_Clergy_AssignmentHistory_ClergyTitle">
+      <End Role="ClergyTitle" EntitySet="ClergyTitle" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_Office" Association="Self.FK_Clergy_AssignmentHistory_Office">
+      <End Role="Office" EntitySet="Office" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_ChucVu" Association="Self.FK_Clergy_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Church" Association="Self.FK_Clergy_Church">
+      <End Role="Church" EntitySet="Church" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_City" Association="Self.FK_Clergy_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Clergy_AssignmentHistory" Association="Self.FK_Clergy_Clergy_AssignmentHistory">
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_ClergyTitle" Association="Self.FK_Clergy_ClergyTitle">
+      <End Role="ClergyTitle" EntitySet="ClergyTitle" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Conduct_Clergy" Association="Self.FK_Clergy_Conduct_Clergy">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="Clergy_Conduct" EntitySet="Clergy_Conduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Conduct_Conduct_Type" Association="Self.FK_Clergy_Conduct_Conduct_Type">
+      <End Role="Conduct_Type" EntitySet="Conduct_Type" />
+      <End Role="Clergy_Conduct" EntitySet="Clergy_Conduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_DanToc" Association="Self.FK_Clergy_DanToc">
+      <End Role="DanToc" EntitySet="DanToc" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Education_Clergy" Association="Self.FK_Clergy_Education_Clergy">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="Clergy_Education" EntitySet="Clergy_Education" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_TitleHistory_ClergyTitle" Association="Self.FK_Clergy_TitleHistory_ClergyTitle">
+      <End Role="ClergyTitle" EntitySet="ClergyTitle" />
+      <End Role="Clergy_TitleHistory" EntitySet="Clergy_TitleHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_City" Association="Self.FK_District_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoGiaDinh_TinHuu" Association="Self.FK_HoGiaDinh_TinHuu">
+      <End Role="TinHuu" EntitySet="TinHuu" />
+      <End Role="HoGiaDinh" EntitySet="HoGiaDinh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoGiaDinh_TinHuu_HoGiaDinh" Association="Self.FK_HoGiaDinh_TinHuu_HoGiaDinh">
+      <End Role="HoGiaDinh" EntitySet="HoGiaDinh" />
+      <End Role="HoGiaDinh_TinHuu" EntitySet="HoGiaDinh_TinHuu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoGiaDinh_TinHuu_TinHuu" Association="Self.FK_HoGiaDinh_TinHuu_TinHuu">
+      <End Role="TinHuu" EntitySet="TinHuu" />
+      <End Role="HoGiaDinh_TinHuu" EntitySet="HoGiaDinh_TinHuu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanLoaiVanThu_PhanLoaiVanThu" Association="Self.FK_PhanLoaiVanThu_PhanLoaiVanThu">
+      <End Role="PhanLoaiVanThu" EntitySet="PhanLoaiVanThu" />
+      <End Role="PhanLoaiVanThu1" EntitySet="PhanLoaiVanThu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHeVoiGiaoPham_Clergy" Association="Self.FK_QuanHeVoiGiaoPham_Clergy">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHeVoiGiaoPham_QuanHeGiaDinh" Association="Self.FK_QuanHeVoiGiaoPham_QuanHeGiaDinh">
+      <End Role="QuanHeGiaDinh" EntitySet="QuanHeGiaDinh" />
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHeVoiGiaoPham_TuGiaoPham" Association="Self.FK_QuanHeVoiGiaoPham_TuGiaoPham">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleDetail_RoleMapping" Association="Self.FK_RoleDetail_RoleMapping">
+      <End Role="RoleMapping" EntitySet="RoleMapping" />
+      <End Role="RoleDetail" EntitySet="RoleDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleDetail_Users" Association="Self.FK_RoleDetail_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RoleDetail" EntitySet="RoleDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinHuu_Addresses_City" Association="Self.FK_TinHuu_Addresses_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="TinHuu_Addresses" EntitySet="TinHuu_Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinHuu_Addresses_District" Association="Self.FK_TinHuu_Addresses_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="TinHuu_Addresses" EntitySet="TinHuu_Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinHuu_AssignmentHistory_TinHuu" Association="Self.FK_TinHuu_AssignmentHistory_TinHuu">
+      <End Role="TinHuu" EntitySet="TinHuu" />
+      <End Role="TinHuu_AssignmentHistory" EntitySet="TinHuu_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinHuu_Conduct_TinHuu" Association="Self.FK_TinHuu_Conduct_TinHuu">
+      <End Role="TinHuu" EntitySet="TinHuu" />
+      <End Role="TinHuu_Conduct" EntitySet="TinHuu_Conduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ToThamVieng_HoGiaDinh_HoGiaDinh" Association="Self.FK_ToThamVieng_HoGiaDinh_HoGiaDinh">
+      <End Role="HoGiaDinh" EntitySet="HoGiaDinh" />
+      <End Role="ToThamVieng_HoGiaDinh" EntitySet="ToThamVieng_HoGiaDinh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ToThamVieng_HoGiaDinh_ToThamVieng" Association="Self.FK_ToThamVieng_HoGiaDinh_ToThamVieng">
+      <End Role="ToThamVieng" EntitySet="ToThamVieng" />
+      <End Role="ToThamVieng_HoGiaDinh" EntitySet="ToThamVieng_HoGiaDinh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VanThu_Users" Association="Self.FK_VanThu_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="VanThu" EntitySet="VanThu" />
+    </AssociationSet>
+    <AssociationSet Name="permanent_address_fk" Association="Self.permanent_address_fk">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergy" />
+    </AssociationSet>
+    <AssociationSet Name="TitleHistory_Clergy_Clergy_FK" Association="Self.TitleHistory_Clergy_Clergy_FK">
+      <End Role="Clergy" EntitySet="Clergy" />
+      <End Role="Clergy_TitleHistory" EntitySet="Clergy_TitleHistory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

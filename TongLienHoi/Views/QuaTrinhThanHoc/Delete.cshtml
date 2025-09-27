@@ -1,0 +1,52 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_Education
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Bạn có chắc xóa nội dung sau?</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.CollegeOrProgramme, "Chương trình Thần học")</label>
+                <div class="col-md-2">
+                    <p class="form-control-static">
+                    @Html.DisplayFor(model => model.CollegeOrProgramme)
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.ClergyId)
+                    </p>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Degree, "Khóa")</label>
+                <div class="col-md-2">
+                    <p class="form-control-static">
+                    @Html.HiddenFor(model => model.ClergyId)
+                    @Html.DisplayFor(model=>model.Degree)
+                    </p>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.FromDate, "Khóa học")</label>
+                <div class="col-md-1">
+                    <p class="form-control-static">
+                       @Model.FromDate
+                    </p>
+                </div>
+                <label class="control-label col-md-1">@Html.LabelFor(model => model.ToDate, "Ngày tốt nghiệp")</label>
+                <div class="col-md-1">
+                    <p class="form-control-static">
+                        @Model.ToDate
+                    </p>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-2">
+                    <input type="submit" value="Xóa"  class="btn btn-primary"/>  
+                    <a href="@Url.Content(string.Format("~/home/MucsuThongTinChucVu/{0}", Model.ClergyId))" class="btn btn-primary">Quay lại</a>       </div>
+            </div>
+        </div>
+        </div>
+</form>

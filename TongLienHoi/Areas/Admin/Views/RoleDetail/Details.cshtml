@@ -1,0 +1,25 @@
+﻿@model HTTLVN.QLTLH.Models.RoleDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RoleDetail</legend>
+
+    <div class="display-label">User</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.username)
+    </div>
+
+    <div class="display-label">RoleMapping1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleMapping1.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

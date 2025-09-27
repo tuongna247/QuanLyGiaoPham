@@ -1,0 +1,121 @@
+﻿@using System
+@using System.Collections.Generic
+@using System.Globalization
+@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+
+@helper CheckError(Dictionary<string,string>errors, string condition){
+    if(errors!=null && errors.Count>0)
+    {
+        foreach (var error in errors)
+        {
+            if (error.Key.IndexOf(condition) != -1)
+            {
+                @:formLabelErr
+                break;
+            }
+        }
+    }
+}
+
+@helper CheckError(Dictionary<string,string>errors, string condition,string value){
+    if(errors!=null && errors.Count>0)
+    {
+        foreach (var error in errors)
+        {
+            if (error.Key.IndexOf(condition) != -1 && string.IsNullOrEmpty(value))
+            {
+                @:formLabelErr
+                break;
+            }
+        }
+    }
+}
+
+@helper DisplayDateTime(DateTime? dt){
+    if(dt.HasValue)
+    {
+        @dt.Value.Date.ToString("dd/MM/yyyy", new CultureInfo("en-us"));
+    }
+}
+
+@helper DisplayYear(DateTime? dt){
+    if(dt.HasValue)
+    {
+        @dt.Value.ToString("yyyy", new CultureInfo("en-us"));
+    }
+}
+
+@helper HumanRead(string value){
+    if (string.IsNullOrEmpty(value))
+    {
+        
+    }
+    else
+    {
+        @CommonFunction.HumanReadFile(value);
+    }
+}
+
+
+@helper DisplayAddress(Address address)
+    {
+        if (address != null)
+        {
+            @address.Street.Replace(" , ", ", ").Replace(" , ", ", ").Replace(" , ", ", ");
+            if (address.City1 != null)
+            {
+            <text>, </text>
+            @address.City1.Name.Trim()
+            }
+        }
+}
+
+@*@helper DisplayAddress2(Church_TinHuu_Addresses address)
+{
+    if (address != null)
+    {
+        @address.Street
+        if (address.City1 != null)
+        {
+            <text>, </text>
+            @address.City1.Name
+        }
+
+
+    }
+}*@
+
+
+
+@helper DisplayNhiemSo(Clergy giaopham)
+    {
+        if (giaopham != null)
+        {
+        @giaopham.DiaChiNhiemSo
+        @giaopham.DienThoaiNhiemSo
+        }
+}
+
+@helper LoaiDauKhoiHoTen(Clergy giaopham)
+    {
+        if (giaopham != null)
+        {
+            var full = giaopham.FirstName + " " + giaopham.LastName;
+        @CommonFunction.ConvertToUnsign2(full);
+        }
+}
+
+@helper GetBaseName(string fileName)
+    {
+        var file = fileName;
+        if (!string.IsNullOrWhiteSpace(fileName) && file.Length > 0 && file.IndexOf(@"\", System.StringComparison.Ordinal) > 0)
+        {
+            file = file.Substring(file.LastIndexOf(@"\") + 1, file.Length - (file.LastIndexOf(@"\") + 1));
+        }
+        if (!string.IsNullOrWhiteSpace(fileName) && file.Length > 0 && file.IndexOf(@"/", System.StringComparison.Ordinal) > 0)
+        {
+            file = file.Substring(file.LastIndexOf(@"/") + 1, file.Length - (file.LastIndexOf(@"/") + 1));
+        }
+    @file        
+}

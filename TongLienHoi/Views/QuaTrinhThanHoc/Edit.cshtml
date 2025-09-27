@@ -1,0 +1,113 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_Education
+
+@{
+    ViewBag.Title = "Edit";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+
+
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Cập nhật quá trình học thần học</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.CollegeOrProgramme, "Chương trình Thần học")</label>
+                <div class="col-md-4">
+                    <div class="@Helper.CheckError(erros, "CollegeOrProgramme")">
+                    @Html.EditorFor(model => model.CollegeOrProgramme)
+                    </div>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.NoiChungNhan, "Nơi học/Nơi chứng nhận")</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.NoiChungNhan, new { @class = "form-control" })
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Degree, "Khóa")</label>
+                <div class="col-md-4">
+                    @Html.HiddenFor(model => model.ClergyId)
+                    @Html.TextBoxFor(m=>m.Degree, new {  @class = "form-control" })
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.FromDate, "Thời gian")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "FromDate")">                        
+                        @Html.TextBoxFor(a=>a.FromDate, new {@placeholder = "Khóa học", @class = "form-control"})
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "ToDate")">                        
+                       @Html.TextBoxFor(a => a.ToDate,  new { @placeholder = "Ngày tốt nghiệp", @class = "form-control" })
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Paper, "Văn bằng")</label>
+                <div class="col-md-2"><input type="text"  id="txtChungChi" name="txtChungChi" value="@Helper.HumanRead(Model.Paper)" placeholder="Chưa chọn chứng chỉ" class="form-control"/></div>
+                <div class="col-md-1">
+                    <label>
+                        <input type="file" name="chungchi" id="chungchi"  onchange="readURL(this);" /> <span class="btn btn-default">Chọn văn bằng</span>
+                    </label>
+                </div>
+            </div>  
+               <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.NgayCapChungChi, "Ngày cấp văn bằng/ ngày tốt nghiệp")</label>
+                   <div class="col-md-4">
+                       <div class="@Helper.CheckError(erros, "NgayCapChungChi")">       
+                     @Html.TextBoxFor(a => a.NgayCapChungChi, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                     </div>
+                   </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave" class="btn btn-primary"/>  
+                    <a class="btn btn-default" href="@Url.Content(string.Format("~/home/MucsuThongTinChucVu/{0}", ViewBag.CleargyId))">Quay lại</a>     
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+
+<script type="text/javascript" language="javascript">
+    function formatDate(date, format) {
+        format = format || '{0:d}';
+        return $.telerik.formatString(format, value);
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtChungChi').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtChungChi').attr('placeholder', "Chưa chọn văn bằng");
+        }
+    }
+</script>

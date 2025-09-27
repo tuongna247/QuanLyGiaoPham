@@ -1,0 +1,1956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TongLienHoiModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TongLienHoiEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GiaoPhamThoiGianPhucVu" ReturnType="Collection(TongLienHoiModel.GiaoPhamThoiGianPhucVu_Result)">
+      <Parameter Name="tukhoa" Mode="In" Type="String" />
+      <Parameter Name="chucvu" Mode="In" Type="Int32" />
+      <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+      <Parameter Name="coquan" Mode="In" Type="Int32" />
+      <Parameter Name="tunam" Mode="In" Type="Int32" />
+      <Parameter Name="dennam" Mode="In" Type="Int32" />
+      <Parameter Name="cachtinh" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TimGiaoPham" ReturnType="Collection(TongLienHoiModel.TimGiaoPham_Result)">
+      <Parameter Name="search" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemGiaoPhamHetHan" ReturnType="Collection(TongLienHoiModel.TimKiemGiaoPhamHetHan_Result)">
+      <Parameter Name="hovaten" Mode="In" Type="String" />
+      <Parameter Name="fromdate" Mode="In" Type="DateTime" />
+      <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+      <Parameter Name="todate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemGiaoPhamNangCao" ReturnType="Collection(TongLienHoiModel.TimKiemGiaoPhamNangCao_Result)">
+      <Parameter Name="hovaten" Mode="In" Type="String" />
+      <Parameter Name="kethon" Mode="In" Type="Int32" />
+      <Parameter Name="dantoc" Mode="In" Type="Int32" />
+      <Parameter Name="quequan" Mode="In" Type="Int32" />
+      <Parameter Name="nhiemso" Mode="In" Type="Int32" />
+      <Parameter Name="tunamphucvu" Mode="In" Type="Int32" />
+      <Parameter Name="dennamphucvu" Mode="In" Type="Int32" />
+      <Parameter Name="cachtinh" Mode="In" Type="Int32" />
+      <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+      <Parameter Name="chucvu" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemNangCao" ReturnType="Collection(TongLienHoiModel.TimKiemNangCao_Result)">
+      <Parameter Name="tinhthanh" Mode="In" Type="Int32" />
+      <Parameter Name="chucvutu" Mode="In" Type="Int32" />
+      <Parameter Name="chucvuden" Mode="In" Type="Int32" />
+      <Parameter Name="nhiemkytu" Mode="In" Type="Int32" />
+      <Parameter Name="nhiemkyden" Mode="In" Type="Int32" />
+      <Parameter Name="namsinhtu" Mode="In" Type="Int32" />
+      <Parameter Name="namsinhden" Mode="In" Type="Int32" />
+      <Parameter Name="tinhtrang" Mode="In" Type="Int32" />
+      <Parameter Name="chucdanh" Mode="In" Type="Int32" />
+      <Parameter Name="chucvu" Mode="In" Type="Int32" />
+      <Parameter Name="nhiemso" Mode="In" Type="Int32" />
+      <Parameter Name="capnhiemso" Mode="In" Type="Int32" />
+      <Parameter Name="dantoc" Mode="In" Type="Int32" />
+      <Parameter Name="hocvi" Mode="In" Type="Int32" />
+      <Parameter Name="cmnd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemVoiNhieuThamSo" ReturnType="Collection(TongLienHoiModel.TimKiemVoiNhieuThamSo_Result)">
+      <Parameter Name="hovaten" Mode="In" Type="String" />
+      <Parameter Name="ChucDanh" Mode="In" Type="Int32" />
+      <Parameter Name="ChucVu" Mode="In" Type="Int32" />
+      <Parameter Name="capchihoi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TimTinHuu" ReturnType="Collection(TongLienHoiModel.TimTinHuu_Result)">
+      <Parameter Name="search" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Addresses" EntityType="TongLienHoiModel.Address" />
+    <EntitySet Name="BangCapNguoiPhoiNgaus" EntityType="TongLienHoiModel.BangCapNguoiPhoiNgau" />
+    <EntitySet Name="CapChiHois" EntityType="TongLienHoiModel.CapChiHoi" />
+    <EntitySet Name="Categories" EntityType="TongLienHoiModel.Category" />
+    <EntitySet Name="CategoryDetails" EntityType="TongLienHoiModel.CategoryDetail" />
+    <EntitySet Name="ChiTietChucVuGiaoPhams" EntityType="TongLienHoiModel.ChiTietChucVuGiaoPham" />
+    <EntitySet Name="ChucVus" EntityType="TongLienHoiModel.ChucVu" />
+    <EntitySet Name="Churches" EntityType="TongLienHoiModel.Church" />
+    <EntitySet Name="Church_SoLuongTinHuu" EntityType="TongLienHoiModel.Church_SoLuongTinHuu" />
+    <EntitySet Name="Church_TAISAN" EntityType="TongLienHoiModel.Church_TAISAN" />
+    <EntitySet Name="Church_TinHuu_DanToc" EntityType="TongLienHoiModel.Church_TinHuu_DanToc" />
+    <EntitySet Name="Cities" EntityType="TongLienHoiModel.City" />
+    <EntitySet Name="Clergies" EntityType="TongLienHoiModel.Clergy" />
+    <EntitySet Name="Clergy_AssignmentHistory" EntityType="TongLienHoiModel.Clergy_AssignmentHistory" />
+    <EntitySet Name="Clergy_Conduct" EntityType="TongLienHoiModel.Clergy_Conduct" />
+    <EntitySet Name="Clergy_Education" EntityType="TongLienHoiModel.Clergy_Education" />
+    <EntitySet Name="Clergy_TitleHistory" EntityType="TongLienHoiModel.Clergy_TitleHistory" />
+    <EntitySet Name="ClergyTitles" EntityType="TongLienHoiModel.ClergyTitle" />
+    <EntitySet Name="Conduct_Type" EntityType="TongLienHoiModel.Conduct_Type" />
+    <EntitySet Name="DanTocs" EntityType="TongLienHoiModel.DanToc" />
+    <EntitySet Name="Districts" EntityType="TongLienHoiModel.District" />
+    <EntitySet Name="Offices" EntityType="TongLienHoiModel.Office" />
+    <EntitySet Name="PhanLoaiVanThus" EntityType="TongLienHoiModel.PhanLoaiVanThu" />
+    <EntitySet Name="QuanHeGiaDinhs" EntityType="TongLienHoiModel.QuanHeGiaDinh" />
+    <EntitySet Name="QuanHeVoiGiaoPhams" EntityType="TongLienHoiModel.QuanHeVoiGiaoPham" />
+    <EntitySet Name="RoleDetails" EntityType="TongLienHoiModel.RoleDetail" />
+    <EntitySet Name="RoleMappings" EntityType="TongLienHoiModel.RoleMapping" />
+    <EntitySet Name="SaveUserSessions" EntityType="TongLienHoiModel.SaveUserSession" />
+    <EntitySet Name="Users" EntityType="TongLienHoiModel.User" />
+    <EntitySet Name="VanThus" EntityType="TongLienHoiModel.VanThu" />
+    <EntitySet Name="GetBirthDayIn7Day" EntityType="TongLienHoiModel.GetBirthDayIn7Day" />
+    <EntitySet Name="v_assign" EntityType="TongLienHoiModel.v_assign" />
+    <EntitySet Name="v_church" EntityType="TongLienHoiModel.v_church" />
+    <EntitySet Name="V_GetAllEndDay" EntityType="TongLienHoiModel.V_GetAllEndDay" />
+    <EntitySet Name="V_GetBirthIn7Day" EntityType="TongLienHoiModel.V_GetBirthIn7Day" />
+    <EntitySet Name="V_GetEndDay" EntityType="TongLienHoiModel.V_GetEndDay" />
+    <EntitySet Name="V_GetVeHuu" EntityType="TongLienHoiModel.V_GetVeHuu" />
+    <EntitySet Name="V_GroupGiaoPham" EntityType="TongLienHoiModel.V_GroupGiaoPham" />
+    <EntitySet Name="V_GroupGiaoPhamByChucDanh" EntityType="TongLienHoiModel.V_GroupGiaoPhamByChucDanh" />
+    <EntitySet Name="V_GroupGiaoPhamByChucDanhNotDuongChuc" EntityType="TongLienHoiModel.V_GroupGiaoPhamByChucDanhNotDuongChuc" />
+    <EntitySet Name="V_GroupHoiThanhByCapChiHoi" EntityType="TongLienHoiModel.V_GroupHoiThanhByCapChiHoi" />
+    <EntitySet Name="v_hogiadinh_tinhuu" EntityType="TongLienHoiModel.v_hogiadinh_tinhuu" />
+    <EntitySet Name="v_TimKiemNangCao" EntityType="TongLienHoiModel.v_TimKiemNangCao" />
+    <EntitySet Name="v_TinHuu" EntityType="TongLienHoiModel.v_TinHuu" />
+    <EntitySet Name="v_updateTenNhiemSo" EntityType="TongLienHoiModel.v_updateTenNhiemSo" />
+    <EntitySet Name="V_UserRoles" EntityType="TongLienHoiModel.V_UserRoles" />
+    <EntitySet Name="v_vanThu" EntityType="TongLienHoiModel.v_vanThu" />
+    <EntitySet Name="view_User" EntityType="TongLienHoiModel.view_User" />
+    <EntitySet Name="viewChurches" EntityType="TongLienHoiModel.viewChurch" />
+    <AssociationSet Name="address_Clergy_FK" Association="TongLienHoiModel.address_Clergy_FK">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="currentaddress_Clergy_FK" Association="TongLienHoiModel.currentaddress_Clergy_FK">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_City" Association="TongLienHoiModel.FK_Addresses_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_District" Association="TongLienHoiModel.FK_Addresses_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Addresses" Association="TongLienHoiModel.FK_Clergy_Addresses">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="permanent_address_fk" Association="TongLienHoiModel.permanent_address_fk">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham" Association="TongLienHoiModel.FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham">
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPhams" />
+      <End Role="BangCapNguoiPhoiNgau" EntitySet="BangCapNguoiPhoiNgaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_CapChiHoi" Association="TongLienHoiModel.FK_Church_CapChiHoi">
+      <End Role="CapChiHoi" EntitySet="CapChiHois" />
+      <End Role="Church" EntitySet="Churches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_CapChiHoi" Association="TongLienHoiModel.FK_Clergy_AssignmentHistory_CapChiHoi">
+      <End Role="CapChiHoi" EntitySet="CapChiHois" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryDetail_Category" Association="TongLienHoiModel.FK_CategoryDetail_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CategoryDetail" EntitySet="CategoryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietChucVuGiaoPham_ChucVu" Association="TongLienHoiModel.FK_ChiTietChucVuGiaoPham_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVus" />
+      <End Role="ChiTietChucVuGiaoPham" EntitySet="ChiTietChucVuGiaoPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietChucVuGiaoPham_Clergy" Association="TongLienHoiModel.FK_ChiTietChucVuGiaoPham_Clergy">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="ChiTietChucVuGiaoPham" EntitySet="ChiTietChucVuGiaoPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_ChucVu" Association="TongLienHoiModel.FK_Clergy_AssignmentHistory_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVus" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_ChucVu" Association="TongLienHoiModel.FK_Clergy_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVus" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_City" Association="TongLienHoiModel.FK_Church_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Church" EntitySet="Churches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TAISAN_CHURCH" Association="TongLienHoiModel.FK_Church_TAISAN_CHURCH">
+      <End Role="Church" EntitySet="Churches" />
+      <End Role="Church_TAISAN" EntitySet="Church_TAISAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TinHuu_Church" Association="TongLienHoiModel.FK_Church_TinHuu_Church">
+      <End Role="Church" EntitySet="Churches" />
+      <End Role="Church_SoLuongTinHuu" EntitySet="Church_SoLuongTinHuu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_Church" Association="TongLienHoiModel.FK_Clergy_AssignmentHistory_Church">
+      <End Role="Church" EntitySet="Churches" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Church" Association="TongLienHoiModel.FK_Clergy_Church">
+      <End Role="Church" EntitySet="Churches" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TinHuu_DanToc_Church_TinHuu" Association="TongLienHoiModel.FK_Church_TinHuu_DanToc_Church_TinHuu">
+      <End Role="Church_SoLuongTinHuu" EntitySet="Church_SoLuongTinHuu" />
+      <End Role="Church_TinHuu_DanToc" EntitySet="Church_TinHuu_DanToc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Church_TinHuu_DanToc_DanToc" Association="TongLienHoiModel.FK_Church_TinHuu_DanToc_DanToc">
+      <End Role="DanToc" EntitySet="DanTocs" />
+      <End Role="Church_TinHuu_DanToc" EntitySet="Church_TinHuu_DanToc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_City" Association="TongLienHoiModel.FK_Clergy_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_City" Association="TongLienHoiModel.FK_District_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="District" EntitySet="Districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_Clergy" Association="TongLienHoiModel.FK_Clergy_AssignmentHistory_Clergy">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Clergy_AssignmentHistory" Association="TongLienHoiModel.FK_Clergy_Clergy_AssignmentHistory">
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_ClergyTitle" Association="TongLienHoiModel.FK_Clergy_ClergyTitle">
+      <End Role="ClergyTitle" EntitySet="ClergyTitles" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Conduct_Clergy" Association="TongLienHoiModel.FK_Clergy_Conduct_Clergy">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="Clergy_Conduct" EntitySet="Clergy_Conduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_DanToc" Association="TongLienHoiModel.FK_Clergy_DanToc">
+      <End Role="DanToc" EntitySet="DanTocs" />
+      <End Role="Clergy" EntitySet="Clergies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Education_Clergy" Association="TongLienHoiModel.FK_Clergy_Education_Clergy">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="Clergy_Education" EntitySet="Clergy_Education" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHeVoiGiaoPham_Clergy" Association="TongLienHoiModel.FK_QuanHeVoiGiaoPham_Clergy">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHeVoiGiaoPham_TuGiaoPham" Association="TongLienHoiModel.FK_QuanHeVoiGiaoPham_TuGiaoPham">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPhams" />
+    </AssociationSet>
+    <AssociationSet Name="TitleHistory_Clergy_Clergy_FK" Association="TongLienHoiModel.TitleHistory_Clergy_Clergy_FK">
+      <End Role="Clergy" EntitySet="Clergies" />
+      <End Role="Clergy_TitleHistory" EntitySet="Clergy_TitleHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_ClergyTitle" Association="TongLienHoiModel.FK_Clergy_AssignmentHistory_ClergyTitle">
+      <End Role="ClergyTitle" EntitySet="ClergyTitles" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_AssignmentHistory_Office" Association="TongLienHoiModel.FK_Clergy_AssignmentHistory_Office">
+      <End Role="Office" EntitySet="Offices" />
+      <End Role="Clergy_AssignmentHistory" EntitySet="Clergy_AssignmentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_Conduct_Conduct_Type" Association="TongLienHoiModel.FK_Clergy_Conduct_Conduct_Type">
+      <End Role="Conduct_Type" EntitySet="Conduct_Type" />
+      <End Role="Clergy_Conduct" EntitySet="Clergy_Conduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clergy_TitleHistory_ClergyTitle" Association="TongLienHoiModel.FK_Clergy_TitleHistory_ClergyTitle">
+      <End Role="ClergyTitle" EntitySet="ClergyTitles" />
+      <End Role="Clergy_TitleHistory" EntitySet="Clergy_TitleHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanLoaiVanThu_PhanLoaiVanThu" Association="TongLienHoiModel.FK_PhanLoaiVanThu_PhanLoaiVanThu">
+      <End Role="PhanLoaiVanThu" EntitySet="PhanLoaiVanThus" />
+      <End Role="PhanLoaiVanThu1" EntitySet="PhanLoaiVanThus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHeVoiGiaoPham_QuanHeGiaDinh" Association="TongLienHoiModel.FK_QuanHeVoiGiaoPham_QuanHeGiaDinh">
+      <End Role="QuanHeGiaDinh" EntitySet="QuanHeGiaDinhs" />
+      <End Role="QuanHeVoiGiaoPham" EntitySet="QuanHeVoiGiaoPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleDetail_RoleMapping" Association="TongLienHoiModel.FK_RoleDetail_RoleMapping">
+      <End Role="RoleMapping" EntitySet="RoleMappings" />
+      <End Role="RoleDetail" EntitySet="RoleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleDetail_Users" Association="TongLienHoiModel.FK_RoleDetail_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="RoleDetail" EntitySet="RoleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VanThu_Users" Association="TongLienHoiModel.FK_VanThu_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VanThu" EntitySet="VanThus" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GiaoPhamThoiGianPhucVu_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+    <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+    <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+    <Property Type="String" Name="TinhThanh" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TimGiaoPham_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+    <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+    <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenChucDan" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TimKiemGiaoPhamHetHan_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+    <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+    <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartDate" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Ngay_NhanNhiemSo" Nullable="true" />
+    <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TimKiemGiaoPhamNangCao_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+    <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+    <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TimKiemNangCao_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+    <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+    <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="202" />
+    <Property Type="Int32" Name="NamChucVu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TimKiemVoiNhieuThamSo_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="NoicapNgayCap" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PermanentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="CapChiHoiId" Nullable="true" />
+    <Property Type="String" Name="TenNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DiaChiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CurrentChurchId" Nullable="true" />
+    <Property Type="String" Name="DienThoaiNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmailNhiemSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAssignment_Id" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="DinhCuNuocNgoai" Nullable="true" />
+    <Property Type="Boolean" Name="KyLuat" Nullable="true" />
+    <Property Type="Boolean" Name="DuHoc" Nullable="true" />
+    <Property Type="Boolean" Name="HuuTri" Nullable="true" />
+    <Property Type="String" Name="TenChucDanh" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TimTinHuu_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CurrentChurch_Id" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IdentityNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="IDApprovedDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IDApprovedPlace" Nullable="true" />
+    <Property Type="String" Name="BelieveDate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BaptismDate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ContactAddressId" Nullable="true" />
+    <Property Type="Int32" Name="CurrentAddressId" Nullable="true" />
+    <Property Type="Int32" Name="BirthAddressId" Nullable="true" />
+    <Property Type="Int32" Name="ChucVuId" Nullable="true" />
+    <Property Type="Int32" Name="TinhThanhId" Nullable="true" />
+    <Property Type="Int32" Name="HoGiaDinh_Id" Nullable="true" />
+    <Property Type="Int32" Name="BanNganh_Id" Nullable="true" />
+    <Property Type="Int32" Name="TitleId" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="TenDayDuKhongDau" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="KetHon" Nullable="true" />
+    <Property Type="Int32" Name="BelieveYear" Nullable="true" />
+    <Property Type="Int32" Name="BaptismYear" Nullable="true" />
+    <Property Type="String" Name="DateOfDeath" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="NgheNghiep" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="QuanHeGiaDinh" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Street" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Ward" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="HomePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.address_Clergy_FK" FromRole="Address" ToRole="Clergy" />
+    <NavigationProperty Name="Clergies1" Relationship="TongLienHoiModel.currentaddress_Clergy_FK" FromRole="Address" ToRole="Clergy" />
+    <NavigationProperty Name="City1" Relationship="TongLienHoiModel.FK_Addresses_City" FromRole="Address" ToRole="City" />
+    <NavigationProperty Name="District1" Relationship="TongLienHoiModel.FK_Addresses_District" FromRole="Address" ToRole="District" />
+    <NavigationProperty Name="Clergies2" Relationship="TongLienHoiModel.FK_Clergy_Addresses" FromRole="Address" ToRole="Clergy" />
+    <NavigationProperty Name="Clergies3" Relationship="TongLienHoiModel.permanent_address_fk" FromRole="Address" ToRole="Clergy" />
+  </EntityType>
+  <EntityType Name="BangCapNguoiPhoiNgau">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChuongTrinhThanHoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NoiHoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTotNghiep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChungChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QuanHeVoiGiaoPham_Id" Type="Int32" />
+    <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+    <NavigationProperty Name="QuanHeVoiGiaoPham" Relationship="TongLienHoiModel.FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham" FromRole="BangCapNguoiPhoiNgau" ToRole="QuanHeVoiGiaoPham" />
+  </EntityType>
+  <EntityType Name="CapChiHoi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="sortId" Type="Int32" />
+    <NavigationProperty Name="Churches" Relationship="TongLienHoiModel.FK_Church_CapChiHoi" FromRole="CapChiHoi" ToRole="Church" />
+    <NavigationProperty Name="Clergy_AssignmentHistory" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_CapChiHoi" FromRole="CapChiHoi" ToRole="Clergy_AssignmentHistory" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CategoryDetails" Relationship="TongLienHoiModel.FK_CategoryDetail_Category" FromRole="Category" ToRole="CategoryDetail" />
+  </EntityType>
+  <EntityType Name="CategoryDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="TongLienHoiModel.FK_CategoryDetail_Category" FromRole="CategoryDetail" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="ChiTietChucVuGiaoPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ChucVuID" Type="Int32" Nullable="false" />
+    <Property Name="GiaoPhamId" Type="Int32" Nullable="false" />
+    <Property Name="TuNgay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DenNgay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GiaoVuLenh" Type="DateTime" Precision="0" />
+    <Property Name="UrlGiaoVuLenh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateBy" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AddressId" Type="Int32" />
+    <NavigationProperty Name="ChucVu" Relationship="TongLienHoiModel.FK_ChiTietChucVuGiaoPham_ChucVu" FromRole="ChiTietChucVuGiaoPham" ToRole="ChucVu" />
+    <NavigationProperty Name="Clergy" Relationship="TongLienHoiModel.FK_ChiTietChucVuGiaoPham_Clergy" FromRole="ChiTietChucVuGiaoPham" ToRole="Clergy" />
+  </EntityType>
+  <EntityType Name="ChucVu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="ChiTietChucVuGiaoPhams" Relationship="TongLienHoiModel.FK_ChiTietChucVuGiaoPham_ChucVu" FromRole="ChucVu" ToRole="ChiTietChucVuGiaoPham" />
+    <NavigationProperty Name="Clergy_AssignmentHistory" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_ChucVu" FromRole="ChucVu" ToRole="Clergy_AssignmentHistory" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.FK_Clergy_ChucVu" FromRole="ChucVu" ToRole="Clergy" />
+  </EntityType>
+  <EntityType Name="Church">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChurchName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CapChiHoiID" Type="Int32" />
+    <Property Name="AddressFull" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CitiId" Type="Int32" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="NgayThanhLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanDiemNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanDiemNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanDiemNhom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanDiemNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanDiemNhom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanHoiNhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanHoiNhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanHoiNhanh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanHoiNhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanHoiNhanh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanChiHoiTuDuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanHoiTuDuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanHoiTuDuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanHoiTuDuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanHoiTuDuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanChiHoiTuLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanChiHoiTuLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanChiHoiTuLap" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanChiHoiTuLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanChiHoiTuLap" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTaiLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCungHienDenTho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaiSanHoiThanh" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DienTichDat" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="QuyMoCoSo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="GiayChungNhanQuyenSuDungDat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Longtitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TenKhongDau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ChurchCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IsChiHoiTuDuong" Type="Boolean" />
+    <NavigationProperty Name="CapChiHoi" Relationship="TongLienHoiModel.FK_Church_CapChiHoi" FromRole="Church" ToRole="CapChiHoi" />
+    <NavigationProperty Name="City" Relationship="TongLienHoiModel.FK_Church_City" FromRole="Church" ToRole="City" />
+    <NavigationProperty Name="Church_TAISAN" Relationship="TongLienHoiModel.FK_Church_TAISAN_CHURCH" FromRole="Church" ToRole="Church_TAISAN" />
+    <NavigationProperty Name="Church_SoLuongTinHuu" Relationship="TongLienHoiModel.FK_Church_TinHuu_Church" FromRole="Church" ToRole="Church_SoLuongTinHuu" />
+    <NavigationProperty Name="Clergy_AssignmentHistory" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_Church" FromRole="Church" ToRole="Clergy_AssignmentHistory" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.FK_Clergy_Church" FromRole="Church" ToRole="Clergy" />
+  </EntityType>
+  <EntityType Name="Church_SoLuongTinHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Church_Id" Type="Int32" />
+    <Property Name="SoLuongTinHuu" Type="Int32" />
+    <Property Name="LuaTuoi" Type="Int32" />
+    <Property Name="ThanhPhanDanToc" Type="Int32" />
+    <Property Name="TinHuuBapTem" Type="Int32" />
+    <Property Name="TinHuuChuaBapTem" Type="Int32" />
+    <Property Name="NamThongKe" Type="Int32" />
+    <Property Name="LuaTuoiThieuNhi" Type="Int32" />
+    <Property Name="LuaTuoiThieuNien" Type="Int32" />
+    <Property Name="LuaTuoiThanhNien" Type="Int32" />
+    <Property Name="LuaTuoiTrangNien" Type="Int32" />
+    <Property Name="LuaTuoiTrungNien" Type="Int32" />
+    <Property Name="LuaTuoiLaoNien" Type="Int32" />
+    <Property Name="GioiTinhNam" Type="Int32" />
+    <Property Name="GioiTinhNu" Type="Int32" />
+    <NavigationProperty Name="Church" Relationship="TongLienHoiModel.FK_Church_TinHuu_Church" FromRole="Church_SoLuongTinHuu" ToRole="Church" />
+    <NavigationProperty Name="Church_TinHuu_DanToc" Relationship="TongLienHoiModel.FK_Church_TinHuu_DanToc_Church_TinHuu" FromRole="Church_SoLuongTinHuu" ToRole="Church_TinHuu_DanToc" />
+  </EntityType>
+  <EntityType Name="Church_TAISAN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Church_ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DateApproval" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AttachFile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Created_DT" Type="DateTime" Precision="0" />
+    <Property Name="Updated_DT" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Church" Relationship="TongLienHoiModel.FK_Church_TAISAN_CHURCH" FromRole="Church_TAISAN" ToRole="Church" />
+  </EntityType>
+  <EntityType Name="Church_TinHuu_DanToc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Church_TinHuu_Id" Type="Int32" />
+    <Property Name="DanToc_Id" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="Church_SoLuongTinHuu" Relationship="TongLienHoiModel.FK_Church_TinHuu_DanToc_Church_TinHuu" FromRole="Church_TinHuu_DanToc" ToRole="Church_SoLuongTinHuu" />
+    <NavigationProperty Name="DanToc" Relationship="TongLienHoiModel.FK_Church_TinHuu_DanToc_DanToc" FromRole="Church_TinHuu_DanToc" ToRole="DanToc" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Addresses" Relationship="TongLienHoiModel.FK_Addresses_City" FromRole="City" ToRole="Address" />
+    <NavigationProperty Name="Churches" Relationship="TongLienHoiModel.FK_Church_City" FromRole="City" ToRole="Church" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.FK_Clergy_City" FromRole="City" ToRole="Clergy" />
+    <NavigationProperty Name="Districts" Relationship="TongLienHoiModel.FK_District_City" FromRole="City" ToRole="District" />
+  </EntityType>
+  <EntityType Name="Clergy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PlaceOfBirth" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IdentityNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IDApprovedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDApprovedPlace" Type="Int32" />
+    <Property Name="NoicapNgayCap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BelieveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaptismDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PermanentAddressId" Type="Int32" />
+    <Property Name="ContactAddressId" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePhone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TitleId" Type="Int32" />
+    <Property Name="ChucVuId" Type="Int32" />
+    <Property Name="CapChiHoiId" Type="Int32" />
+    <Property Name="TenNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentChurchId" Type="Int32" />
+    <Property Name="DienThoaiNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="EmailNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TinhThanhId" Type="Int32" />
+    <Property Name="TenDayDuKhongDau" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DanToc" Type="Int32" />
+    <Property Name="KetHon" Type="Int32" />
+    <Property Name="BirthAddressId" Type="Int32" />
+    <Property Name="BelieveYear" Type="Int32" />
+    <Property Name="BaptismYear" Type="Int32" />
+    <Property Name="CurrentAddressId" Type="Int32" />
+    <Property Name="CurrentAssignment_Id" Type="Int32" />
+    <Property Name="DateOfDeath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiSinh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DinhCuNuocNgoai" Type="Boolean" />
+    <Property Name="KyLuat" Type="Boolean" />
+    <Property Name="DuHoc" Type="Boolean" />
+    <Property Name="HuuTri" Type="Boolean" />
+    <NavigationProperty Name="Address" Relationship="TongLienHoiModel.address_Clergy_FK" FromRole="Clergy" ToRole="Address" />
+    <NavigationProperty Name="Address1" Relationship="TongLienHoiModel.currentaddress_Clergy_FK" FromRole="Clergy" ToRole="Address" />
+    <NavigationProperty Name="Address2" Relationship="TongLienHoiModel.FK_Clergy_Addresses" FromRole="Clergy" ToRole="Address" />
+    <NavigationProperty Name="Address3" Relationship="TongLienHoiModel.permanent_address_fk" FromRole="Clergy" ToRole="Address" />
+    <NavigationProperty Name="ChiTietChucVuGiaoPhams" Relationship="TongLienHoiModel.FK_ChiTietChucVuGiaoPham_Clergy" FromRole="Clergy" ToRole="ChiTietChucVuGiaoPham" />
+    <NavigationProperty Name="ChucVu" Relationship="TongLienHoiModel.FK_Clergy_ChucVu" FromRole="Clergy" ToRole="ChucVu" />
+    <NavigationProperty Name="Church" Relationship="TongLienHoiModel.FK_Clergy_Church" FromRole="Clergy" ToRole="Church" />
+    <NavigationProperty Name="City" Relationship="TongLienHoiModel.FK_Clergy_City" FromRole="Clergy" ToRole="City" />
+    <NavigationProperty Name="Clergy_AssignmentHistory" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_Clergy" FromRole="Clergy" ToRole="Clergy_AssignmentHistory" />
+    <NavigationProperty Name="Clergy_AssignmentHistory1" Relationship="TongLienHoiModel.FK_Clergy_Clergy_AssignmentHistory" FromRole="Clergy" ToRole="Clergy_AssignmentHistory" />
+    <NavigationProperty Name="ClergyTitle" Relationship="TongLienHoiModel.FK_Clergy_ClergyTitle" FromRole="Clergy" ToRole="ClergyTitle" />
+    <NavigationProperty Name="Clergy_Conduct" Relationship="TongLienHoiModel.FK_Clergy_Conduct_Clergy" FromRole="Clergy" ToRole="Clergy_Conduct" />
+    <NavigationProperty Name="DanToc1" Relationship="TongLienHoiModel.FK_Clergy_DanToc" FromRole="Clergy" ToRole="DanToc" />
+    <NavigationProperty Name="Clergy_Education" Relationship="TongLienHoiModel.FK_Clergy_Education_Clergy" FromRole="Clergy" ToRole="Clergy_Education" />
+    <NavigationProperty Name="QuanHeVoiGiaoPhams" Relationship="TongLienHoiModel.FK_QuanHeVoiGiaoPham_Clergy" FromRole="Clergy" ToRole="QuanHeVoiGiaoPham" />
+    <NavigationProperty Name="QuanHeVoiGiaoPhams1" Relationship="TongLienHoiModel.FK_QuanHeVoiGiaoPham_TuGiaoPham" FromRole="Clergy" ToRole="QuanHeVoiGiaoPham" />
+    <NavigationProperty Name="Clergy_TitleHistory" Relationship="TongLienHoiModel.TitleHistory_Clergy_Clergy_FK" FromRole="Clergy" ToRole="Clergy_TitleHistory" />
+  </EntityType>
+  <EntityType Name="Clergy_AssignmentHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClergyId" Type="Int32" Nullable="false" />
+    <Property Name="ChurchId" Type="Int32" />
+    <Property Name="OfficeId" Type="Int32" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Term" Type="Int32" />
+    <Property Name="TitleId" Type="Int32" />
+    <Property Name="TyLeLuu" Type="Double" />
+    <Property Name="NeedAlert" Type="Boolean" />
+    <Property Name="Paper" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NamChucVu" Type="Int32" />
+    <Property Name="NhanNhiemSo" Type="Boolean" />
+    <Property Name="Ngay_NhanNhiemSo" Type="DateTime" Precision="0" />
+    <Property Name="ChucVu_HienTai" Type="Boolean" />
+    <Property Name="ApplyDate" Type="DateTime" Precision="0" />
+    <Property Name="TermType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaperNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVuId" Type="Int32" />
+    <Property Name="TermNumber" Type="Int32" />
+    <Property Name="CapChiHoi" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="IsCurrent" Type="Boolean" />
+    <NavigationProperty Name="CapChiHoi1" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_CapChiHoi" FromRole="Clergy_AssignmentHistory" ToRole="CapChiHoi" />
+    <NavigationProperty Name="ChucVu" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_ChucVu" FromRole="Clergy_AssignmentHistory" ToRole="ChucVu" />
+    <NavigationProperty Name="Church" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_Church" FromRole="Clergy_AssignmentHistory" ToRole="Church" />
+    <NavigationProperty Name="Clergy" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_Clergy" FromRole="Clergy_AssignmentHistory" ToRole="Clergy" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.FK_Clergy_Clergy_AssignmentHistory" FromRole="Clergy_AssignmentHistory" ToRole="Clergy" />
+    <NavigationProperty Name="ClergyTitle" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_ClergyTitle" FromRole="Clergy_AssignmentHistory" ToRole="ClergyTitle" />
+    <NavigationProperty Name="Office" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_Office" FromRole="Clergy_AssignmentHistory" ToRole="Office" />
+  </EntityType>
+  <EntityType Name="Clergy_Conduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConductTypeId" Type="Int32" />
+    <Property Name="Fromdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Paper" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ClergyId" Type="Int32" Nullable="false" />
+    <Property Name="VanBan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoVanBan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+    <NavigationProperty Name="Clergy" Relationship="TongLienHoiModel.FK_Clergy_Conduct_Clergy" FromRole="Clergy_Conduct" ToRole="Clergy" />
+    <NavigationProperty Name="Conduct_Type" Relationship="TongLienHoiModel.FK_Clergy_Conduct_Conduct_Type" FromRole="Clergy_Conduct" ToRole="Conduct_Type" />
+  </EntityType>
+  <EntityType Name="Clergy_Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CollegeOrProgramme" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Degree" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FromDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Paper" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ClergyId" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="mine_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="filesize" Type="Int32" />
+    <Property Name="NoiChungNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapChungChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+    <NavigationProperty Name="Clergy" Relationship="TongLienHoiModel.FK_Clergy_Education_Clergy" FromRole="Clergy_Education" ToRole="Clergy" />
+  </EntityType>
+  <EntityType Name="Clergy_TitleHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CleargyId" Type="Int32" />
+    <Property Name="TitleId" Type="Int32" Nullable="false" />
+    <Property Name="EffectiveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequestPaper" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+    <Property Name="ApprovalPaper" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVuHienTai" Type="Boolean" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DecisionNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+    <NavigationProperty Name="Clergy" Relationship="TongLienHoiModel.TitleHistory_Clergy_Clergy_FK" FromRole="Clergy_TitleHistory" ToRole="Clergy" />
+    <NavigationProperty Name="ClergyTitle" Relationship="TongLienHoiModel.FK_Clergy_TitleHistory_ClergyTitle" FromRole="Clergy_TitleHistory" ToRole="ClergyTitle" />
+  </EntityType>
+  <EntityType Name="ClergyTitle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Short" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsDuongChuc" Type="Boolean" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.FK_Clergy_ClergyTitle" FromRole="ClergyTitle" ToRole="Clergy" />
+    <NavigationProperty Name="Clergy_AssignmentHistory" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_ClergyTitle" FromRole="ClergyTitle" ToRole="Clergy_AssignmentHistory" />
+    <NavigationProperty Name="Clergy_TitleHistory" Relationship="TongLienHoiModel.FK_Clergy_TitleHistory_ClergyTitle" FromRole="ClergyTitle" ToRole="Clergy_TitleHistory" />
+  </EntityType>
+  <EntityType Name="Conduct_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clergy_Conduct" Relationship="TongLienHoiModel.FK_Clergy_Conduct_Conduct_Type" FromRole="Conduct_Type" ToRole="Clergy_Conduct" />
+  </EntityType>
+  <EntityType Name="DanToc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Church_TinHuu_DanToc" Relationship="TongLienHoiModel.FK_Church_TinHuu_DanToc_DanToc" FromRole="DanToc" ToRole="Church_TinHuu_DanToc" />
+    <NavigationProperty Name="Clergies" Relationship="TongLienHoiModel.FK_Clergy_DanToc" FromRole="DanToc" ToRole="Clergy" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <NavigationProperty Name="Addresses" Relationship="TongLienHoiModel.FK_Addresses_District" FromRole="District" ToRole="Address" />
+    <NavigationProperty Name="City" Relationship="TongLienHoiModel.FK_District_City" FromRole="District" ToRole="City" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfficeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clergy_AssignmentHistory" Relationship="TongLienHoiModel.FK_Clergy_AssignmentHistory_Office" FromRole="Office" ToRole="Clergy_AssignmentHistory" />
+  </EntityType>
+  <EntityType Name="PhanLoaiVanThu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CapVanThu" Type="Int32" />
+    <NavigationProperty Name="PhanLoaiVanThu1" Relationship="TongLienHoiModel.FK_PhanLoaiVanThu_PhanLoaiVanThu" FromRole="PhanLoaiVanThu" ToRole="PhanLoaiVanThu1" />
+    <NavigationProperty Name="PhanLoaiVanThu2" Relationship="TongLienHoiModel.FK_PhanLoaiVanThu_PhanLoaiVanThu" FromRole="PhanLoaiVanThu1" ToRole="PhanLoaiVanThu" />
+  </EntityType>
+  <EntityType Name="QuanHeGiaDinh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QuanHeVoiGiaoPhams" Relationship="TongLienHoiModel.FK_QuanHeVoiGiaoPham_QuanHeGiaDinh" FromRole="QuanHeGiaDinh" ToRole="QuanHeVoiGiaoPham" />
+  </EntityType>
+  <EntityType Name="QuanHeVoiGiaoPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClergyId" Type="Int32" />
+    <Property Name="RelationShipId" Type="Int32" />
+    <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgheNghiep" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="YearOfBirth" Type="Int32" />
+    <NavigationProperty Name="BangCapNguoiPhoiNgaus" Relationship="TongLienHoiModel.FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham" FromRole="QuanHeVoiGiaoPham" ToRole="BangCapNguoiPhoiNgau" />
+    <NavigationProperty Name="Clergy" Relationship="TongLienHoiModel.FK_QuanHeVoiGiaoPham_Clergy" FromRole="QuanHeVoiGiaoPham" ToRole="Clergy" />
+    <NavigationProperty Name="Clergy1" Relationship="TongLienHoiModel.FK_QuanHeVoiGiaoPham_TuGiaoPham" FromRole="QuanHeVoiGiaoPham" ToRole="Clergy" />
+    <NavigationProperty Name="QuanHeGiaDinh" Relationship="TongLienHoiModel.FK_QuanHeVoiGiaoPham_QuanHeGiaDinh" FromRole="QuanHeVoiGiaoPham" ToRole="QuanHeGiaDinh" />
+  </EntityType>
+  <EntityType Name="RoleDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="RoleMapping" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RoleMapping1" Relationship="TongLienHoiModel.FK_RoleDetail_RoleMapping" FromRole="RoleDetail" ToRole="RoleMapping" />
+    <NavigationProperty Name="User" Relationship="TongLienHoiModel.FK_RoleDetail_Users" FromRole="RoleDetail" ToRole="User" />
+  </EntityType>
+  <EntityType Name="RoleMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RoleDetails" Relationship="TongLienHoiModel.FK_RoleDetail_RoleMapping" FromRole="RoleMapping" ToRole="RoleDetail" />
+  </EntityType>
+  <EntityType Name="SaveUserSession">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="permission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="strReturn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="RoleDetails" Relationship="TongLienHoiModel.FK_RoleDetail_Users" FromRole="User" ToRole="RoleDetail" />
+    <NavigationProperty Name="VanThus" Relationship="TongLienHoiModel.FK_VanThu_Users" FromRole="User" ToRole="VanThu" />
+  </EntityType>
+  <EntityType Name="VanThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TieuDe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungPheDuyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayVanThu" Type="DateTime" Precision="0" />
+    <Property Name="NgayTao" Type="DateTime" Precision="0" />
+    <Property Name="NgayPheDuyet" Type="DateTime" Precision="0" />
+    <Property Name="DuocDuyetBoi" Type="Int32" />
+    <Property Name="LoaiVanDe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThaiPheDuyet" Type="Boolean" />
+    <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiGui" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiNhan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VanBan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiVanThu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhanLoaiVanThu_Id" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="TongLienHoiModel.FK_VanThu_Users" FromRole="VanThu" ToRole="User" />
+  </EntityType>
+  <EntityType Name="GetBirthDayIn7Day">
+    <Key>
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BIRTHDAY" Type="DateTime" Precision="0" />
+    <Property Name="Tuoi" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_assign">
+    <Key>
+      <PropertyRef Name="ClergyId" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="ChurchName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="TinhThanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Term" Type="Int32" />
+    <Property Name="TermType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NamChucVu" Type="Int32" />
+    <Property Name="Ngay_NhanNhiemSo" Type="DateTime" Precision="0" />
+    <Property Name="ApplyDate" Type="DateTime" Precision="0" />
+    <Property Name="PaperNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TermNumber" Type="Int32" />
+    <Property Name="TyLeLuu" Type="Double" />
+    <Property Name="ClergyId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Paper" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="CapChiHoi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ChurchId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_church">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ChurchName" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChurchName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CapChiHoiID" Type="Int32" />
+    <Property Name="AddressFull" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CitiId" Type="Int32" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="NgayThanhLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanDiemNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanDiemNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanDiemNhom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanDiemNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanDiemNhom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanHoiNhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanHoiNhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanHoiNhanh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanHoiNhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanHoiNhanh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanChiHoiTuDuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanHoiTuDuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanHoiTuDuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanHoiTuDuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanHoiTuDuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCongNhanChiHoiTuLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTLHCongNhanChiHoiTuLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBTLHCongNhanChiHoiTuLap" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCQCongNhanChiHoiTuLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VBCQCongNhanChiHoiTuLap" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTaiLap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCungHienDenTho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaiSanHoiThanh" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DienTichDat" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="QuyMoCoSo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="GiayChungNhanQuyenSuDungDat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Longtitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TenKhongDau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_GetAllEndDay">
+    <Key>
+      <PropertyRef Name="ClergyId" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ClergyId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_GetBirthIn7Day">
+    <Key>
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BIRTHDAY" Type="DateTime" Precision="0" />
+    <Property Name="Tuoi" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_GetEndDay">
+    <Key>
+      <PropertyRef Name="ClergyId" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Expr1" Type="Int32" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ClergyId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_GetVeHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="LastName" />
+    </Key>
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tuoi" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="V_GroupGiaoPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Short" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsDuongChuc" Type="Boolean" />
+    <Property Name="Expr1" Type="Int32" />
+  </EntityType>
+  <EntityType Name="V_GroupGiaoPhamByChucDanh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Short" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsDuongChuc" Type="Boolean" />
+    <Property Name="Expr1" Type="Int32" />
+  </EntityType>
+  <EntityType Name="V_GroupGiaoPhamByChucDanhNotDuongChuc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Short" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsDuongChuc" Type="Boolean" />
+    <Property Name="Expr1" Type="Int32" />
+  </EntityType>
+  <EntityType Name="V_GroupHoiThanhByCapChiHoi">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Expr1" Type="Int32" />
+    <Property Name="sortId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_hogiadinh_tinhuu">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Gender" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="ShortTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BigImages" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelieveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaptismDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePhone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgheNghiep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelieveYear" Type="Int32" />
+    <Property Name="BaptismYear" Type="Int32" />
+    <Property Name="DateOfDeath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_TimKiemNangCao">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Gender" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PlaceOfBirth" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IdentityNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IDApprovedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDApprovedPlace" Type="Int32" />
+    <Property Name="NoicapNgayCap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BelieveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaptismDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PermanentAddressId" Type="Int32" />
+    <Property Name="ContactAddressId" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePhone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TitleId" Type="Int32" />
+    <Property Name="ChucVuId" Type="Int32" />
+    <Property Name="CapChiHoiId" Type="Int32" />
+    <Property Name="TenNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentChurchId" Type="Int32" />
+    <Property Name="DienThoaiNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="EmailNhiemSo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TinhThanhId" Type="Int32" />
+    <Property Name="TenDayDuKhongDau" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DanToc" Type="Int32" />
+    <Property Name="KetHon" Type="Int32" />
+    <Property Name="BirthAddressId" Type="Int32" />
+    <Property Name="BelieveYear" Type="Int32" />
+    <Property Name="BaptismYear" Type="Int32" />
+    <Property Name="CurrentAssignment_Id" Type="Int32" />
+    <Property Name="CurrentAddressId" Type="Int32" />
+    <Property Name="DateOfDeath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenChucDanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Name="NamChucVu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_TinHuu">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Gender" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrentChurch_Id" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="204" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PlaceOfBirth" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IdentityNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IDApprovedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDApprovedPlace" Type="Int32" />
+    <Property Name="BelieveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaptismDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactAddressId" Type="Int32" />
+    <Property Name="CurrentAddressId" Type="Int32" />
+    <Property Name="BirthAddressId" Type="Int32" />
+    <Property Name="ChucVuId" Type="Int32" />
+    <Property Name="TinhThanhId" Type="Int32" />
+    <Property Name="HoGiaDinh_Id" Type="Int32" />
+    <Property Name="BanNganh_Id" Type="Int32" />
+    <Property Name="BanHatLe_Id" Type="Int32" />
+    <Property Name="TitleId" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePhone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenDayDuKhongDau" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DanToc" Type="Int32" />
+    <Property Name="KetHon" Type="Int32" />
+    <Property Name="BelieveYear" Type="Int32" />
+    <Property Name="BaptismYear" Type="Int32" />
+    <Property Name="DateOfDeath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="NgheNghiep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QuanHeGiaDinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_updateTenNhiemSo">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ChurchName" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ChurchName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_UserRoles">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="RoleMappingId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_vanThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="TieuDe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungPheDuyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayVanThu" Type="DateTime" Precision="0" />
+    <Property Name="NgayTao" Type="DateTime" Precision="0" />
+    <Property Name="NgayPheDuyet" Type="DateTime" Precision="0" />
+    <Property Name="DuocDuyetBoi" Type="Int32" />
+    <Property Name="LoaiVanDe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThaiPheDuyet" Type="Boolean" />
+    <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiGui" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiNhan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VanBan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiVanThu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenLoaiVanThu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhanLoaiVanThu_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="view_User">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="viewChurch">
+    <Key>
+      <PropertyRef Name="ChurchId" />
+      <PropertyRef Name="ChurchName" />
+    </Key>
+    <Property Name="ChurchId" Type="Int32" Nullable="false" />
+    <Property Name="ChurchName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="TinhThanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CapChiHoi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="address_Clergy_FK">
+    <End Type="TongLienHoiModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="PermanentAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="currentaddress_Clergy_FK">
+    <End Type="TongLienHoiModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="CurrentAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_City">
+    <End Type="TongLienHoiModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_District">
+    <End Type="TongLienHoiModel.District" Role="District" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Addresses">
+    <End Type="TongLienHoiModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="BirthAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="permanent_address_fk">
+    <End Type="TongLienHoiModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="ContactAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BangCapNguoiPhoiNgau_QuanHeVoiGiaoPham">
+    <End Type="TongLienHoiModel.QuanHeVoiGiaoPham" Role="QuanHeVoiGiaoPham" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.BangCapNguoiPhoiNgau" Role="BangCapNguoiPhoiNgau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BangCapNguoiPhoiNgau">
+        <PropertyRef Name="QuanHeVoiGiaoPham_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_CapChiHoi">
+    <End Type="TongLienHoiModel.CapChiHoi" Role="CapChiHoi" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Church" Role="Church" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapChiHoi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Church">
+        <PropertyRef Name="CapChiHoiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_CapChiHoi">
+    <End Type="TongLienHoiModel.CapChiHoi" Role="CapChiHoi" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapChiHoi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="CapChiHoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryDetail_Category">
+    <End Type="TongLienHoiModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.CategoryDetail" Role="CategoryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategoryDetail">
+        <PropertyRef Name="CatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietChucVuGiaoPham_ChucVu">
+    <End Type="TongLienHoiModel.ChucVu" Role="ChucVu" Multiplicity="1" />
+    <End Type="TongLienHoiModel.ChiTietChucVuGiaoPham" Role="ChiTietChucVuGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietChucVuGiaoPham">
+        <PropertyRef Name="ChucVuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietChucVuGiaoPham_Clergy">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="1" />
+    <End Type="TongLienHoiModel.ChiTietChucVuGiaoPham" Role="ChiTietChucVuGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChiTietChucVuGiaoPham">
+        <PropertyRef Name="GiaoPhamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_ChucVu">
+    <End Type="TongLienHoiModel.ChucVu" Role="ChucVu" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="ChucVuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_ChucVu">
+    <End Type="TongLienHoiModel.ChucVu" Role="ChucVu" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="ChucVuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_City">
+    <End Type="TongLienHoiModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Church" Role="Church" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Church">
+        <PropertyRef Name="CitiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TAISAN_CHURCH">
+    <End Type="TongLienHoiModel.Church" Role="Church" Multiplicity="1" />
+    <End Type="TongLienHoiModel.Church_TAISAN" Role="Church_TAISAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TAISAN">
+        <PropertyRef Name="Church_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TinHuu_Church">
+    <End Type="TongLienHoiModel.Church" Role="Church" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Church_SoLuongTinHuu" Role="Church_SoLuongTinHuu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_SoLuongTinHuu">
+        <PropertyRef Name="Church_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_Church">
+    <End Type="TongLienHoiModel.Church" Role="Church" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="ChurchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Church">
+    <End Type="TongLienHoiModel.Church" Role="Church" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="CurrentChurchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TinHuu_DanToc_Church_TinHuu">
+    <End Type="TongLienHoiModel.Church_SoLuongTinHuu" Role="Church_SoLuongTinHuu" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Church_TinHuu_DanToc" Role="Church_TinHuu_DanToc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Church_SoLuongTinHuu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TinHuu_DanToc">
+        <PropertyRef Name="Church_TinHuu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Church_TinHuu_DanToc_DanToc">
+    <End Type="TongLienHoiModel.DanToc" Role="DanToc" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Church_TinHuu_DanToc" Role="Church_TinHuu_DanToc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanToc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Church_TinHuu_DanToc">
+        <PropertyRef Name="DanToc_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_City">
+    <End Type="TongLienHoiModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="IDApprovedPlace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_City">
+    <End Type="TongLienHoiModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.District" Role="District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_Clergy">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="1" />
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Clergy_AssignmentHistory">
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="CurrentAssignment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_ClergyTitle">
+    <End Type="TongLienHoiModel.ClergyTitle" Role="ClergyTitle" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClergyTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="TitleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Conduct_Clergy">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="1" />
+    <End Type="TongLienHoiModel.Clergy_Conduct" Role="Clergy_Conduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_Conduct">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_DanToc">
+    <End Type="TongLienHoiModel.DanToc" Role="DanToc" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanToc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy">
+        <PropertyRef Name="DanToc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Education_Clergy">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="1" />
+    <End Type="TongLienHoiModel.Clergy_Education" Role="Clergy_Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_Education">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHeVoiGiaoPham_Clergy">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.QuanHeVoiGiaoPham" Role="QuanHeVoiGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHeVoiGiaoPham_TuGiaoPham">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.QuanHeVoiGiaoPham" Role="QuanHeVoiGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="ClergyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TitleHistory_Clergy_Clergy_FK">
+    <End Type="TongLienHoiModel.Clergy" Role="Clergy" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_TitleHistory" Role="Clergy_TitleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clergy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_TitleHistory">
+        <PropertyRef Name="CleargyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_ClergyTitle">
+    <End Type="TongLienHoiModel.ClergyTitle" Role="ClergyTitle" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClergyTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="TitleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_AssignmentHistory_Office">
+    <End Type="TongLienHoiModel.Office" Role="Office" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_AssignmentHistory" Role="Clergy_AssignmentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_AssignmentHistory">
+        <PropertyRef Name="OfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_Conduct_Conduct_Type">
+    <End Type="TongLienHoiModel.Conduct_Type" Role="Conduct_Type" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.Clergy_Conduct" Role="Clergy_Conduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conduct_Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_Conduct">
+        <PropertyRef Name="ConductTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clergy_TitleHistory_ClergyTitle">
+    <End Type="TongLienHoiModel.ClergyTitle" Role="ClergyTitle" Multiplicity="1" />
+    <End Type="TongLienHoiModel.Clergy_TitleHistory" Role="Clergy_TitleHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClergyTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clergy_TitleHistory">
+        <PropertyRef Name="TitleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanLoaiVanThu_PhanLoaiVanThu">
+    <End Type="TongLienHoiModel.PhanLoaiVanThu" Role="PhanLoaiVanThu" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.PhanLoaiVanThu" Role="PhanLoaiVanThu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiVanThu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhanLoaiVanThu1">
+        <PropertyRef Name="CapVanThu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHeVoiGiaoPham_QuanHeGiaDinh">
+    <End Type="TongLienHoiModel.QuanHeGiaDinh" Role="QuanHeGiaDinh" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.QuanHeVoiGiaoPham" Role="QuanHeVoiGiaoPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanHeGiaDinh">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuanHeVoiGiaoPham">
+        <PropertyRef Name="RelationShipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleDetail_RoleMapping">
+    <End Type="TongLienHoiModel.RoleMapping" Role="RoleMapping" Multiplicity="1" />
+    <End Type="TongLienHoiModel.RoleDetail" Role="RoleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMapping">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RoleDetail">
+        <PropertyRef Name="RoleMapping" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleDetail_Users">
+    <End Type="TongLienHoiModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.RoleDetail" Role="RoleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RoleDetail">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VanThu_Users">
+    <End Type="TongLienHoiModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TongLienHoiModel.VanThu" Role="VanThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VanThu">
+        <PropertyRef Name="DuocDuyetBoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

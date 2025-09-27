@@ -1,0 +1,100 @@
+﻿@model HTTLVN.QLTLH.Models.Clergy_Conduct
+
+@{
+    ViewBag.Title = "Create";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form method="post" class="form-horizontal form-box" enctype="multipart/form-data"  id="basic-wizard">
+    <h4 class="form-box-header">Thêm gián đoạn chức vụ</h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+            @if (erros != null && erros.Count > 0)
+            {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, Xin kiểm tra lại
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Fromdate, "Từ năm")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "FromDate")">       
+                        @Html.TextBox("Fromdate", string.Empty, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                    </div>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.ToDate, "Đến năm")</label>
+                <div class="col-md-2">
+                    <div class="@Helper.CheckError(erros, "ToDate")">       
+                        @Html.TextBox("ToDate", string.Empty, new { @placeholder = "dd/mm/yyyy", @class = "form-control" })
+                    </div>
+                </div>
+            </div>   
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.VanBan, "Văn bản")</label>
+                <div class="col-md-2">
+                    <input type="text" id="txtQuyetDinh" name="txtQuyetDinh" placeholder="Chưa chọn văn bản" class="form-control"/>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input id="VanBan" name="VanBan" class="form-control" onchange="readURL2(this);"  type="file"/>
+                        <span class="btn btn-default">Chọn văn bản</span>
+                    </label>
+                </div>
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.SoVanBan, "Số văn bản")</label>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.SoVanBan, new { @class = "form-control" })
+                </div>
+            </div>     
+            <div class="form-group">
+                <label class="control-label col-md-2">@Html.LabelFor(model => model.Paper, "Lý do")</label>
+                <div class="col-md-5">
+                    <div class="@Helper.CheckError(erros, "Paper")">   
+                        @Html.TextAreaFor(model => model.Paper, 4, 40, new {@style="width: 100%"})
+                    </div>
+                </div>
+            </div>  
+    
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input type="submit" value="Lưu" name="btnSave" class="btn btn-primary"/>  
+                    <a class="btn btn-default" href="@Url.Content(string.Format("~/home/MucsuThongTinChucVu/{0}", ViewBag.CleargyId))">Quay trở lại</a>     
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+<style>
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+<script type="text/javascript" language="javascript">
+    function formatDate(date, format) {
+        format = format || '{0:d}';
+        return $.telerik.formatString(format, value);
+    }
+    function readURL2(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtQuyetDinh').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtQuyetDinh').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+</script>

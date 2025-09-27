@@ -1,0 +1,91 @@
+﻿@using HTTLVN.QLTLH.Code
+@model IEnumerable<HTTLVN.QLTLH.Models.TimKiemVoiNhieuThamSo_Result>  
+<div class="page-header page-header-top clearfix">
+    <h3 class="title-hero">Tìm kiếm thông tin Giáo Phẩm </h3>
+    @{
+        ViewData["chucvu"] = Request["chucvu"] ==null?0:CommonFunction.ConvertInt(Request["chucvu"]);
+        ViewData["capchihoi"] = Request["capchihoi"] ==null?0:CommonFunction.ConvertInt(Request["capchihoi"]);
+        ViewData["chucdanh"] = ViewData["chucdanh"] ?? CommonFunction.ConvertInt(Request["chucdanh"]);
+        ViewData["firstname"] = Request["firstname"] ?? "";
+        ViewData["show3Month"] = Request["show3Month"] != null && Request["show3Month"] == "on";
+    }
+    <form method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+        <div class="form-box-content">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Họ và tên:</span>
+                        <input class="form-control input-sm" name="firstname" value="@Request["firstname"]" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Chức vụ</span>
+                        @(Html.Kendo().DropDownList().Name("chucvu").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                            .DataSource(source => { source.Read(read => { read.Action("GetChucVuWithAll", "JsonLoader"); }); })
+                        )
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Chức danh</span>
+                        @(Html.Kendo().DropDownList().Name("chucdanh").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                    .DataSource(source => { source.Read(read => { read.Action("GetChucDanhWithAll", "JsonLoader"); }); })
+                      )
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Cấp nhiệm sở</span>
+                        @(Html.Kendo().DropDownList().Name("capchihoi").Filter("contains")
+                                                                    .DataTextField("Name").DataValueField("Id")
+                                                            .HtmlAttributes(new { style = "width:100%" })
+                                                                                            .DataSource(source => { source.Read(read => { read.Action("GetCapChiHoiWithAll", "JsonLoader"); }); })
+                         )
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="col-sm-3 control-label"></label>
+                    <div class="col-sm-8">
+                        <button class="btn btn-info" type="submit" name="btnfrmsearch">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <a href="MucsuThongTin" class="btn btn-success">Thêm mới</a>
+                </div>
+            </div>
+            <br />
+            @(Html.Kendo().Grid(Model).Name("giaopham").Pageable(a => a.Enabled(true).Messages(p => p.ItemsPerPage("").First("Trang đầu").Previous("Trước").Next("Sau").Last("Trang cuối").Refresh("Làm tươi").Display(" {0}-{1} của {2} dòng").Page("Trang").Of("{0} ").Empty("Không có dữ liệu"))).Sortable(a => a.Enabled(true)).Columns(columns =>
+    {
+        columns.Bound(o => o.FirstName).Width(120)
+            .ClientTemplate("<img alt='#= Avatar #'  src='#= Avatar #' class='img-responsive'  width='130px' class='media-object' alt='image' />")
+            .Title("Hình ảnh").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+        if ((ViewBag.IsViewGiaoPham != null && ViewBag.IsViewGiaoPham == true) || (ViewBag.IsEditGiaoPham != null && ViewBag.IsEditGiaoPham == true))
+        {
+            columns.Bound(o => o.FirstName)
+                .ClientTemplate("<a href='/home/MucsuDetail/#= Id #' target='_blank'  class=''> <span class='capital'> #= FirstName # #= MiddleName #  #= LastName #</span> </a>")
+                .Title("Họ và tên").HtmlAttributes(new {style = "text-align:center"}).HeaderHtmlAttributes(new {style = "text-align:center"});
+        }
+        else
+        {
+            columns.Bound(o => o.FirstName)
+                .ClientTemplate("<a href='#' class=''> <span class='capital'> #: FirstName #= MiddleName # #= LastName #</span> </a>")
+                .Title("Họ và tên").HtmlAttributes(new { style = "text-align:center" }).HeaderHtmlAttributes(new { style = "text-align:center" });
+        }
+        columns.Bound(o => o.TenNhiemSo).Encoded(true).ClientTemplate("#= TenNhiemSo #")
+             .HtmlAttributes(new { style = "text-align:center" }).Title("Tên nhiệm sở").HeaderHtmlAttributes(new { style = "text-align:center" });
+    }).DataSource(dataBinding => dataBinding.Ajax().Read("_Paging", "Home", new { name = (string)ViewData["firstname"], chucvu = ViewData["chucvu"], chucdanh = ViewData["chucdanh"], capchihoi = ViewData["capchihoi"], ishethan = ViewData["show3Month"] })))
+
+            <div class="form-group"><div class="col-md-2"><a href="MucsuThongTin" class="btn btn-success">Thêm mới</a></div></div>
+        </div>
+</form>
+</div>

@@ -1,0 +1,51 @@
+﻿@model HTTLVN.QLTLH.Models.Church
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2
+
+<fieldset>
+    <legend>Church</legend>
+
+    <div class="display-label">ChurchName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChurchName)
+    </div>
+
+    <div class="display-label">CapChiHoi</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CapChiHoi.Name)
+    </div>
+
+    <div class="display-label">AddressFull</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressFull)
+    </div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City.Name)
+    </div>
+
+    <div class="display-label">CellPhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CellPhone)
+    </div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

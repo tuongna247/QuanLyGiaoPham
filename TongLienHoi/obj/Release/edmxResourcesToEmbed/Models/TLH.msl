@@ -1,0 +1,1171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TongLienHoiModelStoreContainer" CdmEntityContainer="TongLienHoiEntities">
+    <FunctionImportMapping FunctionImportName="GiaoPhamThoiGianPhucVu" FunctionName="TongLienHoiModel.Store.GiaoPhamThoiGianPhucVu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.GiaoPhamThoiGianPhucVu_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+          <ScalarProperty Name="TinhThanh" ColumnName="TinhThanh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimGiaoPham" FunctionName="TongLienHoiModel.Store.TimGiaoPham">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.TimGiaoPham_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="TenChucDan" ColumnName="TenChucDan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemGiaoPhamHetHan" FunctionName="TongLienHoiModel.Store.TimKiemGiaoPhamHetHan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemGiaoPhamHetHan_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Ngay_NhanNhiemSo" ColumnName="Ngay_NhanNhiemSo" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemGiaoPhamNangCao" FunctionName="TongLienHoiModel.Store.TimKiemGiaoPhamNangCao">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemGiaoPhamNangCao_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemNangCao" FunctionName="TongLienHoiModel.Store.TimKiemNangCao">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemNangCao_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemVoiNhieuThamSo" FunctionName="TongLienHoiModel.Store.TimKiemVoiNhieuThamSo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.TimKiemVoiNhieuThamSo_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+          <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+          <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+          <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimTinHuu" FunctionName="TongLienHoiModel.Store.TimTinHuu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TongLienHoiModel.TimTinHuu_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CurrentChurch_Id" ColumnName="CurrentChurch_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="HoGiaDinh_Id" ColumnName="HoGiaDinh_Id" />
+          <ScalarProperty Name="BanNganh_Id" ColumnName="BanNganh_Id" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="QuanHeGiaDinh" ColumnName="QuanHeGiaDinh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Ward" ColumnName="Ward" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BangCapNguoiPhoiNgaus">
+      <EntityTypeMapping TypeName="TongLienHoiModel.BangCapNguoiPhoiNgau">
+        <MappingFragment StoreEntitySet="BangCapNguoiPhoiNgau">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="QuanHeVoiGiaoPham_Id" ColumnName="QuanHeVoiGiaoPham_Id" />
+          <ScalarProperty Name="ChungChi" ColumnName="ChungChi" />
+          <ScalarProperty Name="NgayTotNghiep" ColumnName="NgayTotNghiep" />
+          <ScalarProperty Name="NoiHoc" ColumnName="NoiHoc" />
+          <ScalarProperty Name="ChuongTrinhThanHoc" ColumnName="ChuongTrinhThanHoc" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CapChiHois">
+      <EntityTypeMapping TypeName="TongLienHoiModel.CapChiHoi">
+        <MappingFragment StoreEntitySet="CapChiHoi">
+          <ScalarProperty Name="sortId" ColumnName="sortId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryDetails">
+      <EntityTypeMapping TypeName="TongLienHoiModel.CategoryDetail">
+        <MappingFragment StoreEntitySet="CategoryDetail">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CatId" ColumnName="CatId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietChucVuGiaoPhams">
+      <EntityTypeMapping TypeName="TongLienHoiModel.ChiTietChucVuGiaoPham">
+        <MappingFragment StoreEntitySet="ChiTietChucVuGiaoPham">
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="UrlGiaoVuLenh" ColumnName="UrlGiaoVuLenh" />
+          <ScalarProperty Name="GiaoVuLenh" ColumnName="GiaoVuLenh" />
+          <ScalarProperty Name="DenNgay" ColumnName="DenNgay" />
+          <ScalarProperty Name="TuNgay" ColumnName="TuNgay" />
+          <ScalarProperty Name="GiaoPhamId" ColumnName="GiaoPhamId" />
+          <ScalarProperty Name="ChucVuID" ColumnName="ChucVuID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChucVus">
+      <EntityTypeMapping TypeName="TongLienHoiModel.ChucVu">
+        <MappingFragment StoreEntitySet="ChucVu">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ShortTitle" ColumnName="ShortTitle" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Churches">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Church">
+        <MappingFragment StoreEntitySet="Church">
+          <ScalarProperty Name="IsChiHoiTuDuong" ColumnName="IsChiHoiTuDuong" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="ChurchCode" ColumnName="ChurchCode" />
+          <ScalarProperty Name="TenKhongDau" ColumnName="TenKhongDau" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longtitude" ColumnName="Longtitude" />
+          <ScalarProperty Name="GiayChungNhanQuyenSuDungDat" ColumnName="GiayChungNhanQuyenSuDungDat" />
+          <ScalarProperty Name="QuyMoCoSo" ColumnName="QuyMoCoSo" />
+          <ScalarProperty Name="DienTichDat" ColumnName="DienTichDat" />
+          <ScalarProperty Name="TaiSanHoiThanh" ColumnName="TaiSanHoiThanh" />
+          <ScalarProperty Name="NgayCungHienDenTho" ColumnName="NgayCungHienDenTho" />
+          <ScalarProperty Name="NgayTaiLap" ColumnName="NgayTaiLap" />
+          <ScalarProperty Name="VBCQCongNhanChiHoiTuLap" ColumnName="VBCQCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="NgayCQCongNhanChiHoiTuLap" ColumnName="NgayCQCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="VBTLHCongNhanChiHoiTuLap" ColumnName="VBTLHCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="NgayTLHCongNhanChiHoiTuLap" ColumnName="NgayTLHCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="NgayCongNhanChiHoiTuLap" ColumnName="NgayCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="VBCQCongNhanHoiTuDuong" ColumnName="VBCQCongNhanHoiTuDuong" />
+          <ScalarProperty Name="NgayCQCongNhanHoiTuDuong" ColumnName="NgayCQCongNhanHoiTuDuong" />
+          <ScalarProperty Name="VBTLHCongNhanHoiTuDuong" ColumnName="VBTLHCongNhanHoiTuDuong" />
+          <ScalarProperty Name="NgayTLHCongNhanHoiTuDuong" ColumnName="NgayTLHCongNhanHoiTuDuong" />
+          <ScalarProperty Name="NgayCongNhanChiHoiTuDuong" ColumnName="NgayCongNhanChiHoiTuDuong" />
+          <ScalarProperty Name="VBCQCongNhanHoiNhanh" ColumnName="VBCQCongNhanHoiNhanh" />
+          <ScalarProperty Name="NgayCQCongNhanHoiNhanh" ColumnName="NgayCQCongNhanHoiNhanh" />
+          <ScalarProperty Name="VBTLHCongNhanHoiNhanh" ColumnName="VBTLHCongNhanHoiNhanh" />
+          <ScalarProperty Name="NgayTLHCongNhanHoiNhanh" ColumnName="NgayTLHCongNhanHoiNhanh" />
+          <ScalarProperty Name="NgayCongNhanHoiNhanh" ColumnName="NgayCongNhanHoiNhanh" />
+          <ScalarProperty Name="VBCQCongNhanDiemNhom" ColumnName="VBCQCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayCQCongNhanDiemNhom" ColumnName="NgayCQCongNhanDiemNhom" />
+          <ScalarProperty Name="VBTLHCongNhanDiemNhom" ColumnName="VBTLHCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayTLHCongNhanDiemNhom" ColumnName="NgayTLHCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayCongNhanDiemNhom" ColumnName="NgayCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayThanhLap" ColumnName="NgayThanhLap" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="CitiId" ColumnName="CitiId" />
+          <ScalarProperty Name="AddressFull" ColumnName="AddressFull" />
+          <ScalarProperty Name="CapChiHoiID" ColumnName="CapChiHoiID" />
+          <ScalarProperty Name="ChurchName" ColumnName="ChurchName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Church_SoLuongTinHuu">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Church_SoLuongTinHuu">
+        <MappingFragment StoreEntitySet="Church_SoLuongTinHuu">
+          <ScalarProperty Name="GioiTinhNu" ColumnName="GioiTinhNu" />
+          <ScalarProperty Name="GioiTinhNam" ColumnName="GioiTinhNam" />
+          <ScalarProperty Name="LuaTuoiLaoNien" ColumnName="LuaTuoiLaoNien" />
+          <ScalarProperty Name="LuaTuoiTrungNien" ColumnName="LuaTuoiTrungNien" />
+          <ScalarProperty Name="LuaTuoiTrangNien" ColumnName="LuaTuoiTrangNien" />
+          <ScalarProperty Name="LuaTuoiThanhNien" ColumnName="LuaTuoiThanhNien" />
+          <ScalarProperty Name="LuaTuoiThieuNien" ColumnName="LuaTuoiThieuNien" />
+          <ScalarProperty Name="LuaTuoiThieuNhi" ColumnName="LuaTuoiThieuNhi" />
+          <ScalarProperty Name="NamThongKe" ColumnName="NamThongKe" />
+          <ScalarProperty Name="TinHuuChuaBapTem" ColumnName="TinHuuChuaBapTem" />
+          <ScalarProperty Name="TinHuuBapTem" ColumnName="TinHuuBapTem" />
+          <ScalarProperty Name="ThanhPhanDanToc" ColumnName="ThanhPhanDanToc" />
+          <ScalarProperty Name="LuaTuoi" ColumnName="LuaTuoi" />
+          <ScalarProperty Name="SoLuongTinHuu" ColumnName="SoLuongTinHuu" />
+          <ScalarProperty Name="Church_Id" ColumnName="Church_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Church_TAISAN">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Church_TAISAN">
+        <MappingFragment StoreEntitySet="Church_TAISAN">
+          <ScalarProperty Name="Updated_DT" ColumnName="Updated_DT" />
+          <ScalarProperty Name="Created_DT" ColumnName="Created_DT" />
+          <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+          <ScalarProperty Name="DateApproval" ColumnName="DateApproval" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Church_ID" ColumnName="Church_ID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Church_TinHuu_DanToc">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Church_TinHuu_DanToc">
+        <MappingFragment StoreEntitySet="Church_TinHuu_DanToc">
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DanToc_Id" ColumnName="DanToc_Id" />
+          <ScalarProperty Name="Church_TinHuu_Id" ColumnName="Church_TinHuu_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="TongLienHoiModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clergies">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Clergy">
+        <MappingFragment StoreEntitySet="Clergy">
+          <ScalarProperty Name="HuuTri" ColumnName="HuuTri" />
+          <ScalarProperty Name="DuHoc" ColumnName="DuHoc" />
+          <ScalarProperty Name="KyLuat" ColumnName="KyLuat" />
+          <ScalarProperty Name="DinhCuNuocNgoai" ColumnName="DinhCuNuocNgoai" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clergy_AssignmentHistory">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Clergy_AssignmentHistory">
+        <MappingFragment StoreEntitySet="Clergy_AssignmentHistory">
+          <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="CapChiHoi" ColumnName="CapChiHoi" />
+          <ScalarProperty Name="TermNumber" ColumnName="TermNumber" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="PaperNumber" ColumnName="PaperNumber" />
+          <ScalarProperty Name="TermType" ColumnName="TermType" />
+          <ScalarProperty Name="ApplyDate" ColumnName="ApplyDate" />
+          <ScalarProperty Name="ChucVu_HienTai" ColumnName="ChucVu_HienTai" />
+          <ScalarProperty Name="Ngay_NhanNhiemSo" ColumnName="Ngay_NhanNhiemSo" />
+          <ScalarProperty Name="NhanNhiemSo" ColumnName="NhanNhiemSo" />
+          <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Paper" ColumnName="Paper" />
+          <ScalarProperty Name="NeedAlert" ColumnName="NeedAlert" />
+          <ScalarProperty Name="TyLeLuu" ColumnName="TyLeLuu" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="ChurchId" ColumnName="ChurchId" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clergy_Conduct">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Clergy_Conduct">
+        <MappingFragment StoreEntitySet="Clergy_Conduct">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="SoVanBan" ColumnName="SoVanBan" />
+          <ScalarProperty Name="VanBan" ColumnName="VanBan" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="Paper" ColumnName="Paper" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="Fromdate" ColumnName="Fromdate" />
+          <ScalarProperty Name="ConductTypeId" ColumnName="ConductTypeId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clergy_Education">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Clergy_Education">
+        <MappingFragment StoreEntitySet="Clergy_Education">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="NgayCapChungChi" ColumnName="NgayCapChungChi" />
+          <ScalarProperty Name="NoiChungNhan" ColumnName="NoiChungNhan" />
+          <ScalarProperty Name="filesize" ColumnName="filesize" />
+          <ScalarProperty Name="mine_type" ColumnName="mine_type" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="Paper" ColumnName="Paper" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="CollegeOrProgramme" ColumnName="CollegeOrProgramme" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clergy_TitleHistory">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Clergy_TitleHistory">
+        <MappingFragment StoreEntitySet="Clergy_TitleHistory">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="DecisionNumber" ColumnName="DecisionNumber" />
+          <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ChucVuHienTai" ColumnName="ChucVuHienTai" />
+          <ScalarProperty Name="ApprovalPaper" ColumnName="ApprovalPaper" />
+          <ScalarProperty Name="RequestPaper" ColumnName="RequestPaper" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="CleargyId" ColumnName="CleargyId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClergyTitles">
+      <EntityTypeMapping TypeName="TongLienHoiModel.ClergyTitle">
+        <MappingFragment StoreEntitySet="ClergyTitle">
+          <ScalarProperty Name="IsDuongChuc" ColumnName="IsDuongChuc" />
+          <ScalarProperty Name="Short" ColumnName="Short" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conduct_Type">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Conduct_Type">
+        <MappingFragment StoreEntitySet="Conduct_Type">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanTocs">
+      <EntityTypeMapping TypeName="TongLienHoiModel.DanToc">
+        <MappingFragment StoreEntitySet="DanToc">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="TongLienHoiModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offices">
+      <EntityTypeMapping TypeName="TongLienHoiModel.Office">
+        <MappingFragment StoreEntitySet="Office">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanLoaiVanThus">
+      <EntityTypeMapping TypeName="TongLienHoiModel.PhanLoaiVanThu">
+        <MappingFragment StoreEntitySet="PhanLoaiVanThu">
+          <ScalarProperty Name="CapVanThu" ColumnName="CapVanThu" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuanHeGiaDinhs">
+      <EntityTypeMapping TypeName="TongLienHoiModel.QuanHeGiaDinh">
+        <MappingFragment StoreEntitySet="QuanHeGiaDinh">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuanHeVoiGiaoPhams">
+      <EntityTypeMapping TypeName="TongLienHoiModel.QuanHeVoiGiaoPham">
+        <MappingFragment StoreEntitySet="QuanHeVoiGiaoPham">
+          <ScalarProperty Name="YearOfBirth" ColumnName="YearOfBirth" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="RelationShipId" ColumnName="RelationShipId" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleDetails">
+      <EntityTypeMapping TypeName="TongLienHoiModel.RoleDetail">
+        <MappingFragment StoreEntitySet="RoleDetail">
+          <ScalarProperty Name="RoleMapping" ColumnName="RoleMapping" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMappings">
+      <EntityTypeMapping TypeName="TongLienHoiModel.RoleMapping">
+        <MappingFragment StoreEntitySet="RoleMapping">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaveUserSessions">
+      <EntityTypeMapping TypeName="TongLienHoiModel.SaveUserSession">
+        <MappingFragment StoreEntitySet="SaveUserSession">
+          <ScalarProperty Name="strReturn" ColumnName="strReturn" />
+          <ScalarProperty Name="permission" ColumnName="permission" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TongLienHoiModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VanThus">
+      <EntityTypeMapping TypeName="TongLienHoiModel.VanThu">
+        <MappingFragment StoreEntitySet="VanThu">
+          <ScalarProperty Name="PhanLoaiVanThu_Id" ColumnName="PhanLoaiVanThu_Id" />
+          <ScalarProperty Name="LoaiVanThu" ColumnName="LoaiVanThu" />
+          <ScalarProperty Name="VanBan" ColumnName="VanBan" />
+          <ScalarProperty Name="NguoiNhan" ColumnName="NguoiNhan" />
+          <ScalarProperty Name="NguoiGui" ColumnName="NguoiGui" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="TrangThaiPheDuyet" ColumnName="TrangThaiPheDuyet" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="LoaiVanDe" ColumnName="LoaiVanDe" />
+          <ScalarProperty Name="DuocDuyetBoi" ColumnName="DuocDuyetBoi" />
+          <ScalarProperty Name="NgayPheDuyet" ColumnName="NgayPheDuyet" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="NgayVanThu" ColumnName="NgayVanThu" />
+          <ScalarProperty Name="NoiDungPheDuyet" ColumnName="NoiDungPheDuyet" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetBirthDayIn7Day">
+      <EntityTypeMapping TypeName="TongLienHoiModel.GetBirthDayIn7Day">
+        <MappingFragment StoreEntitySet="GetBirthDayIn7Day">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_assign">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_assign">
+        <MappingFragment StoreEntitySet="v_assign">
+          <ScalarProperty Name="ChurchId" ColumnName="ChurchId" />
+          <ScalarProperty Name="CapChiHoi" ColumnName="CapChiHoi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Paper" ColumnName="Paper" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="TyLeLuu" ColumnName="TyLeLuu" />
+          <ScalarProperty Name="TermNumber" ColumnName="TermNumber" />
+          <ScalarProperty Name="PaperNumber" ColumnName="PaperNumber" />
+          <ScalarProperty Name="ApplyDate" ColumnName="ApplyDate" />
+          <ScalarProperty Name="Ngay_NhanNhiemSo" ColumnName="Ngay_NhanNhiemSo" />
+          <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+          <ScalarProperty Name="TermType" ColumnName="TermType" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TinhThanh" ColumnName="TinhThanh" />
+          <ScalarProperty Name="ChurchName" ColumnName="ChurchName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_church">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_church">
+        <MappingFragment StoreEntitySet="v_church">
+          <ScalarProperty Name="TenKhongDau" ColumnName="TenKhongDau" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longtitude" ColumnName="Longtitude" />
+          <ScalarProperty Name="GiayChungNhanQuyenSuDungDat" ColumnName="GiayChungNhanQuyenSuDungDat" />
+          <ScalarProperty Name="QuyMoCoSo" ColumnName="QuyMoCoSo" />
+          <ScalarProperty Name="DienTichDat" ColumnName="DienTichDat" />
+          <ScalarProperty Name="TaiSanHoiThanh" ColumnName="TaiSanHoiThanh" />
+          <ScalarProperty Name="NgayCungHienDenTho" ColumnName="NgayCungHienDenTho" />
+          <ScalarProperty Name="NgayTaiLap" ColumnName="NgayTaiLap" />
+          <ScalarProperty Name="VBCQCongNhanChiHoiTuLap" ColumnName="VBCQCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="NgayCQCongNhanChiHoiTuLap" ColumnName="NgayCQCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="VBTLHCongNhanChiHoiTuLap" ColumnName="VBTLHCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="NgayTLHCongNhanChiHoiTuLap" ColumnName="NgayTLHCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="NgayCongNhanChiHoiTuLap" ColumnName="NgayCongNhanChiHoiTuLap" />
+          <ScalarProperty Name="VBCQCongNhanHoiTuDuong" ColumnName="VBCQCongNhanHoiTuDuong" />
+          <ScalarProperty Name="NgayCQCongNhanHoiTuDuong" ColumnName="NgayCQCongNhanHoiTuDuong" />
+          <ScalarProperty Name="VBTLHCongNhanHoiTuDuong" ColumnName="VBTLHCongNhanHoiTuDuong" />
+          <ScalarProperty Name="NgayTLHCongNhanHoiTuDuong" ColumnName="NgayTLHCongNhanHoiTuDuong" />
+          <ScalarProperty Name="NgayCongNhanChiHoiTuDuong" ColumnName="NgayCongNhanChiHoiTuDuong" />
+          <ScalarProperty Name="VBCQCongNhanHoiNhanh" ColumnName="VBCQCongNhanHoiNhanh" />
+          <ScalarProperty Name="NgayCQCongNhanHoiNhanh" ColumnName="NgayCQCongNhanHoiNhanh" />
+          <ScalarProperty Name="VBTLHCongNhanHoiNhanh" ColumnName="VBTLHCongNhanHoiNhanh" />
+          <ScalarProperty Name="NgayTLHCongNhanHoiNhanh" ColumnName="NgayTLHCongNhanHoiNhanh" />
+          <ScalarProperty Name="NgayCongNhanHoiNhanh" ColumnName="NgayCongNhanHoiNhanh" />
+          <ScalarProperty Name="VBCQCongNhanDiemNhom" ColumnName="VBCQCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayCQCongNhanDiemNhom" ColumnName="NgayCQCongNhanDiemNhom" />
+          <ScalarProperty Name="VBTLHCongNhanDiemNhom" ColumnName="VBTLHCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayTLHCongNhanDiemNhom" ColumnName="NgayTLHCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayCongNhanDiemNhom" ColumnName="NgayCongNhanDiemNhom" />
+          <ScalarProperty Name="NgayThanhLap" ColumnName="NgayThanhLap" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="CitiId" ColumnName="CitiId" />
+          <ScalarProperty Name="AddressFull" ColumnName="AddressFull" />
+          <ScalarProperty Name="CapChiHoiID" ColumnName="CapChiHoiID" />
+          <ScalarProperty Name="ChurchName" ColumnName="ChurchName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GetAllEndDay">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GetAllEndDay">
+        <MappingFragment StoreEntitySet="V_GetAllEndDay">
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GetBirthIn7Day">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GetBirthIn7Day">
+        <MappingFragment StoreEntitySet="V_GetBirthIn7Day">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GetEndDay">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GetEndDay">
+        <MappingFragment StoreEntitySet="V_GetEndDay">
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ClergyId" ColumnName="ClergyId" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GetVeHuu">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GetVeHuu">
+        <MappingFragment StoreEntitySet="V_GetVeHuu">
+          <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GroupGiaoPham">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GroupGiaoPham">
+        <MappingFragment StoreEntitySet="V_GroupGiaoPham">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="IsDuongChuc" ColumnName="IsDuongChuc" />
+          <ScalarProperty Name="Short" ColumnName="Short" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GroupGiaoPhamByChucDanh">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GroupGiaoPhamByChucDanh">
+        <MappingFragment StoreEntitySet="V_GroupGiaoPhamByChucDanh">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="IsDuongChuc" ColumnName="IsDuongChuc" />
+          <ScalarProperty Name="Short" ColumnName="Short" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GroupGiaoPhamByChucDanhNotDuongChuc">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GroupGiaoPhamByChucDanhNotDuongChuc">
+        <MappingFragment StoreEntitySet="V_GroupGiaoPhamByChucDanhNotDuongChuc">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="IsDuongChuc" ColumnName="IsDuongChuc" />
+          <ScalarProperty Name="Short" ColumnName="Short" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_GroupHoiThanhByCapChiHoi">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_GroupHoiThanhByCapChiHoi">
+        <MappingFragment StoreEntitySet="V_GroupHoiThanhByCapChiHoi">
+          <ScalarProperty Name="sortId" ColumnName="sortId" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_hogiadinh_tinhuu">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_hogiadinh_tinhuu">
+        <MappingFragment StoreEntitySet="v_hogiadinh_tinhuu">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BigImages" ColumnName="BigImages" />
+          <ScalarProperty Name="ShortTitle" ColumnName="ShortTitle" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_TimKiemNangCao">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_TimKiemNangCao">
+        <MappingFragment StoreEntitySet="v_TimKiemNangCao">
+          <ScalarProperty Name="NamChucVu" ColumnName="NamChucVu" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="CurrentAssignment_Id" ColumnName="CurrentAssignment_Id" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="EmailNhiemSo" ColumnName="EmailNhiemSo" />
+          <ScalarProperty Name="DienThoaiNhiemSo" ColumnName="DienThoaiNhiemSo" />
+          <ScalarProperty Name="CurrentChurchId" ColumnName="CurrentChurchId" />
+          <ScalarProperty Name="DiaChiNhiemSo" ColumnName="DiaChiNhiemSo" />
+          <ScalarProperty Name="TenNhiemSo" ColumnName="TenNhiemSo" />
+          <ScalarProperty Name="CapChiHoiId" ColumnName="CapChiHoiId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="PermanentAddressId" ColumnName="PermanentAddressId" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="NoicapNgayCap" ColumnName="NoicapNgayCap" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_TinHuu">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_TinHuu">
+        <MappingFragment StoreEntitySet="v_TinHuu">
+          <ScalarProperty Name="QuanHeGiaDinh" ColumnName="QuanHeGiaDinh" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="BaptismYear" ColumnName="BaptismYear" />
+          <ScalarProperty Name="BelieveYear" ColumnName="BelieveYear" />
+          <ScalarProperty Name="KetHon" ColumnName="KetHon" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="TenDayDuKhongDau" ColumnName="TenDayDuKhongDau" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="BanHatLe_Id" ColumnName="BanHatLe_Id" />
+          <ScalarProperty Name="BanNganh_Id" ColumnName="BanNganh_Id" />
+          <ScalarProperty Name="HoGiaDinh_Id" ColumnName="HoGiaDinh_Id" />
+          <ScalarProperty Name="TinhThanhId" ColumnName="TinhThanhId" />
+          <ScalarProperty Name="ChucVuId" ColumnName="ChucVuId" />
+          <ScalarProperty Name="BirthAddressId" ColumnName="BirthAddressId" />
+          <ScalarProperty Name="CurrentAddressId" ColumnName="CurrentAddressId" />
+          <ScalarProperty Name="ContactAddressId" ColumnName="ContactAddressId" />
+          <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+          <ScalarProperty Name="BelieveDate" ColumnName="BelieveDate" />
+          <ScalarProperty Name="IDApprovedPlace" ColumnName="IDApprovedPlace" />
+          <ScalarProperty Name="IDApprovedDate" ColumnName="IDApprovedDate" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CurrentChurch_Id" ColumnName="CurrentChurch_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_updateTenNhiemSo">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_updateTenNhiemSo">
+        <MappingFragment StoreEntitySet="v_updateTenNhiemSo">
+          <ScalarProperty Name="ChurchName" ColumnName="ChurchName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_UserRoles">
+      <EntityTypeMapping TypeName="TongLienHoiModel.V_UserRoles">
+        <MappingFragment StoreEntitySet="V_UserRoles">
+          <ScalarProperty Name="RoleMappingId" ColumnName="RoleMappingId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_vanThu">
+      <EntityTypeMapping TypeName="TongLienHoiModel.v_vanThu">
+        <MappingFragment StoreEntitySet="v_vanThu">
+          <ScalarProperty Name="PhanLoaiVanThu_Id" ColumnName="PhanLoaiVanThu_Id" />
+          <ScalarProperty Name="TenLoaiVanThu" ColumnName="TenLoaiVanThu" />
+          <ScalarProperty Name="LoaiVanThu" ColumnName="LoaiVanThu" />
+          <ScalarProperty Name="VanBan" ColumnName="VanBan" />
+          <ScalarProperty Name="NguoiNhan" ColumnName="NguoiNhan" />
+          <ScalarProperty Name="NguoiGui" ColumnName="NguoiGui" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="TrangThaiPheDuyet" ColumnName="TrangThaiPheDuyet" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="LoaiVanDe" ColumnName="LoaiVanDe" />
+          <ScalarProperty Name="DuocDuyetBoi" ColumnName="DuocDuyetBoi" />
+          <ScalarProperty Name="NgayPheDuyet" ColumnName="NgayPheDuyet" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="NgayVanThu" ColumnName="NgayVanThu" />
+          <ScalarProperty Name="NoiDungPheDuyet" ColumnName="NoiDungPheDuyet" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_User">
+      <EntityTypeMapping TypeName="TongLienHoiModel.view_User">
+        <MappingFragment StoreEntitySet="view_User">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewChurches">
+      <EntityTypeMapping TypeName="TongLienHoiModel.viewChurch">
+        <MappingFragment StoreEntitySet="viewChurch">
+          <ScalarProperty Name="CapChiHoi" ColumnName="CapChiHoi" />
+          <ScalarProperty Name="TinhThanh" ColumnName="TinhThanh" />
+          <ScalarProperty Name="ChurchName" ColumnName="ChurchName" />
+          <ScalarProperty Name="ChurchId" ColumnName="ChurchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

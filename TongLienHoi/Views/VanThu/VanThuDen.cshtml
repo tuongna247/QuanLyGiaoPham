@@ -1,0 +1,181 @@
+﻿@using HTTLVN.QLTLH.Code
+@using HTTLVN.QLTLH.Models
+@model HTTLVN.QLTLH.Models.Warper.VanThuDBO
+@{
+    ViewBag.Title = "VanThuDen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var erros = (Dictionary<string, string>)ViewBag.Errors;
+}
+<form  method="post" class="form-horizontal form-box" enctype="multipart/form-data" id="basic-wizard">
+    <h4 class="form-box-header">
+    @if (Model.id > 0)
+    {
+            <text> Chỉnh sửa văn thư</text>
+    }
+    else
+    {
+        <text>Thêm mới văn thư</text>
+    }
+    </h4>
+    <div class="form-box-content">
+        <div id="first" class="step">
+             @if (erros != null && erros.Count > 0)
+             {
+                <div class="eUserError">
+                    <div style="margin-left: 40px;">
+                        Có lỗi xảy ra, xin kiểm tra lại!
+                    </div>
+                    <ul class="related fixedwidth list-arrow-bold">
+                        @foreach (var str in erros)
+                        {
+                            <li>@str.Value</li>    
+                        }
+                    </ul>
+                </div>
+             }
+            <div class="form-group">
+                <label class="control-label col-md-2" for="mat" >Loại văn thư</label>
+                <div class="col-md-3">
+                    <div class="@Helper.CheckError(erros, "LoaiVanThu")">
+                        @(Html.Kendo().DropDownListFor(a=>a.LoaiVanThu).Filter("contains")
+                              .DataTextField("Name").DataValueField("Id")
+                              .HtmlAttributes(new { style = "width:100%" })
+                                      .DataSource(source => { source.Read(read => { read.Action("GetLoaiVanThu", "JsonLoader"); }); })
+                              )
+                    </div>
+                </div>
+                <label class="control-label col-md-2" for="ngayvanthu" >Ngày gửi</label>
+                <div class="col-md-3">
+                    <div class="@Helper.CheckError(erros, "NgayVanThu")">
+                    @Html.Telerik().DatePicker().Name("ngayvanthu").Format("dd/MM/yyyy").Value(Model.NgayVanThu).ShowButton(false).OpenOnFocus(true)
+                        <input type="hidden" value="@Model.id" name="vanthuId"/>
+                     </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Người gửi</label>
+                <div class="col-md-3">
+                    <div class="@Helper.CheckError(erros, "NguoiGui")">
+                        <input type="text" name="nguoigui" value="@Model.NguoiGui" class="form-control input-sm" />
+                    </div>
+                </div>
+                <label class="control-label col-md-2" for="chude" >Người nhận</label>
+                <div class="col-md-3">
+                    <div class="@Helper.CheckError(erros, "NguoiNhan")">
+                        <input type="text" name="nguoinhan" value="@Model.NguoiNhan" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Phân loại</label>
+                <div class="col-md-10">
+                    <div class="@Helper.CheckError(erros, "LoaiVanDe")">
+                        <select class="form-control input-sm" name="PhanLoai" >
+                            <option name="phanloai" value="0" >Chọn loại vấn đề</option>
+                            @{
+                                var categories = (List<PhanLoaiVanThu>)ViewBag.PhanLoaiVanThu;
+                            }
+                            @helper RenderCategoryLine(PhanLoaiVanThu category,string spacing)
+                            {
+                                bool isChecked = Model.LoaiVanDe != null ? Model.LoaiVanDe.IndexOf(category.Id.ToString(), System.StringComparison.Ordinal) > -1 : false;
+                                <option name="phanloai" value="@category.Id" @if(isChecked){<text>selected="selected"</text>}> @spacing @category.Name</option>
+                                {
+                                    if (category.PhanLoaiVanThu1.Count > 0)
+                                    {
+                                        spacing += spacing;
+                                        foreach (var subCategory in category.PhanLoaiVanThu1)
+                                        {
+                                            @RenderCategoryLine(subCategory, spacing);
+                                        }
+                                    }
+                                }
+                            }
+                            @if (categories != null && categories.Count > 0)
+                            {
+                                foreach (var category1 in categories)
+                                {
+                                    @RenderCategoryLine(category1, "-") 
+                                }
+                            }
+                        </select>
+                        </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Về việc</label>
+                <div class="col-md-10">
+                    <div class="@Helper.CheckError(erros, "TieuDe")">
+                        <input type="text" name="veviec" value="@Model.TieuDe" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="noidung" >Nội dung</label>
+                <div class="col-md-10">
+                    <div class="@Helper.CheckError(erros, "NoiDung")">
+                    @Html.TextAreaFor(a => a.NoiDung, 5, 30, new { @style = "width: 100%", @class = "form-control" })
+                    </div>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2" for="noidung" >Ghi chú</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(a => a.GhiChu, 5, 30, new { @style = "width: 100%", @class = "form-control" })
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="control-label col-md-2" for="noidung" > </label>
+                <div class="col-md-10">
+                    <label>
+                    <input type="checkbox" id="TrangThaiPheDuyet" name="TrangThaiPheDuyet" @if (Model.TrangThaiPheDuyet)
+                                                                                           {
+                                                                                               <text>checked="checked"</text>
+                                                                                           }/>
+                    Đã giải quyết
+                    </label>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-2" for="chude" >Văn bản đính kèm</label>
+                <div class="col-md-2">
+                    <input type="text" id="txtChungChi" name="txtChungChi" placeholder="Chưa chọn văn bản" value="@Helper.HumanRead(Model.VanBan)" class="form-control"/>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="file" name="ChungChi" id="ChungChi"  onchange="readURL(this);"  /> <span class="btn btn-default">Chọn văn bản</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group form-actions">
+                <label class="control-label col-md-2" for="chude" ></label>
+                <div class="col-md-10">
+                    @if ((ViewBag.IsEditVanThu != null && ViewBag.IsEditVanThu == true))
+                    {
+                        <input type="submit" class="btn btn-success" name="btnnext" id="btnnext" value="Lưu"/>
+                    }
+                    <a href="@Url.Content("~/Vanthu/")" class="btn btn-success">Hủy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style >
+    label input[type="file"] {
+        position: fixed;
+        top: -1000px;
+    }
+</style>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {//Check if input has files.
+            var reader = new FileReader(); //Initialize FileReader.
+            reader.onload = function (e) {
+                $('#txtChungChi').attr('value', input.files[0].name);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('#txtChungChi').attr('placeholder', "Chưa chọn chứng chỉ");
+        }
+    }
+</script>
