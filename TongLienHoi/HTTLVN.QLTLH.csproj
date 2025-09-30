@@ -1150,10 +1150,6 @@
     <Content Include="Scripts\kendo\2014.2.716\kendo.web.min.js" />
     <Content Include="Scripts\kendo\2014.2.716\kendo.window.min.js" />
     <Content Include="TLHWebServices.asmx" />
-    <Content Include="update20190612.txt" />
-    <Content Include="update20270310.txt" />
-    <Content Include="UpdateDb20170308.sql" />
-    <Content Include="UpdateDb20160906.sql" />
     <Content Include="Views\ChurchTinHuu\Create.cshtml" />
     <Content Include="Views\ChurchTinHuu\Delete.cshtml" />
     <Content Include="Views\ChurchTinHuu\Details.cshtml" />

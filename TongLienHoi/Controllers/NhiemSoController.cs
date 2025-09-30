@@ -201,6 +201,8 @@ namespace HTTLVN.QLTLH.Controllers
                 church.NgayThanhLap = edit.NgayThanhLap;
                 church.Longtitude = edit.Longtitude;
                 church.Latitude = edit.Latitude;
+                church.NgayChungNhan = edit.NgayChungNhan;
+
 
                 if (edit.CapChiHoiID.HasValue && edit.CapChiHoiID.Value > 0)
                 {
